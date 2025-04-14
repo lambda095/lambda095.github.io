@@ -3,11 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Job Opportunities | VSIS</title>
+    <title>Job Vacancies | FH Aachen University</title>
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
-    <!-- Reuse your header/navigation from index.html -->
+    <!-- Reuse your header from index.html -->
     <header class="top-header">
         <div class="container">
             <div class="logo">
@@ -25,68 +26,83 @@
         </div>
     </header>
 
-    <main class="jobs-container">
-        <h1>Current Job Openings</h1>
-        
-        <div class="job-listing">
-            <h2>Web Developer</h2>
-            <p><strong>Department:</strong> Computer Science</p>
-            <p><strong>Location:</strong> Aachen</p>
-            <p><strong>Description:</strong> We're seeking a front-end developer with React experience...</p>
-            <a href="#" class="apply-btn">Apply Now</a>
+    <!-- Main Content -->
+    <main class="content-container">
+        <div class="breadcrumb">
+            <a href="index.html">Home</a> > <a href="#">FH Aachen</a> > Working at FH Aachen > Job Vacancies
         </div>
 
-        <div class="job-listing">
-            <h2>Research Assistant</h2>
-            <p><strong>Department:</strong> Mechanical Engineering</p>
-            <p><strong>Location:</strong> Jülich</p>
-            <p><strong>Description:</strong> Join our renewable energy research team...</p>
-            <a href="#" class="apply-btn">Apply Now</a>
+        <div class="page-header">
+            <h1>Job Vacancies</h1>
+            <div class="page-intro">
+                <p>Current job openings at FH Aachen University of Applied Sciences</p>
+            </div>
+        </div>
+
+        <div class="job-vacancies-container">
+            <div class="job-filters">
+                <div class="filter-group">
+                    <label for="job-type">Job Type:</label>
+                    <select id="job-type">
+                        <option value="all">All</option>
+                        <option value="academic">Academic</option>
+                        <option value="administrative">Administrative</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label for="location">Location:</label>
+                    <select id="location">
+                        <option value="all">All</option>
+                        <option value="aachen">Aachen</option>
+                        <option value="julich">Jülich</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="job-listings">
+                <article class="job-item">
+                    <div class="job-meta">
+                        <span class="job-type academic">Academic</span>
+                        <span class="job-location aachen">Aachen</span>
+                        <span class="job-date">Posted: 15.06.2023</span>
+                    </div>
+                    <h2 class="job-title">Professor in Computer Science (W2)</h2>
+                    <div class="job-department">Department of Electrical Engineering and Information Technology</div>
+                    <div class="job-details">
+                        <p>Reference number: 12345 | Application deadline: 15.07.2023</p>
+                    </div>
+                    <a href="job-detail.html" class="job-link">View details <i class="fas fa-chevron-right"></i></a>
+                </article>
+
+                <article class="job-item">
+                    <div class="job-meta">
+                        <span class="job-type administrative">Administrative</span>
+                        <span class="job-location julich">Jülich</span>
+                        <span class="job-date">Posted: 10.06.2023</span>
+                    </div>
+                    <h2 class="job-title">Research Coordinator (m/f/d)</h2>
+                    <div class="job-department">Research Management</div>
+                    <div class="job-details">
+                        <p>Reference number: 12346 | Application deadline: 30.06.2023</p>
+                    </div>
+                    <a href="job-detail.html" class="job-link">View details <i class="fas fa-chevron-right"></i></a>
+                </article>
+            </div>
         </div>
     </main>
 
     <!-- Reuse your footer from index.html -->
     <footer class="main-footer">
-        <div class="container">
-            <div class="footer-column">
-                <h4>Contact</h4>
-                <address>
-                    VSIS Faculty of Applied Sciences and Engineering<br>
-                    Apuja<br>
-                    752103 Kantapada<br>
-                    India
-                </address>
-            </div>
-            <div class="footer-column">
-                <h4>Quick Links</h4>
-                <ul>
-                    <li><a href="#">Library</a></li>
-                    <li><a href="#">Campus Map</a></li>
-                    <li><a href="#">Staff Directory</a></li>
-                    <li><a href="#">Jobs</a></li>
-                </ul>
-            </div>
-            <div class="footer-column">
-                <h4>Social Media</h4>
-                <div class="social-links">
-                    <a href="#"><i class="fab fa-facebook"></i></a>
-                    <a href="#"><i class="fab fa-twitter"></i></a>
-                    <a href="#"><i class="fab fa-instagram"></i></a>
-                    <a href="#"><i class="fab fa-youtube"></i></a>
-                    <a href="#"><i class="fab fa-linkedin"></i></a>
-                </div>
-            </div>
-        </div>
-        <div class="copyright">
-            <div class="container">
-                <p>&copy; 2025 VSIS Faculty of Applied Sciences and Engineering</p>
-                <ul>
-                    <li><a href="#">Imprint</a></li>
-                    <li><a href="#">Privacy Policy</a></li>
-                    <li><a href="#">Accessibility</a></li>
-                </ul>
-            </div>
+        <h4>Social Media</h4>
+        <div class="social-links">
+            <a href="#"><i class="fab fa-facebook"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-youtube"></i></a>
+            <a href="#"><i class="fab fa-linkedin"></i></a>
         </div>
     </footer>
+
+    <script src="js/jobs.js"></script>
 </body>
 </html>
