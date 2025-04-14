@@ -1,4 +1,7 @@
 /* Global Styles */
+/* ========================
+   HOME PAGE STYLES
+   ======================== */
 :root {
     --primary-color: #00549e;
     --secondary-color: #e2001a;
@@ -304,3 +307,8 @@ a {
         margin: 0 10px;
     }
 }
+
+
+/* ========================
+   JOBS PAGE STYLES
+   ======================== */
