@@ -3,17 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Job Vacancies | FH Aachen University</title>
+    <title>Job Vacancies | Vikram Sarabhai Institute Sciences</title>
     <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-    <!-- Reuse your header from index.html -->
+    <!-- Header (Reuse from index.html) -->
     <header class="top-header">
         <div class="container">
             <div class="logo">
                 <a href="index.html">
-                    <img src="images/logo.png" alt="VSIS Logo">
+                    <img src="images/logo.png" alt="VSIS Logo" width="180">
                 </a>
             </div>
             <div class="quick-links">
@@ -26,80 +26,178 @@
         </div>
     </header>
 
+    <!-- Main Navigation -->
+    <nav class="main-nav">
+        <div class="container">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="#">University</a></li>
+                <li><a href="#">Study</a></li>
+                <li><a href="#">Research</a></li>
+                <li><a href="#">International</a></li>
+                <li><a href="#">Campus Life</a></li>
+            </ul>
+        </div>
+    </nav>
+
     <!-- Main Content -->
-    <main class="content-container">
-        <div class="breadcrumb">
-            <a href="index.html">Home</a> > <a href="#">FH Aachen</a> > Working at FH Aachen > Job Vacancies
-        </div>
-
-        <div class="page-header">
-            <h1>Job Vacancies</h1>
-            <div class="page-intro">
-                <p>Current job openings at FH Aachen University of Applied Sciences</p>
+    <main class="jobs-main-content">
+        <div class="container">
+            <!-- Breadcrumb Navigation -->
+            <div class="breadcrumb-nav">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="#">VSIS</a></li>
+                    <li><a href="#">Working at VSIS</a></li>
+                    <li class="active">Job Vacancies</li>
+                </ul>
             </div>
-        </div>
 
-        <div class="job-vacancies-container">
-            <div class="job-filters">
+            <!-- Page Header -->
+            <div class="page-header">
+                <h1>Job Vacancies</h1>
+                <div class="page-subheader">
+                    <p>Current job openings at Vikram Sarabhai Institute of Sciences</p>
+                </div>
+            </div>
+
+            <!-- Job Filters -->
+            <div class="job-filters-section">
                 <div class="filter-group">
-                    <label for="job-type">Job Type:</label>
-                    <select id="job-type">
-                        <option value="all">All</option>
-                        <option value="academic">Academic</option>
-                        <option value="administrative">Administrative</option>
+                    <label for="job-category">Category</label>
+                    <select id="job-category" class="filter-select">
+                        <option value="all">All Categories</option>
+                        <option value="academic">Academic Positions</option>
+                        <option value="administrative">Administrative Positions</option>
+                        <option value="research">Research Positions</option>
                     </select>
                 </div>
                 <div class="filter-group">
-                    <label for="location">Location:</label>
-                    <select id="location">
-                        <option value="all">All</option>
+                    <label for="job-location">Location</label>
+                    <select id="job-location" class="filter-select">
+                        <option value="all">All Locations</option>
                         <option value="aachen">Aachen</option>
                         <option value="julich">Jülich</option>
                     </select>
                 </div>
+                <div class="filter-group">
+                    <label for="job-type">Employment Type</label>
+                    <select id="job-type" class="filter-select">
+                        <option value="all">All Types</option>
+                        <option value="full-time">Full-time</option>
+                        <option value="part-time">Part-time</option>
+                        <option value="temporary">Temporary</option>
+                    </select>
+                </div>
             </div>
 
-            <div class="job-listings">
-                <article class="job-item">
-                    <div class="job-meta">
-                        <span class="job-type academic">Academic</span>
-                        <span class="job-location aachen">Apuja</span>
-                        <span class="job-date">Posted: 15.06.2023</span>
+            <!-- Job Listings -->
+            <div class="job-listings-container">
+                <article class="job-listing">
+                    <div class="job-meta-header">
+                        <span class="job-category academic">Academic Position</span>
+                        <span class="job-reference">Ref. No.: W123-2023</span>
                     </div>
-                    <h2 class="job-title">Professor in Computer Science (W2)</h2>
+                    <h2 class="job-title">Professor (W2) of Computer Science</h2>
                     <div class="job-department">Department of Electrical Engineering and Information Technology</div>
                     <div class="job-details">
-                        <p>Reference number: 12345 | Application deadline: 15.07.2023</p>
+                        <div class="detail-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Aachen</span>
+                        </div>
+                        <div class="detail-item">
+                            <i class="fas fa-calendar-alt"></i>
+                            <span>Posted: 15.06.2023</span>
+                        </div>
+                        <div class="detail-item">
+                            <i class="fas fa-clock"></i>
+                            <span>Application deadline: 15.07.2023</span>
+                        </div>
                     </div>
-                    <a href="job-detail.html" class="job-link">View details <i class="fas fa-chevron-right"></i></a>
+                    <div class="job-actions">
+                        <a href="job-details.html" class="view-details-btn">View Details <i class="fas fa-chevron-right"></i></a>
+                        <a href="#" class="print-btn"><i class="fas fa-print"></i> Print</a>
+                    </div>
                 </article>
 
-                <article class="job-item">
-                    <div class="job-meta">
-                        <span class="job-type administrative">Administrative</span>
-                        <span class="job-location julich">Bhubaneswar</span>
-                        <span class="job-date">Posted: 10.06.2023</span>
+                <article class="job-listing">
+                    <div class="job-meta-header">
+                        <span class="job-category administrative">Administrative Position</span>
+                        <span class="job-reference">Ref. No.: V456-2023</span>
                     </div>
                     <h2 class="job-title">Research Coordinator (m/f/d)</h2>
-                    <div class="job-department">Research Management</div>
+                    <div class="job-department">Research Management Department</div>
                     <div class="job-details">
-                        <p>Reference number: 12346 | Application deadline: 30.06.2023</p>
+                        <div class="detail-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Jülich</span>
+                        </div>
+                        <div class="detail-item">
+                            <i class="fas fa-calendar-alt"></i>
+                            <span>Posted: 10.06.2023</span>
+                        </div>
+                        <div class="detail-item">
+                            <i class="fas fa-clock"></i>
+                            <span>Application deadline: 30.06.2023</span>
+                        </div>
                     </div>
-                    <a href="job-detail.html" class="job-link">View details <i class="fas fa-chevron-right"></i></a>
+                    <div class="job-actions">
+                        <a href="job-details.html" class="view-details-btn">View Details <i class="fas fa-chevron-right"></i></a>
+                        <a href="#" class="print-btn"><i class="fas fa-print"></i> Print</a>
+                    </div>
                 </article>
+            </div>
+
+            <!-- Pagination -->
+            <div class="pagination">
+                <span class="current-page">1</span>
+                <a href="#" class="page-link">2</a>
+                <a href="#" class="page-link">3</a>
+                <a href="#" class="next-page">Next <i class="fas fa-chevron-right"></i></a>
             </div>
         </div>
     </main>
 
-    <!-- Reuse your footer from index.html -->
+    <!-- Footer (Reuse from index.html) -->
     <footer class="main-footer">
-        <h4>Social Media</h4>
-        <div class="social-links">
-            <a href="#"><i class="fab fa-facebook"></i></a>
-            <a href="#"><i class="fab fa-twitter"></i></a>
-            <a href="#"><i class="fab fa-instagram"></i></a>
-            <a href="#"><i class="fab fa-youtube"></i></a>
-            <a href="#"><i class="fab fa-linkedin"></i></a>
+        <div class="container">
+            <div class="footer-column">
+                <h4>Contact</h4>
+                <address>
+                    Vikram Sarabhai Institute Sciences Sciences<br>
+                    Apuja<br>
+                    752103 Odisha<br>
+                    India
+                </address>
+            </div>
+            <div class="footer-column">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="jobs.html">Jobs</a></li>
+                    <li><a href="#">Library</a></li>
+                    <li><a href="#">Campus Map</a></li>
+                    <li><a href="#">Staff Directory</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>Social Media</h4>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="copyright">
+            <div class="container">
+                <p>&copy; 2023 Vikram Sarabhai Institute Sciences</p>
+                <ul>
+                    <li><a href="#">Imprint</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Accessibility</a></li>
+                </ul>
+            </div>
         </div>
     </footer>
 
