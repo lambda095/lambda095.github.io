@@ -3,17 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vikram Sarabhai Institute Sciences</title>
+    <title>Master Programs | VSIS</title>
     <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-    <!-- Top Navigation Bar -->
+    <!-- Reuse header from index.html -->
     <header class="top-header">
         <div class="container">
             <div class="logo">
                 <a href="index.html">
-                    <img src="images/logo.png" alt="VSIS Logo">
+                    <img src="images/logo.png" alt="VSIS Logo" width="180">
                 </a>
             </div>
             <div class="quick-links">
@@ -26,7 +26,7 @@
         </div>
     </header>
 
-    <!-- Main Navigation -->
+    <!-- Navigation with dropdown -->
     <nav class="main-nav">
         <div class="container">
             <ul>
@@ -49,74 +49,27 @@
         </div>
     </nav>
 
-    <!-- Hero Banner -->
-    <section class="hero">
+    <!-- Page-specific content -->
+    <main class="programs-container">
         <div class="container">
-            <h1>Welcome to VSIS</h1>
-            <p>Faculty of Applied Sciences and Engineering</p>
-            <a href="#" class="btn">Explore Programs</a>
-        </div>
-    </section>
-
-    <!-- Quick Links Section -->
-    <section class="quick-access">
-        <div class="container">
-            <div class="quick-link-item">
-                <i class="fas fa-graduation-cap"></i>
-                <h3>Prospective Students</h3>
-                <p>Information about degree programs and application</p>
-            </div>
-            <div class="quick-link-item">
-                <i class="fas fa-flask"></i>
-                <h3>Research</h3>
-                <p>Our research projects and institutes</p>
-            </div>
-            <div class="quick-link-item">
-                <i class="fas fa-globe"></i>
-                <h3>International</h3>
-                <p>Information for international students</p>
+            <h1>Master Programs</h1>
+            <div class="program-grid">
+                <!-- Repeat this block for each program -->
+                <div class="program-card">
+                    <h2>Computer Science (M.Sc.)</h2>
+                    <div class="program-meta">
+                        <span><i class="fas fa-clock"></i> 6 Semesters</span>
+                        <span><i class="fas fa-language"></i> German/English</span>
+                    </div>
+                    <p>A practice-oriented program combining theoretical foundations with hands-on projects...</p>
+                    <a href="#" class="program-link">Learn More <i class="fas fa-chevron-right"></i></a>
+                </div>
+                <!-- More programs... -->
             </div>
         </div>
-    </section>
+    </main>
 
-    <!-- News Section -->
-    <section class="news-section">
-        <div class="container">
-            <h2>News & Events</h2>
-            <div class="news-grid">
-                <article class="news-item">
-                    <img src="images/news1.jpg" alt="News Image">
-                    <div class="news-content">
-                        <h3>New Research Project Launched</h3>
-                        <p class="date">March 15, 2023</p>
-                        <p>VSIS starts innovative research in renewable energy...</p>
-                        <a href="#" class="read-more">Read more</a>
-                    </div>
-                </article>
-                <article class="news-item">
-                    <img src="images/news2.jpg" alt="News Image">
-                    <div class="news-content">
-                        <h3>Open Day 2023</h3>
-                        <p class="date">April 5, 2023</p>
-                        <p>Join us for our annual open day and explore our campus...</p>
-                        <a href="#" class="read-more">Read more</a>
-                    </div>
-                </article>
-                <article class="news-item">
-                    <img src="images/news3.jpg" alt="News Image">
-                    <div class="news-content">
-                        <h3>Student Award Winners</h3>
-                        <p class="date">February 28, 2023</p>
-                        <p>Congratulations to our students who won prestigious awards...</p>
-                        <a href="#" class="read-more">Read more</a>
-                    </div>
-                </article>
-            </div>
-            <a href="#" class="btn">All News</a>
-        </div>
-    </section>
-
-    <!-- Footer -->
+    <!-- Reuse footer from index.html -->
     <footer class="main-footer">
         <div class="container">
             <div class="footer-column">
@@ -160,6 +113,5 @@
         </div>
     </footer>
 
-    <script src="js/main.js"></script>
 </body>
 </html>

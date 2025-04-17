@@ -103,7 +103,7 @@ a {
 
 /* Hero Section */
 .hero {
-    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('../images/hero-bg.jpg');
+    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('../images/hero-bg.png');
     background-size: cover;
     background-position: center;
     color: var(--white);
@@ -788,4 +788,65 @@ a {
         flex-direction: column;
         gap: 10px;
     }
+}
+
+/* =============================================
+   Dropdown Navigation Styles
+   ============================================= */
+
+   .dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #ffffff;
+    min-width: 220px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+    z-index: 1000;
+    border-top: 3px solid #00549e;
+}
+
+.dropdown-content a {
+    color: #333333;
+    padding: 12px 16px;
+    display: block;
+    border-bottom: 1px solid #f0f0f0;
+    transition: all 0.3s ease;
+}
+
+.dropdown-content a:hover {
+    background-color: #f5f8fa;
+    color: #00549e;
+    padding-left: 20px;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+    animation: fadeIn 0.3s;
+}
+
+.dropdown > a::after {
+    content: '\f078';
+    font-family: 'Font Awesome 6 Free';
+    font-weight: 900;
+    font-size: 0.7rem;
+    margin-left: 6px;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Adjust main nav items for dropdown */
+.main-nav > .container > ul > li {
+    position: relative;
+    padding: 15px 0;
+}
+
+.main-nav > .container > ul > li:hover {
+    background-color: rgba(255,255,255,0.1);
 }

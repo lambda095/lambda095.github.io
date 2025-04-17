@@ -32,5 +32,30 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
     
+
+    // ========================
+    // NEW DROPDOWN NAVIGATION CODE
+    // ========================
+    document.querySelectorAll('.dropdown > a').forEach(trigger => {
+        trigger.addEventListener('click', function(e) {
+            e.preventDefault();
+            const dropdown = this.parentElement;
+            const isExpanded = dropdown.getAttribute('aria-expanded') === 'true';
+            dropdown.setAttribute('aria-expanded', !isExpanded);
+        });
+    });
+
+    // Close dropdowns when clicking outside
+    document.addEventListener('click', function(e) {
+        if (!e.target.matches('.dropdown, .dropdown *')) {
+            document.querySelectorAll('.dropdown').forEach(dropdown => {
+                dropdown.setAttribute('aria-expanded', 'false');
+            });
+        }
+    });
+
+
     // Language switcher functionality would go here
+
+    
 });
