@@ -836,6 +836,13 @@ a {
     margin-left: 6px;
 }
 
+.program-help a:hover {
+    background: #e0ecfa;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    border-radius: 6px;
+    transition: background 0.2s, box-shadow 0.2s;
+}
+
 @keyframes fadeIn {
     from { opacity: 0; transform: translateY(10px); }
     to { opacity: 1; transform: translateY(0); }
