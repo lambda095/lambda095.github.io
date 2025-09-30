@@ -51,22 +51,76 @@
 
 
     <!-- Page-specific content -->
-    <main class="programs-container">
-        <div class="container">
-            <h1>Diploma Programs</h1>
-            <div class="program-grid">
-                <!-- Repeat this block for each program -->
-                <div class="program-card">
-                    <h2>Electrical Engineering (Dipl.)</h2>
-                    <div class="program-meta">
-                        <span><i class="fas fa-clock"></i> 6 Semesters</span>
+    <main class="programs-container" style="background: #f7f9fb; padding: 0 0 3em 0;">
+        <div class="container" style="max-width: 1100px; margin: 0 auto;">
+            <h1 style="font-size: 2.5em; color: #00549e; margin: 2em 0 1.2em 0; text-align: center;">Diploma Programmes at VSIS</h1>
+            <!-- Filter Buttons -->
+            <div class="program-filters" style="display: flex; flex-wrap: wrap; gap: 1em; justify-content: center; margin-bottom: 2em;">
+                <button class="filter-btn active">All</button>
+                <button class="filter-btn">Engineering</button>
+                <button class="filter-btn">Science</button>
+                <button class="filter-btn">Business</button>
+                <button class="filter-btn">Humanities</button>
+                <button class="filter-btn">International</button>
+            </div>
+            <!-- Program Cards Grid -->
+            <div class="programs-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2em;">
+                <div class="program-card" style="background: #fff; border-radius: 12px; box-shadow: 0 2px 12px rgba(0,0,0,0.06); padding: 2em 1.5em; display: flex; flex-direction: column; gap: 1em;">
+                    <h2 style="color: #00549e; font-size: 1.3em; margin-bottom: 0.3em;">Diploma in Electrical Engineering</h2>
+                    <div class="program-meta" style="font-size: 0.98em; color: #666; margin-bottom: 0.5em;">
+                        <span><i class="fas fa-clock"></i> 6 Semesters</span> &nbsp;|&nbsp;
                         <span><i class="fas fa-language"></i> German/English</span>
                     </div>
-                    <p>A practice-oriented program combining theoretical foundations with hands-on projects...</p>
-                    <a href="#" class="program-link">Learn More <i class="fas fa-chevron-right"></i></a>
+                    <p>Practice-oriented program combining theoretical foundations with hands-on projects in power systems, electronics, and automation.</p>
+                    <a href="#" class="program-link" style="color: #00549e; font-weight: bold;">Learn More <i class="fas fa-chevron-right"></i></a>
                 </div>
-                <!-- More programs... -->
+                <div class="program-card" style="background: #fff; border-radius: 12px; box-shadow: 0 2px 12px rgba(0,0,0,0.06); padding: 2em 1.5em; display: flex; flex-direction: column; gap: 1em;">
+                    <h2 style="color: #00549e; font-size: 1.3em; margin-bottom: 0.3em;">Diploma in Mechanical Engineering</h2>
+                    <div class="program-meta" style="font-size: 0.98em; color: #666; margin-bottom: 0.5em;">
+                        <span><i class="fas fa-clock"></i> 6 Semesters</span> &nbsp;|&nbsp;
+                        <span><i class="fas fa-language"></i> English</span>
+                    </div>
+                    <p>Focus on design, manufacturing, and maintenance of mechanical systems, with strong industry connections and internships.</p>
+                    <a href="#" class="program-link" style="color: #00549e; font-weight: bold;">Learn More <i class="fas fa-chevron-right"></i></a>
+                </div>
+                <div class="program-card" style="background: #fff; border-radius: 12px; box-shadow: 0 2px 12px rgba(0,0,0,0.06); padding: 2em 1.5em; display: flex; flex-direction: column; gap: 1em;">
+                    <h2 style="color: #00549e; font-size: 1.3em; margin-bottom: 0.3em;">Diploma in Civil Engineering</h2>
+                    <div class="program-meta" style="font-size: 0.98em; color: #666; margin-bottom: 0.5em;">
+                        <span><i class="fas fa-clock"></i> 6 Semesters</span> &nbsp;|&nbsp;
+                        <span><i class="fas fa-language"></i> English</span>
+                    </div>
+                    <p>Comprehensive training in construction, structural analysis, and sustainable infrastructure development.</p>
+                    <a href="#" class="program-link" style="color: #00549e; font-weight: bold;">Learn More <i class="fas fa-chevron-right"></i></a>
+                </div>
+                <div class="program-card" style="background: #fff; border-radius: 12px; box-shadow: 0 2px 12px rgba(0,0,0,0.06); padding: 2em 1.5em; display: flex; flex-direction: column; gap: 1em;">
+                    <h2 style="color: #00549e; font-size: 1.3em; margin-bottom: 0.3em;">Diploma in Computer Science</h2>
+                    <div class="program-meta" style="font-size: 0.98em; color: #666; margin-bottom: 0.5em;">
+                        <span><i class="fas fa-clock"></i> 6 Semesters</span> &nbsp;|&nbsp;
+                        <span><i class="fas fa-language"></i> English</span>
+                    </div>
+                    <p>Modern curriculum covering programming, algorithms, data science, and software engineering, with project-based learning.</p>
+                    <a href="#" class="program-link" style="color: #00549e; font-weight: bold;">Learn More <i class="fas fa-chevron-right"></i></a>
+                </div>
+                <div class="program-card" style="background: #fff; border-radius: 12px; box-shadow: 0 2px 12px rgba(0,0,0,0.06); padding: 2em 1.5em; display: flex; flex-direction: column; gap: 1em;">
+                    <h2 style="color: #00549e; font-size: 1.3em; margin-bottom: 0.3em;">Diploma in Business Administration</h2>
+                    <div class="program-meta" style="font-size: 0.98em; color: #666; margin-bottom: 0.5em;">
+                        <span><i class="fas fa-clock"></i> 4 Semesters</span> &nbsp;|&nbsp;
+                        <span><i class="fas fa-language"></i> English</span>
+                    </div>
+                    <p>Develop management, finance, and marketing skills for a successful career in business and entrepreneurship.</p>
+                    <a href="#" class="program-link" style="color: #00549e; font-weight: bold;">Learn More <i class="fas fa-chevron-right"></i></a>
+                </div>
+                <div class="program-card" style="background: #fff; border-radius: 12px; box-shadow: 0 2px 12px rgba(0,0,0,0.06); padding: 2em 1.5em; display: flex; flex-direction: column; gap: 1em;">
+                    <h2 style="color: #00549e; font-size: 1.3em; margin-bottom: 0.3em;">Diploma in Applied Sciences</h2>
+                    <div class="program-meta" style="font-size: 0.98em; color: #666; margin-bottom: 0.5em;">
+                        <span><i class="fas fa-clock"></i> 4 Semesters</span> &nbsp;|&nbsp;
+                        <span><i class="fas fa-language"></i> English</span>
+                    </div>
+                    <p>Interdisciplinary program in physics, chemistry, and biology, emphasizing laboratory skills and research projects.</p>
+                    <a href="#" class="program-link" style="color: #00549e; font-weight: bold;">Learn More <i class="fas fa-chevron-right"></i></a>
+                </div>
             </div>
+            <!-- End Program Cards Grid -->
         </div>
     </main>
 
