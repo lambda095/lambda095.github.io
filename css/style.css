@@ -20,6 +20,7 @@
     font-weight: 500;
     position: relative;
     transition: background 0.2s, color 0.2s;
+    text-transform: uppercase;
 }
 .main-nav ul li a:hover,
 .main-nav ul li.active > a {
@@ -36,11 +37,12 @@
     height: 3px;
     background: #00549e;
     opacity: 0;
-    transition: opacity 0.2s;
+    transition: opacity 0.2s, width 0.3s cubic-bezier(.4,0,.2,1);
 }
 .main-nav ul li a:hover::after,
 .main-nav ul li.active > a::after {
     opacity: 1;
+    width: 100%;
 }
 
 /* Dropdown Styles */
@@ -63,6 +65,7 @@
     position: relative;
     border: none;
     transition: color 0.2s;
+    text-transform: uppercase;
 }
 .study-dropdown .study-link.active {
     color: #00549e;
