@@ -1,3 +1,31 @@
+/* Study Dropdown Right Column Link Styles */
+.study-right-link {
+    color: #00549e;
+    background: transparent;
+    position: relative;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.2s;
+}
+.study-right-link::after {
+    content: "";
+    display: block;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0;
+    height: 2px;
+    background: #00549e;
+    transition: width 0.3s cubic-bezier(.4,0,.2,1);
+}
+.study-right-link:hover,
+.study-right-link.active {
+    color: #00549e;
+}
+.study-right-link:hover::after,
+.study-right-link.active::after {
+    width: 100%;
+}
 /* Top Navigation Bar Styles */
 .main-nav {
     background: #00549e;
