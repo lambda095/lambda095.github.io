@@ -6,6 +6,7 @@
     text-decoration: none;
     font-weight: 500;
     transition: color 0.2s;
+    text-transform: none;
 }
 .study-right-link::after {
     content: "";
@@ -52,7 +53,7 @@
 }
 .main-nav ul li a:hover,
 .main-nav ul li.active > a {
-    background: transparent !important;
+    background: none !important;
     color: #fff;
 }
 .main-nav ul li a::after {
