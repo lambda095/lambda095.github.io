@@ -1,3 +1,97 @@
+/* Top Navigation Bar Styles */
+.main-nav {
+    background: #00549e;
+}
+.main-nav ul {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+.main-nav ul li {
+    position: relative;
+}
+.main-nav ul li a {
+    color: #fff;
+    background: transparent;
+    padding: 1em 2em;
+    display: block;
+    text-decoration: none;
+    font-weight: 500;
+    position: relative;
+    transition: background 0.2s, color 0.2s;
+}
+.main-nav ul li a:hover,
+.main-nav ul li.active > a {
+    background: #fff;
+    color: #00549e;
+}
+.main-nav ul li a::after {
+    content: "";
+    display: block;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 3px;
+    background: #00549e;
+    opacity: 0;
+    transition: opacity 0.2s;
+}
+.main-nav ul li a:hover::after,
+.main-nav ul li.active > a::after {
+    opacity: 1;
+}
+
+/* Dropdown Styles */
+.main-nav ul li .dropdown-content {
+    display: none;
+    position: absolute;
+    left: 0;
+    top: 100%;
+    z-index: 100;
+}
+.main-nav ul li:hover .dropdown-content,
+.main-nav ul li.active .dropdown-content {
+    display: flex;
+}
+
+/* Study Dropdown Custom Styles */
+.study-dropdown .study-link {
+    color: #00549e;
+    background: #fff;
+    position: relative;
+    border: none;
+    transition: color 0.2s;
+}
+.study-dropdown .study-link.active {
+    color: #00549e;
+    background: #fff;
+}
+.study-dropdown .study-link.active::after {
+    content: "";
+    display: block;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 2px;
+    background: #00549e;
+}
+.study-dropdown .study-link::after {
+    content: "";
+    display: block;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0;
+    height: 2px;
+    background: #00549e;
+    transition: width 0.3s cubic-bezier(.4,0,.2,1);
+}
+.study-dropdown .study-link:hover::after {
+    width: 100%;
+}
 /* Study Dropdown Custom Styles */
 .study-dropdown .study-link {
     color: #00549e;
