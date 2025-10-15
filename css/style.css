@@ -52,7 +52,7 @@
 }
 .main-nav ul li a:hover,
 .main-nav ul li.active > a {
-    background: transparent;
+    background: transparent !important;
     color: #fff;
 }
 .main-nav ul li a::after {
