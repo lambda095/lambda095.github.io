@@ -1,3 +1,17 @@
+    position: relative;
+}
+.study-link.active::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    right: -18px;
+    transform: translateY(-50%);
+    width: 0;
+    height: 0;
+    border-top: 12px solid transparent;
+    border-bottom: 12px solid transparent;
+    border-left: 12px solid #fff;
+    z-index: 2;
 /* Study Dropdown Right Column Link Styles */
 .study-right-link {
     color: #00549e;
