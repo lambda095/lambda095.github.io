@@ -22,11 +22,10 @@
     gap: 0.35em;
     color: #00549e;
     text-align: left;
-    width: 100%;
 }
 .study-right-link {
     color: #00549e;
-    background: #f5f8fa;;
+    background: transparent;
     position: relative;
     text-decoration: none;
     font-weight: 500;
