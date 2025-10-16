@@ -1,5 +1,4 @@
-    position: relative;
-}
+
 .study-link.active::before {
     content: '';
     position: absolute;
