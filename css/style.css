@@ -53,6 +53,9 @@
 .study-right-link:hover::after,
 .study-right-link.active::after {
     width: 100%;
+    background: transparent; /* Ensure no background on hover */
+    box-shadow: none; /* Remove any box shadows */
+    border: none; /* Remove any borders */
 }
 /* Top Navigation Bar Styles */
 .main-nav {
