@@ -13,6 +13,18 @@
     z-index: 2;
 }
 /* Study Dropdown Right Column Link Styles */
+.study-right {
+    flex: 1;
+    padding: 2.5em 2.5em 2.5em 1.5em;
+    background: #f5f8fa; /* Light blue background */
+    display: flex;
+    flex-direction: column;
+    gap: 0.35em;
+    color: #00549e;
+    text-align: left;
+    width: 100%;
+    box-sizing: border-box;
+}
 .study-right-link {
     color: #00549e;
     background: #f5f8fa;;
@@ -21,6 +33,9 @@
     font-weight: 500;
     transition: color 0.2s;
     text-transform: none;
+    white-space: nowrap;
+    text-align: left;
+    padding: 8px 0; /* Add some padding for better click area */
 }
 .study-right-link::after {
     content: "";
@@ -90,7 +105,6 @@
 
 /* Dropdown Styles */
 .main-nav ul li .dropdown-content {
-    display: none;
     position: absolute;
     left: 0;
     top: 100%;
@@ -101,6 +115,8 @@
     padding: 0;
     border-radius: 0 0 12px 12px;
     box-shadow: 0 8px 32px rgba(0,0,0,0.10);
+    display: flex;
+    flex-direction: row;
 }
 .main-nav ul li:hover .dropdown-content,
 .main-nav ul li.active .dropdown-content {
@@ -113,7 +129,6 @@
     display: flex;
     flex-direction: column;
     gap: 0.1em;
-    border-right: 2px solid #eaf2fb;
 }
 
 /* Study Dropdown Custom Styles */
@@ -979,7 +994,7 @@ a {
 }
 
 .dropdown-content {
-    display: none;
+    
     position: absolute;
     background-color: #ffffff;
     min-width: 220px;
