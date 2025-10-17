@@ -12,81 +12,44 @@ document.addEventListener('DOMContentLoaded', function() {
             link.addEventListener('mouseenter', function() {
                 links.forEach(function(l) { l.classList.remove('active'); });
                 link.classList.add('active');
-                if (link.textContent.trim().toUpperCase() === 'INTERESTED IN STUDYING?') {
-                    rightInfo.style.display = 'flex';
-                } else {
-                    rightInfo.style.display = 'none';
-                }
-            });
-            link.addEventListener('mouseleave', function() {
-                link.classList.remove('active');
-                rightInfo.style.display = 'none';
+                
+                // Show right column for ALL links, not just one
+                rightInfo.style.display = 'flex';
+                
+                // Optional: You can add logic to show different content per link
+                // updateRightContent(link.textContent.trim());
             });
         });
+
+        // Only hide when leaving the ENTIRE dropdown, not individual links
         studyDropdown.addEventListener('mouseleave', function() {
             links.forEach(function(l) { l.classList.remove('active'); });
             rightInfo.style.display = 'none';
         });
+
+        // Keep right column visible when hovering over it
+        rightInfo.addEventListener('mouseenter', function() {
+            rightInfo.style.display = 'flex';
+        });
+
+        rightInfo.addEventListener('mouseleave', function() {
+            // Don't hide here - let the parent dropdown handle hiding
+        });
     }
 });
-// Mobile Navigation Toggle
-document.addEventListener('DOMContentLoaded', function() {
-    // Mobile menu toggle would be added here
-    // For now, this is a placeholder for future functionality
+
+// Optional: Function to update right column content based on left link
+function updateRightContent(linkText) {
+    var rightInfo = document.getElementById('study-right-info');
     
-    // Smooth scrolling for anchor links
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            e.preventDefault();
-            
-            const targetId = this.getAttribute('href');
-            if (targetId === '#') return;
-            
-            const targetElement = document.querySelector(targetId);
-            if (targetElement) {
-                targetElement.scrollIntoView({
-                    behavior: 'smooth'
-                });
-            }
-        });
-    });
-    
-    // News item hover effect enhancement
-    const newsItems = document.querySelectorAll('.news-item');
-    newsItems.forEach(item => {
-        item.addEventListener('mouseenter', function() {
-            this.querySelector('.read-more').style.color = '#e2001a';
-        });
-        
-        item.addEventListener('mouseleave', function() {
-            this.querySelector('.read-more').style.color = '';
-        });
-    });
-    
-
-    // ========================
-    // NEW DROPDOWN NAVIGATION CODE
-    // ========================
-    document.querySelectorAll('.dropdown > a').forEach(trigger => {
-        trigger.addEventListener('click', function(e) {
-            e.preventDefault();
-            const dropdown = this.parentElement;
-            const isExpanded = dropdown.getAttribute('aria-expanded') === 'true';
-            dropdown.setAttribute('aria-expanded', !isExpanded);
-        });
-    });
-
-    // Close dropdowns when clicking outside
-    document.addEventListener('click', function(e) {
-        if (!e.target.matches('.dropdown, .dropdown *')) {
-            document.querySelectorAll('.dropdown').forEach(dropdown => {
-                dropdown.setAttribute('aria-expanded', 'false');
-            });
-        }
-    });
-
-
-    // Language switcher functionality would go here
-
-    
-});
+    // Example: Change content based on which left link is hovered
+    switch(linkText.toUpperCase()) {
+        case 'INTERESTED IN STUDYING?':
+            // Set content for this section
+            break;
+        case 'DEGREE PROGRAMMES':
+            // Set different content
+            break;
+        // Add more cases as needed
+    }
+}
