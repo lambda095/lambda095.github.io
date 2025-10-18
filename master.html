@@ -5,35 +5,45 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Master Programs | VSIS</title>
     <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
-    <!-- Reuse header from index.html -->
+    <!-- Top Navigation Bar -->
     <header class="top-header">
         <div class="container">
             <div class="logo">
                 <a href="index.html">
-                    <img src="images/logo.png" alt="VSIS Logo" width="180">
+                    <img src="images/logo.png" alt="VSIS Logo">
                 </a>
             </div>
             <div class="quick-links">
                 <ul>
+                    <li><a href="#">Webmail</a></li>
+                    <li><a href="#">Intranet</a></li>
+                    <li><a href="#">Jobs</a></li>
+                    <li><a href="#">Contact</a></li>
                     <li><a href="#"><i class="fas fa-search"></i></a></li>
-                    <li><a href="#">DE</a></li>
-                    <li><a href="#">EN</a></li>
                 </ul>
             </div>
         </div>
     </header>
 
-    <!-- Navigation with dropdown -->
+    <!-- Main Navigation -->
     <nav class="main-nav">
         <div class="container">
             <ul>
                 <li><a href="index.html">Home</a></li>
-                <li><a href="about.html">University</a></li>
                 <li class="dropdown">
-                    <a href="#">Study <i class="fas fa-chevron-down"></i></a>
+                    <a href="#">University</a>
+                    <div class="dropdown-content">
+                        <a href="#">About Us</a>
+                        <a href="#">Organisation</a>
+                        <a href="#">Friends & Sponsors</a>
+                    </div>
+                </li>
+                <li class="dropdown">
+                    <a href="#">Study</a>
                     <div class="dropdown-content">
                         <a href="diploma.html">Diploma Programs</a>
                         <a href="bachelor.html">Bachelor Programs</a>
@@ -41,7 +51,7 @@
                         <a href="phd.html">PhD Programs</a>
                         <a href="international.html">International Programs</a>
                     </div>
-                    </li>
+                </li>
                 <li><a href="#">Research</a></li>
                 <li><a href="#">International</a></li>
                 <li><a href="#">Campus Life</a></li>
@@ -69,7 +79,7 @@
         </div>
     </main>
 
-    <!-- Reuse footer from index.html -->
+    <!-- Footer -->
     <footer class="main-footer">
         <div class="container">
             <div class="footer-column">

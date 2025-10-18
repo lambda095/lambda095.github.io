@@ -5,50 +5,59 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Job Details | Vikram Sarabhai Institute of Sciences</title>
     <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
-        <!-- Header (Reuse from index.html) -->
-        <header class="top-header">
-            <div class="container">
-                <div class="logo">
-                    <a href="index.html">
-                        <img src="images/logo.png" alt="VSIS Logo" width="180">
-                    </a>
-                </div>
-                <div class="quick-links">
-                    <ul>
-                        <li><a href="#"><i class="fas fa-search"></i></a></li>
-                        <li><a href="#">DE</a></li>
-                        <li><a href="#">EN</a></li>
-                    </ul>
-                </div>
+    <!-- Top Navigation Bar -->
+    <header class="top-header">
+        <div class="container">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="images/logo.png" alt="VSIS Logo">
+                </a>
             </div>
-        </header>
-    
-        <!-- Main Navigation -->
-        <nav class="main-nav">
-            <div class="container">
+            <div class="quick-links">
                 <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="about.html">University</a></li>
-                    <li class="dropdown">
-                        <a href="#">Study <i class="fas fa-chevron-down"></i></a>
-                        <div class="dropdown-content">
-                            <a href="bachelor.html">Bachelor Programs</a>
-                            <a href="master.html">Master Programs</a>
-                            <a href="phd.html">PhD Programs</a>
-                            <a href="international.html">International Programs</a>
-                        </div>
-                        </li>
-                    <li><a href="#">Research</a></li>
-                    <li><a href="#">International</a></li>
-                    <li><a href="#">Campus Life</a></li>
+                    <li><a href="#">Webmail</a></li>
+                    <li><a href="#">Intranet</a></li>
+                    <li><a href="#">Jobs</a></li>
+                    <li><a href="#">Contact</a></li>
+                    <li><a href="#"><i class="fas fa-search"></i></a></li>
                 </ul>
             </div>
-        </nav>
-    
-    
+        </div>
+    </header>
+
+    <!-- Main Navigation -->
+    <nav class="main-nav">
+        <div class="container">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li class="dropdown">
+                    <a href="#">University</a>
+                    <div class="dropdown-content">
+                        <a href="#">About Us</a>
+                        <a href="#">Organisation</a>
+                        <a href="#">Friends & Sponsors</a>
+                    </div>
+                </li>
+                <li class="dropdown">
+                    <a href="#">Study</a>
+                    <div class="dropdown-content">
+                        <a href="diploma.html">Diploma Programs</a>
+                        <a href="bachelor.html">Bachelor Programs</a>
+                        <a href="master.html">Master Programs</a>
+                        <a href="phd.html">PhD Programs</a>
+                        <a href="international.html">International Programs</a>
+                    </div>
+                </li>
+                <li><a href="#">Research</a></li>
+                <li><a href="#">International</a></li>
+                <li><a href="#">Campus Life</a></li>
+            </ul>
+        </div>
+    </nav>
 
     <!-- Job Details Main Content -->
     <main class="job-details-container">
@@ -151,9 +160,48 @@
         </div>
     </main>
 
-    <!-- Reuse Footer from index.html -->
+    <!-- Footer -->
     <footer class="main-footer">
-        [...existing footer code...]
+        <div class="container">
+            <div class="footer-column">
+                <h4>Contact</h4>
+                <address>
+                    VSIS Faculty of Applied Sciences and Engineering<br>
+                    Apuja<br>
+                    752103 Kantapada<br>
+                    India
+                </address>
+            </div>
+            <div class="footer-column">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="#">Library</a></li>
+                    <li><a href="#">Campus Map</a></li>
+                    <li><a href="#">Staff Directory</a></li>
+                    <li><a href="jobs.html">Jobs</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>Social Media</h4>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="copyright">
+            <div class="container">
+                <p>&copy; 2025 VSIS Faculty of Applied Sciences and Engineering</p>
+                <ul>
+                    <li><a href="#">Imprint</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Accessibility</a></li>
+                </ul>
+            </div>
+        </div>
     </footer>
 
     <script src="js/job-details.js"></script>

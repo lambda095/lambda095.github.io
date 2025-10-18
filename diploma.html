@@ -5,35 +5,45 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Diploma Programs | VSIS</title>
     <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
-    <!-- Reuse header from index.html -->
+    <!-- Top Navigation Bar -->
     <header class="top-header">
         <div class="container">
             <div class="logo">
                 <a href="index.html">
-                    <img src="images/logo.png" alt="VSIS Logo" width="180">
+                    <img src="images/logo.png" alt="VSIS Logo">
                 </a>
             </div>
             <div class="quick-links">
                 <ul>
+                    <li><a href="#">Webmail</a></li>
+                    <li><a href="#">Intranet</a></li>
+                    <li><a href="#">Jobs</a></li>
+                    <li><a href="#">Contact</a></li>
                     <li><a href="#"><i class="fas fa-search"></i></a></li>
-                    <li><a href="#">DE</a></li>
-                    <li><a href="#">EN</a></li>
                 </ul>
             </div>
         </div>
     </header>
 
-    <!-- Navigation with dropdown -->
+    <!-- Main Navigation -->
     <nav class="main-nav">
         <div class="container">
             <ul>
                 <li><a href="index.html">Home</a></li>
-                <li><a href="about.html">University</a></li>
                 <li class="dropdown">
-                    <a href="#">Study <i class="fas fa-chevron-down"></i></a>
+                    <a href="#">University</a>
+                    <div class="dropdown-content">
+                        <a href="#">About Us</a>
+                        <a href="#">Organisation</a>
+                        <a href="#">Friends & Sponsors</a>
+                    </div>
+                </li>
+                <li class="dropdown">
+                    <a href="#">Study</a>
                     <div class="dropdown-content">
                         <a href="diploma.html">Diploma Programs</a>
                         <a href="bachelor.html">Bachelor Programs</a>
@@ -41,7 +51,7 @@
                         <a href="phd.html">PhD Programs</a>
                         <a href="international.html">International Programs</a>
                     </div>
-                    </li>
+                </li>
                 <li><a href="#">Research</a></li>
                 <li><a href="#">International</a></li>
                 <li><a href="#">Campus Life</a></li>
@@ -49,13 +59,12 @@
         </div>
     </nav>
 
-
     <!-- Page-specific content -->
-    <main class="programs-container" style="background: #f7f9fb; padding: 0 0 3em 0;">
-        <div class="container" style="max-width: 1100px; margin: 0 auto;">
-            <h1 style="font-size: 2.5em; color: #00549e; margin: 2em 0 1.2em 0; text-align: center;">Diploma Programmes at VSIS</h1>
+    <main class="programs-container">
+        <div class="container">
+            <h1>Diploma Programmes at VSIS</h1>
             <!-- Filter Buttons -->
-            <div class="program-filters" style="display: flex; flex-wrap: wrap; gap: 1em; justify-content: center; margin-bottom: 2em;">
+            <div class="program-filters">
                 <button class="filter-btn active">All</button>
                 <button class="filter-btn">Engineering</button>
                 <button class="filter-btn">Science</button>
@@ -64,113 +73,113 @@
                 <button class="filter-btn">International</button>
             </div>
             <!-- Program Cards Grid -->
-            <div class="programs-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2em;">
-                <div class="program-card" style="background: #fff; border-radius: 12px; box-shadow: 0 2px 12px rgba(0,0,0,0.06); padding: 2em 1.5em; display: flex; flex-direction: column; gap: 1em;">
-                    <img src="images/electrical.jpg" alt="Electrical Engineering" style="width:100%; height:160px; object-fit:cover; border-radius:8px 8px 0 0; margin-bottom:1em;">
-                    <h2 style="color: #00549e; font-size: 1.3em; margin-bottom: 0.3em;">Diploma in Electrical Engineering</h2>
-                    <div class="program-meta" style="font-size: 0.98em; color: #666; margin-bottom: 0.5em;">
-                        <span><i class="fas fa-clock"></i> 6 Semesters</span> &nbsp;|&nbsp;
+            <div class="programs-grid">
+                <div class="program-card">
+                    <img src="images/electrical.jpg" alt="Electrical Engineering">
+                    <h2>Diploma in Electrical Engineering</h2>
+                    <div class="program-meta">
+                        <span><i class="fas fa-clock"></i> 6 Semesters</span> |
                         <span><i class="fas fa-language"></i> German/English</span>
                     </div>
                     <p>Practice-oriented program combining theoretical foundations with hands-on projects in power systems, electronics, and automation.</p>
-                    <a href="#" class="program-link" style="color: #00549e; font-weight: bold;">Learn More <i class="fas fa-chevron-right"></i></a>
+                    <a href="#" class="program-link">Learn More <i class="fas fa-chevron-right"></i></a>
                 </div>
-                <div class="program-card" style="background: #fff; border-radius: 12px; box-shadow: 0 2px 12px rgba(0,0,0,0.06); padding: 2em 1.5em; display: flex; flex-direction: column; gap: 1em;">
-                    <img src="images/mechanical.jpg" alt="Mechanical Engineering" style="width:100%; height:160px; object-fit:cover; border-radius:8px 8px 0 0; margin-bottom:1em;">
-                    <h2 style="color: #00549e; font-size: 1.3em; margin-bottom: 0.3em;">Diploma in Mechanical Engineering</h2>
-                    <div class="program-meta" style="font-size: 0.98em; color: #666; margin-bottom: 0.5em;">
-                        <span><i class="fas fa-clock"></i> 6 Semesters</span> &nbsp;|&nbsp;
+                <div class="program-card">
+                    <img src="images/mechanical.jpg" alt="Mechanical Engineering">
+                    <h2>Diploma in Mechanical Engineering</h2>
+                    <div class="program-meta">
+                        <span><i class="fas fa-clock"></i> 6 Semesters</span> |
                         <span><i class="fas fa-language"></i> English</span>
                     </div>
                     <p>Focus on design, manufacturing, and maintenance of mechanical systems, with strong industry connections and internships.</p>
-                    <a href="#" class="program-link" style="color: #00549e; font-weight: bold;">Learn More <i class="fas fa-chevron-right"></i></a>
+                    <a href="#" class="program-link">Learn More <i class="fas fa-chevron-right"></i></a>
                 </div>
-                <div class="program-card" style="background: #fff; border-radius: 12px; box-shadow: 0 2px 12px rgba(0,0,0,0.06); padding: 2em 1.5em; display: flex; flex-direction: column; gap: 1em;">
-                    <img src="images/civil.jpg" alt="Civil Engineering" style="width:100%; height:160px; object-fit:cover; border-radius:8px 8px 0 0; margin-bottom:1em;">
-                    <h2 style="color: #00549e; font-size: 1.3em; margin-bottom: 0.3em;">Diploma in Civil Engineering</h2>
-                    <div class="program-meta" style="font-size: 0.98em; color: #666; margin-bottom: 0.5em;">
-                        <span><i class="fas fa-clock"></i> 6 Semesters</span> &nbsp;|&nbsp;
+                <div class="program-card">
+                    <img src="images/civil.jpg" alt="Civil Engineering">
+                    <h2>Diploma in Civil Engineering</h2>
+                    <div class="program-meta">
+                        <span><i class="fas fa-clock"></i> 6 Semesters</span> |
                         <span><i class="fas fa-language"></i> English</span>
                     </div>
                     <p>Comprehensive training in construction, structural analysis, and sustainable infrastructure development.</p>
-                    <a href="#" class="program-link" style="color: #00549e; font-weight: bold;">Learn More <i class="fas fa-chevron-right"></i></a>
+                    <a href="#" class="program-link">Learn More <i class="fas fa-chevron-right"></i></a>
                 </div>
-                <div class="program-card" style="background: #fff; border-radius: 12px; box-shadow: 0 2px 12px rgba(0,0,0,0.06); padding: 2em 1.5em; display: flex; flex-direction: column; gap: 1em;">
-                    <img src="images/computer.jpg" alt="Computer Science" style="width:100%; height:160px; object-fit:cover; border-radius:8px 8px 0 0; margin-bottom:1em;">
-                    <h2 style="color: #00549e; font-size: 1.3em; margin-bottom: 0.3em;">Diploma in Computer Science</h2>
-                    <div class="program-meta" style="font-size: 0.98em; color: #666; margin-bottom: 0.5em;">
-                        <span><i class="fas fa-clock"></i> 6 Semesters</span> &nbsp;|&nbsp;
+                <div class="program-card">
+                    <img src="images/computer.jpg" alt="Computer Science">
+                    <h2>Diploma in Computer Science</h2>
+                    <div class="program-meta">
+                        <span><i class="fas fa-clock"></i> 6 Semesters</span> |
                         <span><i class="fas fa-language"></i> English</span>
                     </div>
                     <p>Modern curriculum covering programming, algorithms, data science, and software engineering, with project-based learning.</p>
-                    <a href="#" class="program-link" style="color: #00549e; font-weight: bold;">Learn More <i class="fas fa-chevron-right"></i></a>
+                    <a href="#" class="program-link">Learn More <i class="fas fa-chevron-right"></i></a>
                 </div>
-                <div class="program-card" style="background: #fff; border-radius: 12px; box-shadow: 0 2px 12px rgba(0,0,0,0.06); padding: 2em 1.5em; display: flex; flex-direction: column; gap: 1em;">
-                    <img src="images/business.jpg" alt="Business Administration" style="width:100%; height:160px; object-fit:cover; border-radius:8px 8px 0 0; margin-bottom:1em;">
-                    <h2 style="color: #00549e; font-size: 1.3em; margin-bottom: 0.3em;">Diploma in Business Administration</h2>
-                    <div class="program-meta" style="font-size: 0.98em; color: #666; margin-bottom: 0.5em;">
-                        <span><i class="fas fa-clock"></i> 4 Semesters</span> &nbsp;|&nbsp;
+                <div class="program-card">
+                    <img src="images/business.jpg" alt="Business Administration">
+                    <h2>Diploma in Business Administration</h2>
+                    <div class="program-meta">
+                        <span><i class="fas fa-clock"></i> 4 Semesters</span> |
                         <span><i class="fas fa-language"></i> English</span>
                     </div>
                     <p>Develop management, finance, and marketing skills for a successful career in business and entrepreneurship.</p>
-                    <a href="#" class="program-link" style="color: #00549e; font-weight: bold;">Learn More <i class="fas fa-chevron-right"></i></a>
+                    <a href="#" class="program-link">Learn More <i class="fas fa-chevron-right"></i></a>
                 </div>
-                <div class="program-card" style="background: #fff; border-radius: 12px; box-shadow: 0 2px 12px rgba(0,0,0,0.06); padding: 2em 1.5em; display: flex; flex-direction: column; gap: 1em;">
-                    <img src="images/applied.jpg" alt="Applied Sciences" style="width:100%; height:160px; object-fit:cover; border-radius:8px 8px 0 0; margin-bottom:1em;">
-                    <h2 style="color: #00549e; font-size: 1.3em; margin-bottom: 0.3em;">Diploma in Applied Sciences</h2>
-                    <div class="program-meta" style="font-size: 0.98em; color: #666; margin-bottom: 0.5em;">
-                        <span><i class="fas fa-clock"></i> 4 Semesters</span> &nbsp;|&nbsp;
+                <div class="program-card">
+                    <img src="images/applied.jpg" alt="Applied Sciences">
+                    <h2>Diploma in Applied Sciences</h2>
+                    <div class="program-meta">
+                        <span><i class="fas fa-clock"></i> 4 Semesters</span> |
                         <span><i class="fas fa-language"></i> English</span>
                     </div>
                     <p>Interdisciplinary program in physics, chemistry, and biology, emphasizing laboratory skills and research projects.</p>
-                    <a href="#" class="program-link" style="color: #00549e; font-weight: bold;">Learn More <i class="fas fa-chevron-right"></i></a>
+                    <a href="#" class="program-link">Learn More <i class="fas fa-chevron-right"></i></a>
                 </div>
             </div>
             <!-- End Program Cards Grid -->
 
             <!-- Found a programme or still unsure? Section -->
-            <section class="program-help" style="margin: 3em 0 2em 0; padding: 2.8em 2.2em; background: #eaf2fb; border-radius: 16px; max-width: 900px; margin-left: auto; margin-right: auto; box-shadow: 0 8px 32px rgba(0,0,0,0.10); border: 1px solid #d0e2f7;">
-                <h2 style="color: #00549e; font-size: 1.7em; margin-bottom: 1.2em; font-weight: 700;">Found a programme or still unsure? What to do now:</h2>
-                <div style="display: flex; flex-wrap: wrap; gap: 1.2em; margin-bottom: 1.5em;">
-                    <a href="#" style="flex:1 1 220px; min-width:200px; background: #00549e; color: #fff; border-radius: 10px; padding: 1.1em 1.2em; font-size: 1.13em; text-decoration: none; display: flex; flex-direction: column; align-items: flex-start; box-shadow: 0 2px 8px rgba(0,0,0,0.07); transition: background 0.2s;">
-                        <span style="font-weight: 400; margin-bottom: 0.4em;">Finding the right degree programme</span>
-                        <span style="font-weight: 700;">Orientation</span>
+            <section class="program-help">
+                <h2>Found a programme or still unsure? What to do now:</h2>
+                <div>
+                    <a href="#">
+                        <span>Finding the right degree programme</span>
+                        <span>Orientation</span>
                     </a>
-                    <a href="#" style="flex:1 1 220px; min-width:200px; background: #00549e; color: #fff; border-radius: 10px; padding: 1.1em 1.2em; font-size: 1.13em; text-decoration: none; display: flex; flex-direction: column; align-items: flex-start; box-shadow: 0 2px 8px rgba(0,0,0,0.07); transition: background 0.2s;">
-                        <span style="font-weight: 400; margin-bottom: 0.4em;">What are the specific requirements for you?</span>
-                        <span style="font-weight: 700;">Admission requirements</span>
+                    <a href="#">
+                        <span>What are the specific requirements for you?</span>
+                        <span>Admission requirements</span>
                     </a>
-                    <a href="#" style="flex:1 1 220px; min-width:200px; background: #00549e; color: #fff; border-radius: 10px; padding: 1.1em 1.2em; font-size: 1.13em; text-decoration: none; display: flex; flex-direction: column; align-items: flex-start; box-shadow: 0 2px 8px rgba(0,0,0,0.07); transition: background 0.2s;">
-                        <span style="font-weight: 400; margin-bottom: 0.4em;">How do I apply for a degree programme?</span>
-                        <span style="font-weight: 700;">Applications</span>
+                    <a href="#">
+                        <span>How do I apply for a degree programme?</span>
+                        <span>Applications</span>
                     </a>
                 </div>
-                <div style="max-width: 500px; margin: 0 auto;">
-                    <a href="#" style="display: flex; align-items: center; background: #fff; color: #00549e; border-radius: 10px; padding: 1.1em 1.2em; font-size: 1.13em; font-weight: 500; text-decoration: none; box-shadow: 0 2px 8px rgba(0,0,0,0.07); border: 1.5px solid #00549e; gap: 0.7em; flex-direction: column; align-items: flex-start;">
-                        <span style="display: flex; align-items: center; justify-content: center; width: 28px; height: 28px; background: #eaf2fb; border-radius: 6px; font-size: 1.2em; margin-bottom: 0.5em;">
+                <div>
+                    <a href="#">
+                        <span>
                             <i class="fas fa-graduation-cap"></i>
                         </span>
-                        <span style="font-weight: 400;">Further training opportunities</span>
-                        <span style="font-weight: 700; color: #00549e;">Continuing Education</span>
+                        <span>Further training opportunities</span>
+                        <span>Continuing Education</span>
                     </a>
                 </div>
             </section>
 
             <!-- Contact Now Section -->
-            <section class="program-contact" style="margin: 2em 0 0 0; padding: 2.8em 2.2em; background: #f7f9fb; border-radius: 16px; max-width: 900px; margin-left: auto; margin-right: auto; display: flex; align-items: center; gap: 2em; flex-wrap: wrap; box-shadow: 0 8px 32px rgba(0,0,0,0.10); border: 1px solid #eaf2fb;">
-                <img src="images/contact.jpg" alt="Contact" style="width: 120px; height: 120px; object-fit: cover; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.10); flex-shrink: 0;">
-                <div style="flex: 1;">
-                    <h3 style="color: #00549e; margin-bottom: 0.5em; font-size: 1.3em; font-weight: 700;">Contact Now</h3>
-                    <p style="font-size: 1.13em; color: #234; margin-bottom: 0.5em;">Our service team will be pleased to assist you! Contact us via phone, e-mail or in person.</p>
-                    <p style="margin: 0.2em 0;"><strong>Phone:</strong> <a href="tel:+911234567890" style="color: #00549e;">+91 12345 67890</a></p>
-                    <p style="margin: 0.2em 0;"><strong>Email:</strong> <a href="mailto:info@vsis.edu" style="color: #00549e;">info@vsis.edu</a></p>
-                    <p style="margin: 0.2em 0;"><strong>Address:</strong> VSIS Service Center, Apuja, 752103 Kantapada, India</p>
+            <section class="program-contact">
+                <img src="images/contact.jpg" alt="Contact">
+                <div>
+                    <h3>Contact Now</h3>
+                    <p>Our service team will be pleased to assist you! Contact us via phone, e-mail or in person.</p>
+                    <p><strong>Phone:</strong> <a href="tel:+911234567890">+91 12345 67890</a></p>
+                    <p><strong>Email:</strong> <a href="mailto:info@vsis.edu">info@vsis.edu</a></p>
+                    <p><strong>Address:</strong> VSIS Service Center, Apuja, 752103 Kantapada, India</p>
                 </div>
             </section>
         </div>
     </main>
 
-    <!-- Reuse footer from index.html -->
+    <!-- Footer -->
     <footer class="main-footer">
         <div class="container">
             <div class="footer-column">
