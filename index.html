@@ -3,173 +3,160 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vikram Sarabhai Institute Sciences</title>
+    <title>Vikram Sarabhai Institute of Sciences | Premier Institute for Science & Engineering</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Merriweather:wght@700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
-    <!-- Top Navigation Bar -->
-    <header class="top-header">
-        <div class="container">
-            <div class="logo">
-                <a href="index.html">
-                    <img src="images/logo.png" alt="VSIS Logo">
-                </a>
+
+    <!-- Header -->
+    <header id="main-header">
+        <div class="top-header">
+            <div class="container">
+                <div class="quick-links">
+                    <ul>
+                        <li><a href="#">Webmail</a></li>
+                        <li><a href="#">Intranet</a></li>
+                        <li><a href="jobs.html">Jobs</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="top-right">
+                    <a href="#"><i class="fas fa-search"></i></a>
+                </div>
             </div>
-            <div class="quick-links">
+        </div>
+        <nav class="main-nav">
+            <div class="container" style="display: flex; justify-content: space-between; align-items: center;">
+                <div class="logo">
+                    <a href="index.html">
+                        <img src="images/logo.png" alt="VSIS Logo">
+                    </a>
+                </div>
                 <ul>
-                    <li><a href="#">Webmail</a></li>
-                    <li><a href="#">Intranet</a></li>
-                    <li><a href="#">Jobs</a></li>
-                    <li><a href="#">Contact</a></li>
-                    <li><a href="#"><i class="fas fa-search"></i></a></li>
+                    <li><a href="index.html">Home</a></li>
+                    <li class="dropdown">
+                        <a href="#">University</a>
+                        <div class="dropdown-content">
+                            <a href="#">About Us</a>
+                            <a href="#">Organisation</a>
+                            <a href="#">Friends & Sponsors</a>
+                        </div>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#">Study</a>
+                        <div class="dropdown-content">
+                            <a href="diploma.html">Diploma Programs</a>
+                            <a href="bachelor.html">Bachelor Programs</a>
+                            <a href="master.html">Master Programs</a>
+                            <a href="phd.html">PhD Programs</a>
+                        </div>
+                    </li>
+                    <li><a href="#">Research</a></li>
+                    <li><a href="international.html">International</a></li>
+                    <li><a href="#">Campus Life</a></li>
                 </ul>
             </div>
-        </div>
+        </nav>
     </header>
-
-    <!-- Main Navigation -->
-    <nav class="main-nav">
-        <div class="container">
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li class="dropdown">
-                    <a href="#">University</a>
-                    <div class="dropdown-content">
-                        <a href="#">About Us</a>
-                        <a href="#">Organisation</a>
-                        <a href="#">Friends & Sponsors</a>
-                    </div>
-                </li>
-                <li class="dropdown">
-                    <a href="#">Study</a>
-                    <div class="dropdown-content">
-                        <a href="#">Degree Programmes</a>
-                        <a href="#">Application & Enrolment</a>
-                        <a href="#">Student Life</a>
-                    </div>
-                </li>
-                <li><a href="#">Research</a></li>
-                <li><a href="#">International</a></li>
-                <li><a href="#">Campus Life</a></li>
-            </ul>
-        </div>
-    </nav>
 
     <!-- Hero Banner -->
     <section class="hero">
         <div class="container">
-            <h1>Excellence in Science and Engineering</h1>
-            <p>Discover your potential at one of the leading technical institutes.</p>
+            <h1>Innovate. Discover. Excel.</h1>
+            <p>Join a community of thinkers and creators at the forefront of science and engineering.</p>
             <a href="#" class="btn">Find Your Program</a>
         </div>
     </section>
 
-    <!-- Quick Links Section -->
-    <section class="quick-access">
+    <!-- Faculties Section -->
+    <section class="faculties-section">
         <div class="container">
-            <div class="quick-link-item">
-                <i class="fas fa-graduation-cap"></i>
-                <h3>Prospective Students</h3>
-                <p>Information about degree programs and application</p>
-            </div>
-            <div class="quick-link-item">
-                <i class="fas fa-flask"></i>
-                <h3>Research</h3>
-                <p>Our research projects and institutes</p>
-            </div>
-            <div class="quick-link-item">
-                <i class="fas fa-globe"></i>
-                <h3>International</h3>
-                <p>Information for international students</p>
+            <h2>Explore Our Faculties</h2>
+            <div class="faculties-grid">
+                <div class="faculty-card">
+                    <i class="fas fa-laptop-code"></i>
+                    <h3>Engineering & Computer Science</h3>
+                    <p>Pioneering solutions for a digital world, from AI to sustainable infrastructure.</p>
+                </div>
+                <div class="faculty-card">
+                    <i class="fas fa-atom"></i>
+                    <h3>Applied Sciences</h3>
+                    <p>Exploring the fundamental principles of the universe through research and discovery.</p>
+                </div>
+                <div class="faculty-card">
+                    <i class="fas fa-briefcase"></i>
+                    <h3>Business & Management</h3>
+                    <p>Developing the next generation of leaders and innovators in the global marketplace.</p>
+                </div>
+                <div class="faculty-card">
+                    <i class="fas fa-palette"></i>
+                    <h3>Humanities & Arts</h3>
+                    <p>Cultivating creativity, critical thinking, and cultural understanding.</p>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- News Section -->
-    <section class="news-section">
+    <!-- Facts & Figures Section -->
+    <section class="facts-section">
         <div class="container">
-            <h2>News & Events</h2>
-            <div class="news-grid">
-                <article class="news-item">
-                    <img src="images/news1.jpg" alt="News Image">
-                    <div class="news-content">
-                        <h3>New Research Project Launched</h3>
-                        <p class="date">March 15, 2023</p>
-                        <p>VSIS starts innovative research in renewable energy...</p>
-                        <a href="#" class="read-more">Read more</a>
-                    </div>
-                </article>
-                <article class="news-item">
-                    <img src="images/news2.jpg" alt="News Image">
-                    <div class="news-content">
-                        <h3>Open Day 2023</h3>
-                        <p class="date">April 5, 2023</p>
-                        <p>Join us for our annual open day and explore our campus...</p>
-                        <a href="#" class="read-more">Read more</a>
-                    </div>
-                </article>
-                <article class="news-item">
-                    <img src="images/news3.jpg" alt="News Image">
-                    <div class="news-content">
-                        <h3>Student Award Winners</h3>
-                        <p class="date">February 28, 2023</p>
-                        <p>Congratulations to our students who won prestigious awards...</p>
-                        <a href="#" class="read-more">Read more</a>
-                    </div>
-                </article>
+            <h2>VSIS at a Glance</h2>
+            <div class="facts-grid">
+                <div class="fact-item">
+                    <div class="stat-number" data-target="12000">0</div>
+                    <div class="stat-label">Students</div>
+                </div>
+                <div class="fact-item">
+                    <div class="stat-number" data-target="950">0</div>
+                    <div class="stat-label">Faculty & Staff</div>
+                </div>
+                <div class="fact-item">
+                    <div class="stat-number" data-target="150">0</div>
+                    <div class="stat-label">Degree Programs</div>
+                </div>
+                <div class="fact-item">
+                    <div class="stat-number" data-target="95">0</div>
+                    <div class="stat-label">Employability Rate (%)</div>
+                </div>
             </div>
-            <a href="#" class="btn">All News</a>
         </div>
     </section>
 
-    <!-- Student Statement Section -->
-    <section class="student-statement">
+    <!-- Campus Life Section -->
+    <section class="campus-life-section">
         <div class="container">
-            <img src="images/student.png" alt="VSIS Student">
-            <blockquote>
-                <p>“Why I love studying here? VSIS is tackling real challenges that will shape the future, the teaching is fresh and hands-on, and the University has an outstanding reputation. Plus, our city is a great place to live and study!”</p>
-                <footer>— Priya Sharma, Student</footer>
-            </blockquote>
-        </div>
-    </section>
-
-    <!-- Work at VSIS Section -->
-    <section class="work-at-vsis">
-        <div class="container">
-            <div>
-                <h2>Work at VSIS</h2>
-                <p>Start your journey and advance your career at VSIS. We offer a dynamic environment for academic, research, and administrative professionals. Join us and help shape the future of science and engineering!</p>
-                <a href="jobs.html" class="btn">See Career Opportunities</a>
+            <h2>Vibrant Campus Life</h2>
+            <div class="campus-life-grid">
+                <div class="campus-life-item">
+                    <img src="images/lab.jpg" alt="Students in a lab">
+                    <div class="overlay"><h3>State-of-the-Art Labs</h3></div>
+                </div>
+                <div class="campus-life-item">
+                    <img src="images/student.png" alt="Student life">
+                    <div class="overlay"><h3>Diverse Community</h3></div>
+                </div>
+                <div class="campus-life-item">
+                    <img src="images/business.jpg" alt="University building">
+                    <div class="overlay"><h3>Modern Architecture</h3></div>
+                </div>
+                <div class="campus-life-item">
+                    <img src="images/civil.jpg" alt="Campus grounds">
+                    <div class="overlay"><h3>Green Campus</h3></div>
+                </div>
             </div>
-            <img src="images/work-at-vsis.jpg" alt="Work at VSIS">
         </div>
     </section>
 
     <!-- Footer -->
     <footer class="main-footer">
         <div class="container">
-            <div class="footer-column">
-                <h4>Contact</h4>
-                <address>
-                    VSIS Faculty of Applied Sciences and Engineering<br>
-                    Apuja<br>
-                    752103 Kantapada<br>
-                    India
-                </address>
-            </div>
-            <div class="footer-column">
-                <h4>Quick Links</h4>
-                <ul>
-                    <li><a href="#">Library</a></li>
-                    <li><a href="#">Campus Map</a></li>
-                    <li><a href="#">Staff Directory</a></li>
-                    <li><a href="jobs.html">Jobs</a></li>
-                </ul>
-            </div>
-            <div class="footer-column">
-                <h4>Social Media</h4>
+            <div class="footer-about">
+                <h4>Vikram Sarabhai Institute of Sciences</h4>
+                <p>A premier institution dedicated to excellence in education, research, and innovation. Join us to shape the future.</p>
                 <div class="social-links">
                     <a href="#"><i class="fab fa-facebook"></i></a>
                     <a href="#"><i class="fab fa-twitter"></i></a>
@@ -178,16 +165,36 @@
                     <a href="#"><i class="fab fa-linkedin"></i></a>
                 </div>
             </div>
-        </div>
-        <div class="copyright">
-            <div class="container">
-                <p>&copy; 2025 VSIS Faculty of Applied Sciences and Engineering</p>
+            <div class="footer-column">
+                <h4>Quick Links</h4>
                 <ul>
-                    <li><a href="#">Imprint</a></li>
-                    <li><a href="#">Privacy Policy</a></li>
-                    <li><a href="#">Accessibility</a></li>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Admissions</a></li>
+                    <li><a href="#">Research</a></li>
+                    <li><a href="jobs.html">Careers</a></li>
                 </ul>
             </div>
+            <div class="footer-column">
+                <h4>Study</h4>
+                <ul>
+                    <li><a href="bachelor.html">Bachelor's</a></li>
+                    <li><a href="master.html">Master's</a></li>
+                    <li><a href="phd.html">Doctoral</a></li>
+                    <li><a href="international.html">International</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>Contact</h4>
+                <address>
+                    Apuja, 752103 Kantapada<br>
+                    India<br>
+                    <a href="mailto:info@vsis.edu">info@vsis.edu</a><br>
+                    <a href="tel:+911234567890">+91 12345 67890</a>
+                </address>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2025 VSIS Faculty of Applied Sciences and Engineering. All Rights Reserved.</p>
         </div>
     </footer>
 
