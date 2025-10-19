@@ -1,67 +1,101 @@
+// Study Dropdown: Show right info for selected/hovered left link
 document.addEventListener('DOMContentLoaded', function() {
+    var studyDropdown = document.querySelector('.study-dropdown');
+    if (studyDropdown) {
+        var links = studyDropdown.querySelectorAll('.study-link');
+        var rightInfo = document.getElementById('study-right-info');
 
-    // Sticky Header
-    const header = document.getElementById('main-header');
-    if (header) {
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 50) {
-                header.classList.add('scrolled');
-            } else {
-                header.classList.remove('scrolled');
-            }
+        // Hide right column by default
+        rightInfo.style.display = 'none';
+
+        links.forEach(function(link) {
+            link.addEventListener('mouseenter', function() {
+                links.forEach(function(l) { l.classList.remove('active'); });
+                link.classList.add('active');
+                if (link.textContent.trim().toUpperCase() === 'INTERESTED IN STUDYING?') {
+                    rightInfo.style.display = 'flex';
+                } else {
+                    rightInfo.style.display = 'none';
+                }
+            });
+            link.addEventListener('mouseleave', function() {
+                link.classList.remove('active');
+                rightInfo.style.display = 'none';
+            });
+        });
+        studyDropdown.addEventListener('mouseleave', function() {
+            links.forEach(function(l) { l.classList.remove('active'); });
+            rightInfo.style.display = 'none';
         });
     }
-
-    // Animated Counters
-    const counters = document.querySelectorAll('.stat-number');
-    const speed = 200; // The lower the slower
-
-    const observer = new IntersectionObserver(entries => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                const counter = entry.target;
-                const target = +counter.getAttribute('data-target');
-                
-                const updateCount = () => {
-                    const count = +counter.innerText;
-                    const inc = target / speed;
-
-                    if (count < target) {
-                        counter.innerText = Math.ceil(count + inc);
-                        setTimeout(updateCount, 10);
-                    } else {
-                        counter.innerText = target;
-                    }
-                };
-
-                updateCount();
-                observer.unobserve(counter); // Stop observing once animated
+});
+// Mobile Navigation Toggle
+document.addEventListener('DOMContentLoaded', function() {
+    // Mobile menu toggle would be added here
+    // For now, this is a placeholder for future functionality
+    
+    // Smooth scrolling for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            
+            const targetId = this.getAttribute('href');
+            if (targetId === '#') return;
+            
+            const targetElement = document.querySelector(targetId);
+            if (targetElement) {
+                targetElement.scrollIntoView({
+                    behavior: 'smooth'
+                });
             }
         });
-    }, {
-        threshold: 0.5 // Trigger when 50% of the element is visible
+    });
+    
+    // News item hover effect enhancement
+    const newsItems = document.querySelectorAll('.news-item');
+    newsItems.forEach(item => {
+        item.addEventListener('mouseenter', function() {
+            this.querySelector('.read-more').style.color = '#e2001a';
+        });
+        
+        item.addEventListener('mouseleave', function() {
+            this.querySelector('.read-more').style.color = '';
+        });
+    });
+    
+
+    // ========================
+    // NEW DROPDOWN NAVIGATION CODE
+    // ========================
+    // Support hover to open dropdown on desktop and click for accessibility on touch
+    document.querySelectorAll('.dropdown').forEach(dropdown => {
+        const trigger = dropdown.querySelector('> a');
+        // Hover opens dropdown
+        dropdown.addEventListener('mouseenter', function() {
+            dropdown.setAttribute('aria-expanded', 'true');
+        });
+        dropdown.addEventListener('mouseleave', function() {
+            dropdown.setAttribute('aria-expanded', 'false');
+        });
+        // Click toggles for touch devices
+        trigger.addEventListener('click', function(e) {
+            e.preventDefault();
+            const isExpanded = dropdown.getAttribute('aria-expanded') === 'true';
+            dropdown.setAttribute('aria-expanded', isExpanded ? 'false' : 'true');
+        });
     });
 
-    counters.forEach(counter => {
-        observer.observe(counter);
+    // Close dropdowns when clicking outside
+    document.addEventListener('click', function(e) {
+        if (!e.target.matches('.dropdown, .dropdown *')) {
+            document.querySelectorAll('.dropdown').forEach(dropdown => {
+                dropdown.setAttribute('aria-expanded', 'false');
+            });
+        }
     });
 
-    // Hero Carousel
-    const slides = document.querySelectorAll('.carousel-slide');
-    let currentSlide = 0;
 
-    function showSlide(n) {
-        slides.forEach(slide => slide.classList.remove('active'));
-        slides[n].classList.add('active');
-    }
+    // Language switcher functionality would go here
 
-    function nextSlide() {
-        currentSlide = (currentSlide + 1) % slides.length;
-        showSlide(currentSlide);
-    }
-
-    if (slides.length > 0) {
-        setInterval(nextSlide, 5000); // Change slide every 5 seconds
-    }
-
+    
 });
