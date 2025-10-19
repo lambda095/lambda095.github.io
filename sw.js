@@ -1,5 +1,5 @@
 const CACHE_NAME = 'vsis-site-v1';
-const IMAGES_CACHE = 'images-cache-v1';
+const IMAGES_CACHE = 'images-cache-v2';
 const PRECACHE_URLS = [
   '/',
   '/index.html',
