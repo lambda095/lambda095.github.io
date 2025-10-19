@@ -39,43 +39,90 @@ document.addEventListener('DOMContentLoaded', function() {
 if ('serviceWorker' in navigator) {
     window.addEventListener('load', function() {
         navigator.serviceWorker.register('/sw.js').then(function(reg) {
-                    console.log('Service worker registered.', reg.scope);
-                    // Auto-apply updates: if there's a waiting worker, ask it to skipWaiting
-                    try {
-                        if (reg.waiting) {
-                            reg.waiting.postMessage({ type: 'SKIP_WAITING' });
-                        }
-                    } catch (e) {
-                        // ignore
-                    }
-                    // If a new worker is found while this page is open, ask it to skipWaiting when installed
-                    reg.addEventListener('updatefound', () => {
-                        const newWorker = reg.installing;
-                        newWorker.addEventListener('statechange', () => {
-                            if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
-                                try { newWorker.postMessage({ type: 'SKIP_WAITING' }); } catch(e){}
-                            }
-                        });
+            console.log('Service worker registered.', reg.scope);
+
+            // Helper: show the update banner and wire the button to activate the new SW
+            function showUpdateBanner(worker) {
+                try {
+                    const banner = document.getElementById('updateBanner');
+                    const btn = document.getElementById('btnUpdate');
+                    if (!banner) return;
+                    // Reveal the banner (HTML/CSS controls presentation)
+                    banner.style.display = 'block';
+
+                    if (!btn) return;
+
+                    // Only attach one handler
+                    if (btn.__sw_bound) return;
+                    btn.__sw_bound = true;
+
+                    btn.addEventListener('click', function() {
+                        // Disable button to prevent double clicks
+                        btn.disabled = true;
+                        // First ask the waiting worker to clear image caches (narrow scope)
+                        try { worker.postMessage({ type: 'CLEAR_CACHES' }); } catch (e) {}
+                        // Then tell it to skipWaiting and become active
+                        try { worker.postMessage({ type: 'SKIP_WAITING' }); } catch (e) {}
                     });
+                } catch (e) {
+                    // non-fatal
+                    console.warn('Could not show update banner', e);
+                }
+            }
+
+            // If there's already a waiting worker (page was loaded with an update pending), show UI
+            if (reg.waiting) {
+                showUpdateBanner(reg.waiting);
+            }
+
+            // When a new worker is found, show the banner when it reaches 'installed'
+            reg.addEventListener('updatefound', () => {
+                const newWorker = reg.installing;
+                if (!newWorker) return;
+                newWorker.addEventListener('statechange', () => {
+                    if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
+                        // A new update is available
+                        showUpdateBanner(newWorker);
+                    }
+                });
+            });
+
         }).catch(function(err) {
             console.warn('Service worker registration failed:', err);
         });
     });
 }
 
-        // When the active service worker changes (new SW takes control), clear caches and reload once
-        if ('serviceWorker' in navigator) {
-            let refreshing = false;
-            navigator.serviceWorker.addEventListener('controllerchange', function() {
-                if (refreshing) return;
-                refreshing = true;
-                // Ask the new controller to clear caches, then reload
+// When the active service worker changes (new SW takes control), reload once
+if ('serviceWorker' in navigator) {
+    let refreshing = false;
+    navigator.serviceWorker.addEventListener('controllerchange', function() {
+        if (refreshing) return;
+        refreshing = true;
+        window.location.reload();
+    });
+}
+
+// Listen for messages from the service worker (e.g., CLEAR_DONE)
+if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.addEventListener('message', function(event) {
+        if (!event.data) return;
+        if (event.data.type === 'CLEAR_DONE') {
+            // Re-enable the update button if present
+            try {
+                const btn = document.getElementById('btnUpdate');
+                if (btn) btn.disabled = false;
+            } catch (e) {}
+            // If the new worker already became controller, reload (controllerchange usually handles this)
+            // keep this as a fallback: small timeout to allow controllerchange to fire first
+            setTimeout(() => {
                 if (navigator.serviceWorker.controller) {
-                    try { navigator.serviceWorker.controller.postMessage({ type: 'CLEAR_CACHES' }); } catch(e){}
+                    window.location.reload();
                 }
-                window.location.reload();
-            });
+            }, 250);
         }
+    });
+}
 // Mobile Navigation Toggle
 document.addEventListener('DOMContentLoaded', function() {
     // Mobile menu toggle would be added here

@@ -78,10 +78,19 @@ self.addEventListener('message', (event) => {
   }
   if (event.data && event.data.type === 'CLEAR_CACHES') {
     // Delete old image cache versions but keep the current IMAGES_CACHE
-    caches.keys().then(keys => {
-      const imageKeys = keys.filter(k => k.startsWith('images-cache-') || k.startsWith('images-'))
-        .filter(k => k !== IMAGES_CACHE);
-      return Promise.all(imageKeys.map(k => caches.delete(k)));
-    });
+    event.waitUntil(
+      caches.keys().then(keys => {
+        const imageKeys = keys.filter(k => k.startsWith('images-cache-') || k.startsWith('images-'))
+          .filter(k => k !== IMAGES_CACHE);
+        return Promise.all(imageKeys.map(k => caches.delete(k)));
+      }).then((results) => {
+        // Notify clients that clear is done
+        return self.clients.matchAll().then(clients => {
+          clients.forEach(c => {
+            try { c.postMessage({ type: 'CLEAR_DONE' }); } catch(e){}
+          });
+        });
+      })
+    );
   }
 });
