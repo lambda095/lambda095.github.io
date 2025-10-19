@@ -6,7 +6,7 @@
     <title>Job Details | VSIS</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Merriweather:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
@@ -16,48 +16,68 @@
     <header id="main-header">
         <div class="top-header">
             <div class="container">
-                <div class="quick-links">
+                <div class="top-header-left">
                     <ul>
-                        <li><a href="#">Webmail</a></li>
-                        <li><a href="#">Intranet</a></li>
-                        <li><a href="jobs.html">Jobs</a></li>
-                        <li><a href="#">Contact</a></li>
+                        <li><a href="#">Presse</a></li>
+                        <li><a href="#">FH-Shop</a></li>
+                        <li><a href="jobs.html">Stellenangebote</a></li>
+                        <li><a href="#">Gremien</a></li>
+                        <li><a href="#">Leichte Sprache</a></li>
                     </ul>
                 </div>
-                <div class="top-right">
+                <div class="top-header-right">
+                    <div class="language-switcher">
+                        <a href="#" class="active">DE</a> | <a href="#">EN</a>
+                    </div>
                     <a href="#"><i class="fas fa-search"></i></a>
                 </div>
             </div>
         </div>
         <nav class="main-nav">
-            <div class="container" style="display: flex; justify-content: space-between; align-items: center;">
+            <div class="container">
                 <div class="logo">
                     <a href="index.html">
                         <img src="images/logo.png" alt="VSIS Logo">
                     </a>
                 </div>
                 <ul>
-                    <li><a href="index.html">Home</a></li>
                     <li class="dropdown">
-                        <a href="#">University</a>
+                        <a href="#">Hochschule</a>
                         <div class="dropdown-content">
-                            <a href="#">About Us</a>
+                            <a href="#">Aktuelles</a>
                             <a href="#">Organisation</a>
-                            <a href="#">Friends & Sponsors</a>
+                            <a href="#">Standorte</a>
                         </div>
                     </li>
                     <li class="dropdown">
-                        <a href="#">Study</a>
+                        <a href="#">Studium</a>
                         <div class="dropdown-content">
-                            <a href="diploma.html">Diploma Programs</a>
-                            <a href="bachelor.html">Bachelor Programs</a>
-                            <a href="master.html">Master Programs</a>
-                            <a href="phd.html">PhD Programs</a>
+                            <a href="bachelor.html">Bachelor</a>
+                            <a href="master.html">Master</a>
+                            <a href="phd.html">Promotion</a>
                         </div>
                     </li>
-                    <li><a href="#">Research</a></li>
-                    <li><a href="international.html">International</a></li>
-                    <li><a href="#">Campus Life</a></li>
+                    <li class="dropdown">
+                        <a href="#">Forschung</a>
+                        <div class="dropdown-content">
+                            <a href="#">Forschungsinstitute</a>
+                            <a href="#">Projekte</a>
+                        </div>
+                    </li>
+                    <li class="dropdown">
+                        <a href="international.html">Internationales</a>
+                        <div class="dropdown-content">
+                            <a href="#">Wege ins Ausland</a>
+                            <a href="#">Wege an die FH Aachen</a>
+                        </div>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#">Weiterbildung</a>
+                        <div class="dropdown-content">
+                            <a href="#">Angebote</a>
+                            <a href="#">Kontakt</a>
+                        </div>
+                    </li>
                 </ul>
             </div>
         </nav>
@@ -66,48 +86,24 @@
     <!-- Page-specific content -->
     <main class="job-details-container" style="padding-top: 150px;">
         <div class="container">
-            <!-- Breadcrumb Navigation -->
-            <div class="breadcrumb-nav">
-                <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="jobs.html">Job Vacancies</a></li>
-                    <li class="active">Professor (W2) of Computer Science</li>
-                </ul>
-            </div>
-
-            <!-- Job Header -->
-            <div class="job-details-header">
+            <div class="job-header">
+                <h1 id="job-title">Job Title</h1>
                 <div class="job-meta">
-                    <span class="job-category academic">Academic Position</span>
-                    <span class="job-reference">Ref. No.: W123-2023</span>
-                </div>
-                <h1>Professor (W2) of Computer Science</h1>
-                <div class="job-department">Department of Electrical Engineering and Information Technology</div>
-                
-                <div class="job-meta-details">
-                    <div class="meta-item">
-                        <i class="fas fa-map-marker-alt"></i>
-                        <span>Aachen</span>
-                    </div>
-                    <div class="meta-item">
-                        <i class="fas fa-calendar-alt"></i>
-                        <span>Posted: 15.06.2023</span>
-                    </div>
-                    <div class="meta-item">
-                        <i class="fas fa-clock"></i>
-                        <span>Application deadline: 15.07.2023</span>
-                    </div>
+                    <span id="job-location"><i class="fas fa-map-marker-alt"></i> Location</span>
+                    <span id="job-type"><i class="fas fa-briefcase"></i> Type</span>
                 </div>
             </div>
-
-            <!-- Job Content -->
-            <div class="job-details-content">
-                <!-- Job description content here -->
-            </div>
-
-            <div class="job-details-actions">
-                <a href="jobs.html" class="back-to-jobs-btn"><i class="fas fa-chevron-left"></i> Back to Job Listings</a>
-                <a href="#" class="print-btn"><i class="fas fa-print"></i> Print this Job</a>
+            <div class="job-content">
+                <div class="job-description" id="job-description">
+                    <!-- Job description will be loaded here -->
+                </div>
+                <div class="job-sidebar">
+                    <h3>About the Role</h3>
+                    <ul id="job-highlights">
+                        <!-- Job highlights will be loaded here -->
+                    </ul>
+                    <a href="#" class="btn">Apply Now</a>
+                </div>
             </div>
         </div>
     </main>
@@ -159,6 +155,6 @@
         </div>
     </footer>
 
-    <script src="js/main.js"></script>
+    <script src="js/job-details.js"></script>
 </body>
 </html>

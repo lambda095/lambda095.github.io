@@ -6,7 +6,7 @@
     <title>Vikram Sarabhai Institute of Sciences | Premier Institute for Science & Engineering</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Merriweather:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
@@ -16,60 +16,85 @@
     <header id="main-header">
         <div class="top-header">
             <div class="container">
-                <div class="quick-links">
+                <div class="top-header-left">
                     <ul>
-                        <li><a href="#">Webmail</a></li>
-                        <li><a href="#">Intranet</a></li>
-                        <li><a href="jobs.html">Jobs</a></li>
-                        <li><a href="#">Contact</a></li>
+                        <li><a href="#">Presse</a></li>
+                        <li><a href="#">FH-Shop</a></li>
+                        <li><a href="jobs.html">Stellenangebote</a></li>
+                        <li><a href="#">Gremien</a></li>
+                        <li><a href="#">Leichte Sprache</a></li>
                     </ul>
                 </div>
-                <div class="top-right">
+                <div class="top-header-right">
+                    <div class="language-switcher">
+                        <a href="#" class="active">DE</a> | <a href="#">EN</a>
+                    </div>
                     <a href="#"><i class="fas fa-search"></i></a>
                 </div>
             </div>
         </div>
         <nav class="main-nav">
-            <div class="container" style="display: flex; justify-content: space-between; align-items: center;">
+            <div class="container">
                 <div class="logo">
                     <a href="index.html">
                         <img src="images/logo.png" alt="VSIS Logo">
                     </a>
                 </div>
                 <ul>
-                    <li><a href="index.html">Home</a></li>
                     <li class="dropdown">
-                        <a href="#">University</a>
+                        <a href="#">Hochschule</a>
                         <div class="dropdown-content">
-                            <a href="#">About Us</a>
+                            <a href="#">Aktuelles</a>
                             <a href="#">Organisation</a>
-                            <a href="#">Friends & Sponsors</a>
+                            <a href="#">Standorte</a>
                         </div>
                     </li>
                     <li class="dropdown">
-                        <a href="#">Study</a>
+                        <a href="#">Studium</a>
                         <div class="dropdown-content">
-                            <a href="diploma.html">Diploma Programs</a>
-                            <a href="bachelor.html">Bachelor Programs</a>
-                            <a href="master.html">Master Programs</a>
-                            <a href="phd.html">PhD Programs</a>
+                            <a href="bachelor.html">Bachelor</a>
+                            <a href="master.html">Master</a>
+                            <a href="phd.html">Promotion</a>
                         </div>
                     </li>
-                    <li><a href="#">Research</a></li>
-                    <li><a href="international.html">International</a></li>
-                    <li><a href="#">Campus Life</a></li>
+                    <li class="dropdown">
+                        <a href="#">Forschung</a>
+                        <div class="dropdown-content">
+                            <a href="#">Forschungsinstitute</a>
+                            <a href="#">Projekte</a>
+                        </div>
+                    </li>
+                    <li class="dropdown">
+                        <a href="international.html">Internationales</a>
+                        <div class="dropdown-content">
+                            <a href="#">Wege ins Ausland</a>
+                            <a href="#">Wege an die FH Aachen</a>
+                        </div>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#">Weiterbildung</a>
+                        <div class="dropdown-content">
+                            <a href="#">Angebote</a>
+                            <a href="#">Kontakt</a>
+                        </div>
+                    </li>
                 </ul>
             </div>
         </nav>
     </header>
 
-    <!-- Hero Banner -->
-    <section class="hero">
-        <div class="container">
-            <h1>Innovate. Discover. Excel.</h1>
-            <p>Join a community of thinkers and creators at the forefront of science and engineering.</p>
-            <a href="#" class="btn">Find Your Program</a>
+    <!-- Hero Section -->
+    <section class="hero-carousel">
+        <div class="carousel-slide active" style="background-image: url('images/hero-bg.png');">
+            <div class="container">
+                <div class="slide-content">
+                    <h1>Willkommen an der FH Aachen</h1>
+                    <p>Entdecken Sie unsere praxisnahen Studiengänge und forschungsstarken Fachbereiche.</p>
+                    <a href="#" class="btn">Jetzt informieren</a>
+                </div>
+            </div>
         </div>
+        <!-- Add more slides here -->
     </section>
 
     <!-- Faculties Section -->

@@ -46,4 +46,22 @@ document.addEventListener('DOMContentLoaded', function() {
         observer.observe(counter);
     });
 
+    // Hero Carousel
+    const slides = document.querySelectorAll('.carousel-slide');
+    let currentSlide = 0;
+
+    function showSlide(n) {
+        slides.forEach(slide => slide.classList.remove('active'));
+        slides[n].classList.add('active');
+    }
+
+    function nextSlide() {
+        currentSlide = (currentSlide + 1) % slides.length;
+        showSlide(currentSlide);
+    }
+
+    if (slides.length > 0) {
+        setInterval(nextSlide, 5000); // Change slide every 5 seconds
+    }
+
 });
