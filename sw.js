@@ -1,4 +1,5 @@
 const CACHE_NAME = 'vsis-site-v1';
+const IMAGES_CACHE = 'images-cache-v1';
 const PRECACHE_URLS = [
   '/',
   '/index.html',
@@ -24,6 +25,23 @@ self.addEventListener('install', (event) => {
   event.waitUntil(
     caches.open(CACHE_NAME).then((cache) => cache.addAll(PRECACHE_URLS))
   );
+  // Pre-fill image cache as well
+  event.waitUntil(
+    caches.open(IMAGES_CACHE).then((cache) => cache.addAll([
+      '/images/responsive/start-preliminary-1200.jpg',
+      '/images/responsive/start-preliminary-768.jpg',
+      '/images/responsive/start-preliminary-480.jpg',
+      '/images/responsive/start-preliminary-1800.jpg',
+      '/images/responsive/start-welcome-1200.jpg',
+      '/images/responsive/start-welcome-768.jpg',
+      '/images/responsive/start-welcome-480.jpg',
+      '/images/responsive/start-welcome-1800.jpg',
+      '/images/responsive/start-first-events-1200.jpg',
+      '/images/responsive/start-first-events-768.jpg',
+      '/images/responsive/start-first-events-480.jpg',
+      '/images/responsive/start-first-events-1800.jpg'
+    ]))
+  );
   self.skipWaiting();
 });
 
@@ -41,7 +59,7 @@ self.addEventListener('fetch', (event) => {
   const req = event.request;
   if (req.destination === 'image' || req.url.includes('/images/responsive/')) {
     event.respondWith(
-      caches.open('images-cache').then(async (cache) => {
+      caches.open(IMAGES_CACHE).then(async (cache) => {
         const cached = await cache.match(req);
         const networkFetch = fetch(req).then((res) => {
           if (res && res.status === 200) cache.put(req, res.clone());
@@ -59,9 +77,10 @@ self.addEventListener('message', (event) => {
     self.skipWaiting();
   }
   if (event.data && event.data.type === 'CLEAR_CACHES') {
-    // Clear only image-related caches to avoid wiping other precached site data
+    // Delete old image cache versions but keep the current IMAGES_CACHE
     caches.keys().then(keys => {
-      const imageKeys = keys.filter(k => k === 'images-cache' || k.startsWith('images-') || k.includes('image'));
+      const imageKeys = keys.filter(k => k.startsWith('images-cache-') || k.startsWith('images-'))
+        .filter(k => k !== IMAGES_CACHE);
       return Promise.all(imageKeys.map(k => caches.delete(k)));
     });
   }
