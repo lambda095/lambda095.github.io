@@ -108,7 +108,8 @@
 
 /* Top magenta band spacing and container */
 .top-magenta {
-    background: #b4007a;
+    /* use site's primary color instead of magenta so it blends with the palette */
+    background: var(--primary-color);
     padding: 6px 0;
 }
 
@@ -248,7 +249,7 @@ body {
 
 /* Hero adjustments */
 .hero { padding: 3.5em 0; background: linear-gradient(180deg,#fff,#f7f9fb); }
-.hero h1 { font-size: 2.4em; color: #1b1b1b; margin-bottom: 0.3em; }
+.hero h1 { font-size: 2.4em; color: var(--primary-color); margin-bottom: 0.3em; }
 .hero p { color: #444; margin-bottom: 1em; }
 
 a {
@@ -337,11 +338,15 @@ a {
 .hero h1 {
     font-size: 3rem;
     margin-bottom: 20px;
+    color: var(--white);
+    text-shadow: 0 6px 20px rgba(0,0,0,0.6);
 }
 
 .hero p {
     font-size: 1.5rem;
     margin-bottom: 30px;
+    color: rgba(255,255,255,0.95);
+    text-shadow: 0 3px 12px rgba(0,0,0,0.45);
 }
 
 /* Quick Access Section */
