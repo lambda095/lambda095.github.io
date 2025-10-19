@@ -59,7 +59,10 @@ self.addEventListener('message', (event) => {
     self.skipWaiting();
   }
   if (event.data && event.data.type === 'CLEAR_CACHES') {
-    // optionally clear named caches
-    caches.keys().then(keys => Promise.all(keys.map(k => caches.delete(k))));
+    // Clear only image-related caches to avoid wiping other precached site data
+    caches.keys().then(keys => {
+      const imageKeys = keys.filter(k => k === 'images-cache' || k.startsWith('images-') || k.includes('image'));
+      return Promise.all(imageKeys.map(k => caches.delete(k)));
+    });
   }
 });
