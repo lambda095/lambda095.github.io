@@ -39,43 +39,43 @@ document.addEventListener('DOMContentLoaded', function() {
 if ('serviceWorker' in navigator) {
     window.addEventListener('load', function() {
         navigator.serviceWorker.register('/sw.js').then(function(reg) {
-            console.log('Service worker registered.', reg.scope);
-            // listen for updates to the service worker
-            if (reg.waiting) {
-                showUpdateBanner(reg.waiting);
-            }
-            reg.addEventListener('updatefound', () => {
-                const newWorker = reg.installing;
-                newWorker.addEventListener('statechange', () => {
-                    if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
-                        showUpdateBanner(newWorker);
+                    console.log('Service worker registered.', reg.scope);
+                    // Auto-apply updates: if there's a waiting worker, ask it to skipWaiting
+                    try {
+                        if (reg.waiting) {
+                            reg.waiting.postMessage({ type: 'SKIP_WAITING' });
+                        }
+                    } catch (e) {
+                        // ignore
                     }
-                });
-            });
+                    // If a new worker is found while this page is open, ask it to skipWaiting when installed
+                    reg.addEventListener('updatefound', () => {
+                        const newWorker = reg.installing;
+                        newWorker.addEventListener('statechange', () => {
+                            if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
+                                try { newWorker.postMessage({ type: 'SKIP_WAITING' }); } catch(e){}
+                            }
+                        });
+                    });
         }).catch(function(err) {
             console.warn('Service worker registration failed:', err);
         });
     });
 }
 
-function showUpdateBanner(worker) {
-    const banner = document.getElementById('updateBanner');
-    const btn = document.getElementById('btnUpdate');
-    if (!banner || !btn) return;
-    banner.style.display = 'flex';
-    btn.addEventListener('click', function() {
-        // Ask SW to skip waiting
-        if (worker && worker.postMessage) {
-            worker.postMessage({ type: 'SKIP_WAITING' });
+        // When the active service worker changes (new SW takes control), clear caches and reload once
+        if ('serviceWorker' in navigator) {
+            let refreshing = false;
+            navigator.serviceWorker.addEventListener('controllerchange', function() {
+                if (refreshing) return;
+                refreshing = true;
+                // Ask the new controller to clear caches, then reload
+                if (navigator.serviceWorker.controller) {
+                    try { navigator.serviceWorker.controller.postMessage({ type: 'CLEAR_CACHES' }); } catch(e){}
+                }
+                window.location.reload();
+            });
         }
-        // Clear caches for a fresh reload
-        if (navigator.serviceWorker.controller) {
-            navigator.serviceWorker.controller.postMessage({ type: 'CLEAR_CACHES' });
-        }
-        // Reload to let the new SW control the page
-        setTimeout(() => location.reload(true), 400);
-    });
-}
 // Mobile Navigation Toggle
 document.addEventListener('DOMContentLoaded', function() {
     // Mobile menu toggle would be added here
