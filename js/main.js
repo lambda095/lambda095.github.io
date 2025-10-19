@@ -82,6 +82,43 @@ document.addEventListener('DOMContentLoaded', function() {
         dropdown.addEventListener('mouseleave', function() {
             dropdown.setAttribute('aria-expanded', 'false');
         });
+        // Keyboard support for trigger
+        trigger.addEventListener('keydown', function(e) {
+            // Enter or Space toggles
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                const isExpanded = dropdown.getAttribute('aria-expanded') === 'true';
+                dropdown.setAttribute('aria-expanded', isExpanded ? 'false' : 'true');
+                if (!isExpanded) {
+                    // focus first link inside dropdown
+                    const first = dropdown.querySelector('.study-link');
+                    if (first) first.focus();
+                }
+            }
+            // Escape closes
+            if (e.key === 'Escape') {
+                dropdown.setAttribute('aria-expanded', 'false');
+                trigger.focus();
+            }
+        });
+        // Allow arrow navigation within .study-link items
+        dropdown.querySelectorAll('.study-link').forEach((link, idx, list) => {
+            link.addEventListener('keydown', function(e) {
+                if (e.key === 'ArrowDown') {
+                    e.preventDefault();
+                    const next = list[(idx + 1) % list.length];
+                    if (next) next.focus();
+                } else if (e.key === 'ArrowUp') {
+                    e.preventDefault();
+                    const prev = list[(idx - 1 + list.length) % list.length];
+                    if (prev) prev.focus();
+                } else if (e.key === 'Escape') {
+                    // close dropdown and return focus
+                    dropdown.setAttribute('aria-expanded', 'false');
+                    trigger.focus();
+                }
+            });
+        });
         // Click toggles for touch devices
         trigger.addEventListener('click', function(e) {
             e.preventDefault();

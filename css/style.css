@@ -223,6 +223,51 @@
 .outline-primary { border: 1.5px solid var(--primary-color) !important; color: var(--primary-color) !important; background: #fff !important; }
 .link-primary { color: var(--primary-color); }
 
+/* 'Information about starting your studies' cards */
+.start-studies {
+    --card-shadow: 0 6px 20px rgba(0,0,0,0.45);
+}
+.start-studies h2 {
+    color: #fff;
+    font-weight: 400;
+}
+.start-studies p {
+    color: #d8d8d8;
+    line-height: 1.6;
+}
+.start-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2.2rem;
+}
+.start-card img {
+    width: 100%;
+    height: 190px;
+    object-fit: cover;
+    border-radius: 6px;
+    box-shadow: var(--card-shadow);
+    transition: transform 220ms ease, box-shadow 220ms ease;
+}
+.start-card h3 {
+    margin-top: 0.85rem;
+    color: #fff;
+    font-size: 1.35rem;
+    font-weight: 400;
+}
+.start-card a:hover img,
+.start-card a:focus img {
+    transform: translateY(-6px) scale(1.02);
+    box-shadow: 0 14px 40px rgba(0,0,0,0.55);
+}
+
+@media (max-width: 900px) {
+    .start-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 560px) {
+    .start-grid { grid-template-columns: 1fr; }
+    .start-card img { height: 160px; }
+}
+
 /* FH-Aachen inspired fonts */
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap');
 
