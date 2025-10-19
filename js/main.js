@@ -8,24 +8,29 @@ document.addEventListener('DOMContentLoaded', function() {
         // Hide right column by default
         rightInfo.style.display = 'none';
 
+        // When the entire dropdown is hovered, show it. Hide when leaving the dropdown.
+        var parentDropdown = document.querySelector('.dropdown');
+        if (parentDropdown) {
+            parentDropdown.addEventListener('mouseenter', function() {
+                parentDropdown.setAttribute('aria-expanded', 'true');
+                // show dropdown (CSS handles display via :hover, JS keeps aria state)
+                rightInfo.style.display = 'flex';
+            });
+
+            parentDropdown.addEventListener('mouseleave', function() {
+                parentDropdown.setAttribute('aria-expanded', 'false');
+                rightInfo.style.display = 'none';
+                links.forEach(function(l) { l.classList.remove('active'); });
+            });
+        }
+
+        // Add hover state on each left link to highlight and populate right panel if needed
         links.forEach(function(link) {
             link.addEventListener('mouseenter', function() {
                 links.forEach(function(l) { l.classList.remove('active'); });
                 link.classList.add('active');
-                if (link.textContent.trim().toUpperCase() === 'INTERESTED IN STUDYING?') {
-                    rightInfo.style.display = 'flex';
-                } else {
-                    rightInfo.style.display = 'none';
-                }
+                // Right panel remains visible while hovering the dropdown (handled above)
             });
-            link.addEventListener('mouseleave', function() {
-                link.classList.remove('active');
-                rightInfo.style.display = 'none';
-            });
-        });
-        studyDropdown.addEventListener('mouseleave', function() {
-            links.forEach(function(l) { l.classList.remove('active'); });
-            rightInfo.style.display = 'none';
         });
     }
 });

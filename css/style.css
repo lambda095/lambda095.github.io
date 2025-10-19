@@ -20,11 +20,11 @@
     display: flex;
     flex-direction: column;
     gap: 0.35em;
-    color: #00549e;
+    color: var(--primary-color);
     text-align: left;
 }
 .study-right-link {
-    color: #00549e;
+    color: var(--primary-color);
     background: #d4e6ff !important;
     position: relative;
     text-decoration: none;
@@ -43,12 +43,12 @@
     bottom: 0;
     width: 0;
     height: 2px;
-    background: #00549e;
+    background: var(--primary-color);
     transition: width 0.3s cubic-bezier(.4,0,.2,1);
 }
 .study-right-link:hover,
 .study-right-link.active {
-    color: #00549e;
+    color: var(--primary-color);
 }
 .study-right-link:hover::after,
 .study-right-link.active::after {
@@ -114,23 +114,24 @@
 
 /* Dropdown Styles */
 .main-nav ul li .dropdown-content {
+    /* hidden by default; shown on hover */
     display: none;
     position: absolute;
     left: 0;
     top: 100%;
     z-index: 100;
     background: #fff;
-    color: #00549e;
+    color: var(--primary-color);
     min-width: 320px;
     padding: 0;
     border-radius: 0 0 12px 12px;
     box-shadow: 0 8px 32px rgba(0,0,0,0.10);
-    display: flex;
-    flex-direction: row;
+    /* layout will switch to flex when visible */
 }
 .main-nav ul li:hover .dropdown-content,
 .main-nav ul li.active .dropdown-content {
     display: flex;
+    flex-direction: row;
 }
 .study-left {
     flex: 1;
@@ -143,7 +144,7 @@
 
 /* Study Dropdown Custom Styles */
 .study-dropdown .study-link {
-    color: #00549e;
+    color: var(--primary-color);
     background: #fff;
     position: relative;
     border: none;
@@ -151,7 +152,7 @@
     text-transform: uppercase;
 }
 .study-dropdown .study-link.active {
-    color: #00549e;
+    color: var(--primary-color);
     background: #fff;
 }
 .study-dropdown .study-link.active::after {
@@ -162,7 +163,7 @@
     bottom: 0;
     width: 100%;
     height: 2px;
-    background: #00549e;
+    background: var(--primary-color);
 }
 .study-dropdown .study-link::after {
     content: "";
@@ -172,7 +173,7 @@
     bottom: 0;
     width: 0;
     height: 2px;
-    background: #00549e;
+    background: var(--primary-color);
     transition: width 0.3s cubic-bezier(.4,0,.2,1);
 }
 .study-dropdown .study-link:hover::after {
@@ -180,7 +181,7 @@
 }
 /* Study Dropdown Custom Styles */
 .study-dropdown .study-link {
-    color: #00549e;
+    color: var(--primary-color);
     background: #fff;
     position: relative;
     border: none;
@@ -188,7 +189,7 @@
 }
 .study-dropdown .study-link.active,
 .study-dropdown .study-link:hover {
-    color: #00549e;
+    color: var(--primary-color);
     background: #fff;
 }
 .study-dropdown .study-link.active::after,
@@ -200,19 +201,26 @@
     bottom: 0;
     width: 100%;
     height: 2px;
-    background: #00549e;
+    background: var(--primary-color);
 }
 /* Global Styles */
 /* ========================
    HOME PAGE STYLES
    ======================== */
 :root {
-    --primary-color: #00549e;
+    /* primary color: near-black for headings and accents */
+    --primary-color: #222222; /* slightly softer near-black */
     --secondary-color: #e2001a;
     --light-gray: #f5f5f5;
     --dark-gray: #333;
     --white: #fff;
 }
+
+/* Utility theme classes */
+.text-primary { color: var(--primary-color) !important; }
+.bg-primary { background-color: var(--primary-color) !important; color: var(--white) !important; }
+.outline-primary { border: 1.5px solid var(--primary-color) !important; color: var(--primary-color) !important; background: #fff !important; }
+.link-primary { color: var(--primary-color); }
 
 /* FH-Aachen inspired fonts */
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap');
@@ -555,7 +563,7 @@ a {
 .breadcrumb-nav li:after {
     content: ">";
     margin-left: 10px;
-    color: #00549e;
+    color: var(--primary-color);
 }
 
 .breadcrumb-nav li:last-child:after {
@@ -567,7 +575,7 @@ a {
 }
 
 .breadcrumb-nav a {
-    color: #00549e;
+    color: var(--primary-color);
     text-decoration: none;
 }
 
@@ -582,9 +590,8 @@ a {
 }
 
 .page-header h1 {
-    color: #00549e;
+    color: var(--primary-color);
     font-size: 2.2rem;
-    margin: 0 0 10px 0;
 }
 
 .page-subheader p {
@@ -595,7 +602,6 @@ a {
 
 .job-filters-section {
     background-color: #f5f8fa;
-    padding: 20px;
     margin-bottom: 30px;
     border-radius: 4px;
     display: flex;
@@ -612,13 +618,13 @@ a {
     display: block;
     margin-bottom: 8px;
     font-weight: 600;
-    color: #333333;
+    color: var(--primary-color);
     font-size: 0.9rem;
 }
 
 .filter-select {
     width: 100%;
-    padding: 10px 12px;
+        background-color: var(--primary-color);
     border: 1px solid #cccccc;
     border-radius: 4px;
     background-color: #ffffff;
@@ -628,14 +634,14 @@ a {
 
 .filter-select:focus {
     outline: none;
-    border-color: #00549e;
+    border-color: var(--primary-color);
     box-shadow: 0 0 0 2px rgba(0, 84, 158, 0.2);
-}
+        border-top: 3px solid var(--primary-color);
 
 .job-listings-container {
     margin-bottom: 40px;
 }
-
+        color: var(--primary-color);
 .job-listing {
     border: 1px solid #e0e0e0;
     border-radius: 4px;
@@ -646,7 +652,7 @@ a {
 }
 
 .job-listing:hover {
-    border-color: #00549e;
+    border-color: var(--primary-color);
     box-shadow: 0 2px 10px rgba(0, 84, 158, 0.1);
 }
 
@@ -669,7 +675,7 @@ a {
 
 .job-category.academic {
     background-color: #e6f0fa;
-    color: #00549e;
+    color: var(--primary-color);
 }
 
 .job-category.administrative {
@@ -683,7 +689,7 @@ a {
 }
 
 .job-title {
-    color: #00549e;
+    color: var(--primary-color);
     margin: 0 0 8px 0;
     font-size: 1.3rem;
 }
@@ -710,7 +716,7 @@ a {
 }
 
 .detail-item i {
-    color: #00549e;
+    color: var(--primary-color);
     font-size: 0.9rem;
 }
 
@@ -725,7 +731,7 @@ a {
 }
 
 .view-details-btn {
-    color: #00549e;
+    color: var(--primary-color);
     text-decoration: none;
     font-weight: 600;
     display: inline-flex;
@@ -751,7 +757,7 @@ a {
 }
 
 .print-btn:hover {
-    color: #00549e;
+    color: var(--primary-color);
 }
 
 .pagination {
@@ -771,13 +777,13 @@ a {
 }
 
 .pagination .current-page {
-    background-color: #00549e;
+    background-color: var(--primary-color);
     color: #ffffff;
     font-weight: 600;
 }
 
 .pagination .page-link {
-    color: #00549e;
+    color: var(--primary-color);
     border: 1px solid #e0e0e0;
 }
 
@@ -786,7 +792,7 @@ a {
 }
 
 .pagination .next-page {
-    color: #00549e;
+    color: var(--primary-color);
     font-weight: 600;
 }
 
@@ -840,7 +846,7 @@ a {
 }
 
 .job-details-header h1 {
-    color: #00549e;
+    color: var(--primary-color);
     font-size: 2rem;
     margin: 15px 0 10px 0;
 }
@@ -871,7 +877,7 @@ a {
 
 .job-category.academic {
     background-color: #e6f0fa;
-    color: #00549e;
+    color: var(--primary-color);
 }
 
 .job-reference {
@@ -894,7 +900,7 @@ a {
 }
 
 .meta-item i {
-    color: #00549e;
+    color: var(--primary-color);
     width: 20px;
     text-align: center;
 }
@@ -905,7 +911,7 @@ a {
 }
 
 .job-details-content h2 {
-    color: #00549e;
+    color: var(--primary-color);
     font-size: 1.5rem;
     margin: 30px 0 15px 0;
     padding-bottom: 8px;
@@ -956,7 +962,7 @@ a {
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    color: #00549e;
+    color: var(--primary-color);
     text-decoration: none;
     font-weight: 600;
 }
@@ -974,7 +980,7 @@ a {
 }
 
 .print-btn:hover {
-    color: #00549e;
+    color: var(--primary-color);
 }
 
 /* Responsive Styles */
@@ -1021,7 +1027,7 @@ a {
     min-width: 220px;
     box-shadow: 0 8px 16px rgba(0,0,0,0.1);
     z-index: 1000;
-    border-top: 3px solid #00549e;
+    border-top: 3px solid var(--primary-color);
 }
 
 .dropdown-content a {
@@ -1034,7 +1040,7 @@ a {
 
 .dropdown-content a:hover {
     background-color: #f5f8fa;
-    color: #00549e;
+    color: var(--primary-color);
     padding-left: 20px;
 }
 
@@ -1071,4 +1077,7 @@ a {
 
 .main-nav > .container > ul > li:hover {
     background-color: rgba(255,255,255,0.1);
+}
+
+/* end of stylesheet */
 }
