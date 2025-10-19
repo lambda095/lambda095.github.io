@@ -52,3 +52,14 @@ self.addEventListener('fetch', (event) => {
     );
   }
 });
+
+// Listen for messages from clients (e.g., to skipWaiting)
+self.addEventListener('message', (event) => {
+  if (event.data && event.data.type === 'SKIP_WAITING') {
+    self.skipWaiting();
+  }
+  if (event.data && event.data.type === 'CLEAR_CACHES') {
+    // optionally clear named caches
+    caches.keys().then(keys => Promise.all(keys.map(k => caches.delete(k))));
+  }
+});

@@ -281,6 +281,32 @@
     border: 0 !important;
 }
 
+/* Update banner for service worker refresh */
+.update-banner {
+    position: fixed;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 18px;
+    background: rgba(34,34,34,0.96);
+    color: #fff;
+    padding: 10px 14px;
+    border-radius: 8px;
+    display: none;
+    align-items: center;
+    gap: 10px;
+    z-index: 9999;
+    box-shadow: 0 6px 24px rgba(0,0,0,0.3);
+}
+.update-banner button {
+    background: var(--primary-color);
+    color: #fff;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+.update-banner button:focus { outline: 2px solid #fff; }
+
 /* FH-Aachen inspired fonts */
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap');
 

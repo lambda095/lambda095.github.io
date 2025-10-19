@@ -40,9 +40,40 @@ if ('serviceWorker' in navigator) {
     window.addEventListener('load', function() {
         navigator.serviceWorker.register('/sw.js').then(function(reg) {
             console.log('Service worker registered.', reg.scope);
+            // listen for updates to the service worker
+            if (reg.waiting) {
+                showUpdateBanner(reg.waiting);
+            }
+            reg.addEventListener('updatefound', () => {
+                const newWorker = reg.installing;
+                newWorker.addEventListener('statechange', () => {
+                    if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
+                        showUpdateBanner(newWorker);
+                    }
+                });
+            });
         }).catch(function(err) {
             console.warn('Service worker registration failed:', err);
         });
+    });
+}
+
+function showUpdateBanner(worker) {
+    const banner = document.getElementById('updateBanner');
+    const btn = document.getElementById('btnUpdate');
+    if (!banner || !btn) return;
+    banner.style.display = 'flex';
+    btn.addEventListener('click', function() {
+        // Ask SW to skip waiting
+        if (worker && worker.postMessage) {
+            worker.postMessage({ type: 'SKIP_WAITING' });
+        }
+        // Clear caches for a fresh reload
+        if (navigator.serviceWorker.controller) {
+            navigator.serviceWorker.controller.postMessage({ type: 'CLEAR_CACHES' });
+        }
+        // Reload to let the new SW control the page
+        setTimeout(() => location.reload(true), 400);
     });
 }
 // Mobile Navigation Toggle
