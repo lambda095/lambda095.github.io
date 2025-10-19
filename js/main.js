@@ -34,6 +34,17 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 });
+
+// Register service worker for caching (if supported)
+if ('serviceWorker' in navigator) {
+    window.addEventListener('load', function() {
+        navigator.serviceWorker.register('/sw.js').then(function(reg) {
+            console.log('Service worker registered.', reg.scope);
+        }).catch(function(err) {
+            console.warn('Service worker registration failed:', err);
+        });
+    });
+}
 // Mobile Navigation Toggle
 document.addEventListener('DOMContentLoaded', function() {
     // Mobile menu toggle would be added here
