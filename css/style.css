@@ -278,9 +278,9 @@
 
 /* Dates & Events section (dark, large headings, thin separators) */
 .dates-events {
-    /* use a distinct dark-teal from the palette so it differs from start-studies */
-    background: var(--bg-dark-teal);
-    color: #fff;
+    /* Dates & Events: use a white background with dark text */
+    background: var(--bg-light);
+    color: var(--primary-color);
     padding: 3.5em 0;
 }
 .dates-events .container {
@@ -290,15 +290,15 @@
     /* match the 'Information about starting your studies' h2 size for visual parity */
     font-size: 2.2em;
     font-weight: 300;
-    color: #fff;
+    color: var(--primary-color);
     margin-bottom: 1.25em;
 }
 .dates-events .event {
     padding: 1.6em 0;
-    border-bottom: 1px solid rgba(255,255,255,0.12);
+    border-bottom: 1px solid rgba(0,0,0,0.08);
 }
 .dates-events .meta {
-    color: rgba(255,255,255,0.64);
+    color: rgba(0,0,0,0.56);
     font-size: 0.95rem;
     margin-bottom: 0.45rem;
 }
@@ -306,10 +306,10 @@
     font-size: 1.6rem;
     margin: 0.15rem 0 0.6rem 0;
     font-weight: 400;
-    color: #fff;
+    color: var(--primary-color);
 }
 .dates-events .event p {
-    color: rgba(255,255,255,0.78);
+    color: rgba(0,0,0,0.72);
     margin: 0 0 0.6rem 0;
     max-width: 72ch;
 }
@@ -319,49 +319,46 @@
     margin-top: 0.3rem;
     text-decoration: none;
 }
-.dates-events .read-more::before { content: '→\00a0'; }
+.dates-events .read-more::before { content: '\u2192\\00a0'; }
 
 @media (max-width: 800px) {
     .dates-events h2 { font-size: 2em; }
     .dates-events .event h3 { font-size: 1.35rem; }
 }
-.overview-link {
+.overview-link { color: var(--accent); text-decoration: underline; }
+
+/* Dates overview link: simple underlined teal link (matches reference) */
+.dates-events .overview-link {
     color: var(--accent);
     text-decoration: underline;
-}
-
-/* Make the overview link look like a small button inside the dates preview */
-.dates-events .overview-link {
-    display: inline-block;
     background: transparent;
-    border: 1px solid rgba(255,255,255,0.12);
-    color: #bfe9e7; /* lighter teal on dark bg */
-    padding: 8px 12px;
-    border-radius: 8px;
-    text-decoration: none;
+    border: none;
+    padding: 0;
+    display: inline-block;
     margin-top: 0.8rem;
 }
 .dates-events .overview-link:hover,
 .dates-events .overview-link:focus {
-    background: rgba(191,233,231,0.06);
-    color: #fff;
-    border-color: rgba(255,255,255,0.2);
+    color: color-mix(in srgb, var(--accent) 80%, #000 20%);
+    text-decoration: underline;
 }
 
 @media (min-width: 900px) {
-    .dates-events .overview-link {
-        float: right;
-        margin-left: 1rem;
-    }
+    .dates-events .overview-link { float: left; }
+}
+@media (max-width: 560px) {
+    .dates-events .overview-link { display: block; width: 100%; text-align: left; }
 }
 
-@media (max-width: 560px) {
-    .dates-events .overview-link {
-        display: block;
-        width: 100%;
-        text-align: center;
-    }
+/* News section should be dark with white text */
+.news-section {
+    background: var(--bg-dark);
+    color: #fff;
+    padding: 3.5em 0;
 }
+.news-section h2 { color: #fff; }
+.news-section .news-item h3 { color: #fff; }
+.news-section .btn { background: transparent; color: var(--accent); border: 1px solid rgba(255,255,255,0.08); }
 
 
 /* Screen-reader only helper */
