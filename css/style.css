@@ -116,24 +116,67 @@
 
 /* Dropdown Styles */
 .main-nav ul li .dropdown-content {
-    /* hidden by default; shown on hover */
-    display: none;
+    /* dropdown panel: positioned absolute and off-screen visually by default
+       we use opacity/transform transitions so the panel fades and slides in */
     position: absolute;
     left: 0;
     top: 100%;
     z-index: 100;
     background: var(--bg-light);
     color: var(--primary-color);
-    min-width: 320px;
-    padding: 0;
+    min-width: 520px; /* give ample space for two-column panels */
+    padding: 12px 18px;
     border-radius: 0 0 12px 12px;
-    box-shadow: 0 8px 32px rgba(0,0,0,0.10);
-    /* layout will switch to flex when visible */
-}
-.main-nav ul li:hover .dropdown-content,
-.main-nav ul li.active .dropdown-content {
+    box-shadow: 0 12px 48px rgba(0,0,0,0.12);
     display: flex;
     flex-direction: row;
+    gap: 1.25rem;
+    align-items: flex-start;
+    /* invisible by default (but present in layout) so transitions work */
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(8px);
+    transition: opacity 220ms cubic-bezier(.2,.8,.2,1), transform 220ms cubic-bezier(.2,.8,.2,1), visibility 220ms;
+    pointer-events: none;
+}
+
+.main-nav ul li:hover .dropdown-content,
+.main-nav ul li.active .dropdown-content {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+    pointer-events: auto;
+}
+
+/* Layout inside the dropdown: left and right columns sizing and padding */
+.dropdown-content .study-left {
+    flex: 1;
+    padding: 8px 12px 8px 18px;
+}
+.dropdown-content .study-right {
+    flex: 1.05;
+    padding: 8px 18px 8px 12px;
+    background: transparent; /* keep the right panel background uniform with the panel */
+}
+
+/* On small screens, make dropdowns stack and disable the animation for simplicity */
+@media (max-width: 900px) {
+    .main-nav ul li .dropdown-content {
+        position: static;
+        transform: none;
+        opacity: 1;
+        visibility: visible;
+        pointer-events: auto;
+        box-shadow: none;
+        border-radius: 0;
+        padding: 12px 8px;
+        flex-direction: column;
+        min-width: 0;
+    }
+    .dropdown-content .study-left,
+    .dropdown-content .study-right {
+        padding: 8px 12px;
+    }
 }
 
 /* Ensure the right column inside dropdowns is hidden until the parent is hovered */
