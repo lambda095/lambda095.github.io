@@ -146,16 +146,9 @@ document.addEventListener('DOMContentLoaded', function() {
     });
     
     // News item hover effect enhancement
-    const newsItems = document.querySelectorAll('.news-item');
-    newsItems.forEach(item => {
-        item.addEventListener('mouseenter', function() {
-            this.querySelector('.read-more').style.color = '#e2001a';
-        });
-        
-        item.addEventListener('mouseleave', function() {
-            this.querySelector('.read-more').style.color = '';
-        });
-    });
+    // NOTE: removed inline color changes here so the CSS rules control the
+    // `.read-more` color consistently (prevents JS from forcing a red color on hover).
+    // Previously this code set inline styles which overrode CSS hover behavior.
     
 
     // ========================
