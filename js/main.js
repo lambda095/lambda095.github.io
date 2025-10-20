@@ -234,8 +234,9 @@ document.addEventListener('DOMContentLoaded', function() {
 // Client-side pagination for dates/events page
 (function() {
     function initDatesPagination() {
-        const datesSection = document.querySelector('.dates-events');
-        if (!datesSection) return;
+    const datesSection = document.querySelector('.dates-events');
+    // Only initialize pagination on pages that explicitly opt-in via data-paginate="true"
+    if (!datesSection || datesSection.getAttribute('data-paginate') !== 'true') return;
 
         const events = Array.from(datesSection.querySelectorAll('.event'));
         if (!events.length) return;
