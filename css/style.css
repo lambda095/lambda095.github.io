@@ -391,7 +391,18 @@
 .news-section .read-more::before { content: none; }
 .news-section .read-more:hover,
 .news-section .read-more:focus {
-    color: color-mix(in srgb, var(--accent) 80%, #000 20%);
+    /* keep the same accent color on hover (don't change to other colors) */
+    color: var(--accent);
+    cursor: pointer;
+}
+
+/* Prevent the global .btn:hover from making the 'All News' button text invisible
+   by keeping the news button background transparent on hover while still showing
+   the pointer cursor. This uses existing palette colors only. */
+.news-section .btn:hover {
+    background: transparent !important;
+    color: var(--accent) !important; /* keep text visible */
+    border-color: rgba(255,255,255,0.08) !important;
     cursor: pointer;
 }
 
