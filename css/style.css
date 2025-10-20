@@ -582,6 +582,33 @@ a {
     background: var(--accent);
 }
 
+/* FH Aachen-like header and hero */
+.fh-header {
+    background: var(--white);
+    border-bottom: 1px solid rgba(0,0,0,0.06);
+}
+.fh-header-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 0;
+}
+.fh-logo img { height: 34px; }
+.fh-nav ul { display: flex; gap: 28px; list-style: none; margin: 0; padding: 0; }
+.fh-nav a { color: var(--primary-color); font-weight: 600; letter-spacing: 0.02em; text-decoration: none; }
+.fh-right .fh-search input[type="search"] { padding: 8px 12px; border: none; border-bottom: 2px solid rgba(0,0,0,0.08); background: transparent; width: 220px; }
+.fh-right .fh-search input[type="search"]:focus { outline: none; border-bottom-color: var(--accent); }
+.fh-subheader { background: transparent; padding: 6px 0; }
+.fh-subtext { color: #666; margin: 0; font-size: 0.95rem; }
+
+.fh-hero { height: 220px; background-image: url('../images/hero-bg.png'); background-size: cover; background-position: center; }
+
+@media (max-width: 900px) {
+    .fh-nav ul { gap: 14px; }
+    .fh-right .fh-search input[type="search"] { width: 140px; }
+    .fh-hero { height: 160px; }
+}
+
 /* Header Styles */
 .top-header {
     background: var(--white);
