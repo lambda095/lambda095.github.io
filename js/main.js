@@ -230,3 +230,143 @@ document.addEventListener('DOMContentLoaded', function() {
 
     
 });
+
+// Client-side pagination for dates/events page
+(function() {
+    function initDatesPagination() {
+        const datesSection = document.querySelector('.dates-events');
+        if (!datesSection) return;
+
+        const events = Array.from(datesSection.querySelectorAll('.event'));
+        if (!events.length) return;
+
+        const defaultPageSize = 10;
+        const pageSize = parseInt(datesSection.getAttribute('data-page-size')) || defaultPageSize;
+        const totalPages = Math.max(1, Math.ceil(events.length / pageSize));
+
+        // Helper: show only events for page index (1-based)
+        function showPage(page) {
+            page = Math.max(1, Math.min(totalPages, page));
+            events.forEach((el, idx) => {
+                const pageForIdx = Math.floor(idx / pageSize) + 1;
+                el.style.display = (pageForIdx === page) ? '' : 'none';
+            });
+            updatePaginationUI(page);
+            // update url (without reloading)
+            try {
+                const url = new URL(window.location);
+                url.searchParams.set('page', page);
+                window.history.replaceState({}, '', url);
+            } catch (e) {}
+        }
+
+        // Build or replace pagination nav
+        function buildPagination() {
+            let nav = datesSection.querySelector('.pagination');
+            if (!nav) {
+                nav = document.createElement('nav');
+                nav.className = 'pagination';
+                nav.setAttribute('aria-label', 'Event pages');
+                const ul = document.createElement('ul');
+                ul.className = 'pagination-list';
+                nav.appendChild(ul);
+                datesSection.appendChild(nav);
+            }
+            const ul = nav.querySelector('.pagination-list');
+            ul.innerHTML = '';
+            // prev
+            const liPrev = document.createElement('li');
+            const aPrev = document.createElement('a');
+            aPrev.href = '#';
+            aPrev.className = 'pagination-prev';
+            aPrev.textContent = 'previous';
+            liPrev.appendChild(aPrev);
+            ul.appendChild(liPrev);
+
+            // pages (show up to 7 pages with simple window)
+            for (let i = 1; i <= totalPages; i++) {
+                const li = document.createElement('li');
+                const a = document.createElement('a');
+                a.href = '#';
+                a.className = 'pagination-page';
+                a.textContent = String(i);
+                a.dataset.page = String(i);
+                li.appendChild(a);
+                ul.appendChild(li);
+            }
+
+            // next
+            const liNext = document.createElement('li');
+            const aNext = document.createElement('a');
+            aNext.href = '#';
+            aNext.className = 'pagination-next';
+            aNext.textContent = 'next';
+            liNext.appendChild(aNext);
+            ul.appendChild(liNext);
+
+            // attach handler
+            ul.addEventListener('click', function(e) {
+                const a = e.target.closest('a');
+                if (!a) return;
+                e.preventDefault();
+                if (a.classList.contains('pagination-prev')) {
+                    const current = ul.querySelector('a[aria-current="page"]');
+                    const curPage = current ? parseInt(current.textContent) : 1;
+                    showPage(curPage - 1);
+                    return;
+                }
+                if (a.classList.contains('pagination-next')) {
+                    const current = ul.querySelector('a[aria-current="page"]');
+                    const curPage = current ? parseInt(current.textContent) : 1;
+                    showPage(curPage + 1);
+                    return;
+                }
+                if (a.classList.contains('pagination-page')) {
+                    const p = parseInt(a.dataset.page || a.textContent) || 1;
+                    showPage(p);
+                    return;
+                }
+            });
+        }
+
+        function updatePaginationUI(activePage) {
+            const nav = datesSection.querySelector('.pagination');
+            if (!nav) return;
+            const links = nav.querySelectorAll('.pagination-page');
+            links.forEach(a => {
+                if (parseInt(a.textContent) === activePage) {
+                    a.setAttribute('aria-current', 'page');
+                    a.classList.add('active');
+                } else {
+                    a.removeAttribute('aria-current');
+                    a.classList.remove('active');
+                }
+            });
+            // disable prev/next when at ends
+            const prev = nav.querySelector('.pagination-prev');
+            const next = nav.querySelector('.pagination-next');
+            if (prev) prev.style.pointerEvents = (activePage <= 1) ? 'none' : '';
+            if (next) next.style.pointerEvents = (activePage >= totalPages) ? 'none' : '';
+        }
+
+        // initial page from querystring
+        function initialPage() {
+            try {
+                const params = new URL(window.location).searchParams;
+                const p = parseInt(params.get('page')) || 1;
+                return Math.max(1, Math.min(totalPages, p));
+            } catch (e) { return 1; }
+        }
+
+        buildPagination();
+        showPage(initialPage());
+    }
+
+    // Run on DOM ready
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initDatesPagination);
+    } else {
+        initDatesPagination();
+    }
+})();
+
