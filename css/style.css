@@ -23,6 +23,7 @@
     color: var(--primary-color);
     text-align: left;
 }
+.study-right a { color: var(--primary-color); }
 .study-right-link {
     color: var(--primary-color);
     background: var(--bg-light) !important;
@@ -133,6 +134,39 @@
 .main-nav ul li.active .dropdown-content {
     display: flex;
     flex-direction: row;
+}
+
+/* Ensure the right column inside dropdowns is hidden until the parent is hovered */
+.dropdown .study-right,
+.dropdown .study-right-link,
+.dropdown #study-right-info {
+    display: none;
+}
+.dropdown:hover .study-right,
+.dropdown:hover #study-right-info {
+    display: flex;
+}
+
+/* Right column link hover underline similar to left column */
+.study-right-link {
+    position: relative;
+    color: var(--primary-color);
+    text-decoration: none;
+}
+.study-right-link::after {
+    content: "";
+    display: block;
+    position: absolute;
+    left: 0;
+    bottom: -4px;
+    width: 0;
+    height: 2px;
+    background: var(--primary-color);
+    transition: width 0.28s ease;
+}
+.study-right-link:hover::after,
+.study-right-link.active::after {
+    width: 100%;
 }
 .study-left {
     flex: 1;

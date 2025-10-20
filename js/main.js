@@ -1,38 +1,44 @@
 // Study Dropdown: Show right info for selected/hovered left link
 document.addEventListener('DOMContentLoaded', function() {
-    var studyDropdown = document.querySelector('.study-dropdown');
-    if (studyDropdown) {
+    // Handle dropdowns with left/right panels: show right panel only when a left link is hovered
+    document.querySelectorAll('.dropdown').forEach(function(dropdown) {
+        var studyDropdown = dropdown.querySelector('.study-dropdown');
+        if (!studyDropdown) return; // no left/right panel in this dropdown
+
         var links = studyDropdown.querySelectorAll('.study-link');
-        var rightInfo = document.getElementById('study-right-info');
+        var rightInfo = dropdown.querySelector('.study-right');
+        if (rightInfo) rightInfo.style.display = 'none';
 
-        // Hide right column by default
-        rightInfo.style.display = 'none';
-
-        // When the entire dropdown is hovered, show it. Hide when leaving the dropdown.
-        var parentDropdown = document.querySelector('.dropdown');
-        if (parentDropdown) {
-            parentDropdown.addEventListener('mouseenter', function() {
-                parentDropdown.setAttribute('aria-expanded', 'true');
-                // show dropdown (CSS handles display via :hover, JS keeps aria state)
-                rightInfo.style.display = 'flex';
-            });
-
-            parentDropdown.addEventListener('mouseleave', function() {
-                parentDropdown.setAttribute('aria-expanded', 'false');
-                rightInfo.style.display = 'none';
-                links.forEach(function(l) { l.classList.remove('active'); });
-            });
-        }
-
-        // Add hover state on each left link to highlight and populate right panel if needed
-        links.forEach(function(link) {
-            link.addEventListener('mouseenter', function() {
+        // When hovering or focusing a left link, activate it and show corresponding right panel
+        links.forEach(function(link, idx) {
+            function activate() {
                 links.forEach(function(l) { l.classList.remove('active'); });
                 link.classList.add('active');
-                // Right panel remains visible while hovering the dropdown (handled above)
-            });
+                if (rightInfo) {
+                    rightInfo.style.display = 'flex';
+                    // highlight the corresponding right link if present
+                    var rightLinks = rightInfo.querySelectorAll('.study-right-link');
+                    rightLinks.forEach(function(rl, i) { rl.classList.toggle('active', i === idx); });
+                }
+            }
+            link.addEventListener('mouseenter', activate);
+            link.addEventListener('focus', activate);
         });
-    }
+
+        // Hide right panel when leaving the dropdown entirely
+        dropdown.addEventListener('mouseleave', function() {
+            if (rightInfo) rightInfo.style.display = 'none';
+            links.forEach(function(l) { l.classList.remove('active'); });
+        });
+        // Also hide when focus leaves (accessibility)
+        dropdown.addEventListener('focusout', function(e) {
+            // if focus moves outside the dropdown
+            if (!dropdown.contains(e.relatedTarget)) {
+                if (rightInfo) rightInfo.style.display = 'none';
+                links.forEach(function(l) { l.classList.remove('active'); });
+            }
+        });
+    });
 });
 
 // Register service worker for caching (if supported)
