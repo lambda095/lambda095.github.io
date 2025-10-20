@@ -319,7 +319,7 @@
     margin-top: 0.3rem;
     text-decoration: none;
 }
-.dates-events .read-more::before { content: '\u2192\\00a0'; }
+.dates-events .read-more::before { content: "\2192\00a0"; }
 
 @media (max-width: 800px) {
     .dates-events h2 { font-size: 2em; }
