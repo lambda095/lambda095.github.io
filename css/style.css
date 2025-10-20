@@ -564,6 +564,20 @@ body {
 .hero h1 { font-size: 2.4em; color: var(--primary-color); margin-bottom: 0.3em; }
 .hero p { color: #444; margin-bottom: 1em; }
 
+.fh-brand {
+    font-weight: 700;
+    font-size: 0.95rem;
+    color: var(--primary-color);
+    text-decoration: none;
+    padding: 0.25rem 0.35rem;
+    border-radius: 4px;
+}
+.fh-brand:hover,
+.fh-brand:focus {
+    color: var(--accent);
+    text-decoration: underline;
+    outline: none;
+}
 a {
     text-decoration: none;
     color: var(--primary-color);
