@@ -594,11 +594,11 @@ a {
     justify-content: space-between;
     padding: 8px 0;
 }
+.fh-left { display:flex; align-items:center; gap:18px; }
 .fh-logo img { height: 34px; }
-.fh-nav ul { display: flex; gap: 12px; list-style: none; margin: 0; padding: 0; align-items: center; }
+.fh-nav ul { display: flex; gap: 18px; list-style: none; margin: 0; padding: 0; align-items: center; }
 .fh-nav a { color: var(--primary-color); font-weight: 600; letter-spacing: 0.02em; text-decoration: none; padding: 6px 8px; }
-.fh-center { display:flex; align-items:center; gap:14px; }
-.fh-center .fh-search { margin-left: 8px; }
+.fh-search { margin-left: 12px; }
 .fh-search input[type="search"] { padding: 6px 10px; border: none; border-bottom: 2px solid rgba(0,0,0,0.08); background: transparent; width: 200px; }
 .fh-search input[type="search"]:focus { outline: none; border-bottom-color: var(--accent); }
 .lang-switch a { color: #666; margin: 0 6px; text-decoration: none; }
