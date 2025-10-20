@@ -399,6 +399,17 @@
     border-radius: 6px;
     cursor: pointer;
 }
+
+/* Utility: explicit white text helper (use instead of inline style="color:#fff") */
+.text-white { color: var(--white) !important; }
+
+/* Pagination tiny styles used on the Dates overview page */
+.pagination { padding-top: 0.8rem; }
+.pagination-list { display:flex; gap:1.25rem; list-style:none; padding:0; margin:0; }
+.pagination-list li { display:inline-block; }
+.pagination-list a { color: var(--accent); text-decoration: underline; }
+.pagination-list a[aria-current="page"], .pagination-list a.active { font-weight:600; text-decoration: none; }
+
 .update-banner button:focus { outline: 2px solid #fff; }
 
 /* FH-Aachen inspired fonts */
