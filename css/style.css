@@ -108,8 +108,8 @@
 
 /* Top magenta band spacing and container */
 .top-magenta {
-    /* use site's primary color instead of magenta so it blends with the palette */
-    background: var(--primary-color);
+    /* header band uses the unified black background */
+    background: var(--bg-black);
     padding: 6px 0;
 }
 
@@ -215,6 +215,8 @@
     --light-gray: #f5f5f5;
     --dark-gray: #333;
     --white: #fff;
+    /* Unified black background used across the site */
+    --bg-black: #070707;
 }
 
 /* Utility theme classes */
@@ -581,7 +583,7 @@ a {
 
 /* Footer Styles */
 .main-footer {
-    background: var(--dark-gray);
+    background: var(--bg-black);
     color: var(--white);
     padding: 60px 0 0;
 }
@@ -625,7 +627,7 @@ a {
 }
 
 .copyright {
-    background: #222;
+    background: var(--bg-black);
     padding: 20px 0;
     margin-top: 40px;
 }
