@@ -727,12 +727,12 @@ a {
 
 .intro-section { background: #f6f6f6; padding: 70px 0 80px; }
 .intro-inner { max-width: 1100px; margin: 0 auto; padding-left: 20px; }
-.intro-title { font-size: 3.6rem; font-weight: 300; margin: 0 0 18px; color: var(--primary-color); }
+.intro-title { font-size: 4.2rem; font-weight: 250; line-height: 1; margin: 0 0 18px; color: var(--primary-color); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .intro-paragraph { font-size: 1.05rem; color: #333; max-width: 760px; line-height: 1.7; margin-bottom: 24px; }
 .scroll-indicator { width: 64px; height: 64px; border-radius: 50%; background: #fff; color: #666; display:inline-flex; align-items:center; justify-content:center; font-size: 1.8rem; box-shadow: 0 6px 18px rgba(0,0,0,0.06); }
 
 @media (max-width: 900px) {
-    .intro-title { font-size: 2.3rem; }
+    .intro-title { font-size: 2.3rem; white-space: normal; }
     .intro-inner { padding-left: 0; }
 }
 

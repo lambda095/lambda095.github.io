@@ -230,6 +230,25 @@ document.addEventListener('DOMContentLoaded', function() {
     
 });
 
+// Smooth-scroll for page-specific scroll indicators
+document.addEventListener('DOMContentLoaded', function() {
+    var indicator = document.querySelector('.scroll-indicator');
+    if (!indicator) return;
+    indicator.addEventListener('click', function() {
+        // find the next major section after intro-section
+        var intro = document.querySelector('.intro-section');
+        if (!intro) return;
+        // next section (dates-events) or first section after intro
+        var next = intro.nextElementSibling;
+        // skip non-section nodes if necessary
+        while (next && next.tagName && next.tagName.toLowerCase() !== 'section') {
+            next = next.nextElementSibling;
+        }
+        if (!next) return;
+        next.scrollIntoView({ behavior: 'smooth' });
+    });
+});
+
 // Client-side pagination for dates/events page
 (function() {
     function initDatesPagination() {
