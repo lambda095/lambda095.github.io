@@ -596,7 +596,7 @@ a {
     background: var(--accent);
 }
 
-/* FH Aachen-like header and hero */
+/* VSIS-like header and hero */
 .fh-header {
     background: var(--white);
     border-bottom: 1px solid rgba(0,0,0,0.06);
@@ -621,7 +621,10 @@ a {
 .fh-subtext { color: #666; margin: 0; font-size: 0.95rem; text-align:center; }
 
 /* Improved hero display: use a taller hero with cover but limit cropping by controlling focal point and min-height */
-.fh-hero { min-height: 360px; background-image: url('../images/hero-bg.png'); background-size: cover; background-position: center center; display:block; }
+.fh-hero { min-height: 420px; background-image: url('../images/hero-bg.png'); background-size: cover; background-position: center top; display:block; }
+
+/* Make the section following the hero overlap slightly for the integrated aerial look */
+.hero-overlap { margin-top: -5.5rem; position: relative; z-index: 5; }
 
 @media (max-width: 900px) {
     .fh-nav ul { gap: 8px; }
