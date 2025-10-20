@@ -380,6 +380,21 @@
     cursor: pointer;
 }
 
+/* Style the small 'Read more' link inside the News cards to match the reference */
+.news-section .read-more {
+    color: var(--accent);
+    text-decoration: underline;
+    font-weight: 600;
+    display: inline-block;
+    margin-top: 0.6rem;
+}
+.news-section .read-more::before { content: none; }
+.news-section .read-more:hover,
+.news-section .read-more:focus {
+    color: color-mix(in srgb, var(--accent) 80%, #000 20%);
+    cursor: pointer;
+}
+
 
 /* Screen-reader only helper */
 .sr-only {
