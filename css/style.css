@@ -534,11 +534,8 @@
 
 .update-banner button:focus { outline: 2px solid #fff; }
 
-/* FH-Aachen inspired fonts */
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap');
-
+/* Fonts: loaded from HTML head (Google Fonts link in index.html) */
 html, body { height: 100%; }
-body { font-family: 'Montserrat', Arial, sans-serif; }
 
 * {
     margin: 0;
@@ -547,7 +544,6 @@ body { font-family: 'Montserrat', Arial, sans-serif; }
 }
 
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     line-height: 1.6;
     color: var(--dark-gray);
     background: var(--bg-light);
