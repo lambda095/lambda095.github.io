@@ -327,6 +327,39 @@
     text-decoration: underline;
 }
 
+/* Make the overview link look like a small button inside the dates preview */
+.dates-events .overview-link {
+    display: inline-block;
+    background: transparent;
+    border: 1px solid rgba(255,255,255,0.12);
+    color: #bfe9e7; /* lighter teal on dark bg */
+    padding: 8px 12px;
+    border-radius: 8px;
+    text-decoration: none;
+    margin-top: 0.8rem;
+}
+.dates-events .overview-link:hover,
+.dates-events .overview-link:focus {
+    background: rgba(191,233,231,0.06);
+    color: #fff;
+    border-color: rgba(255,255,255,0.2);
+}
+
+@media (min-width: 900px) {
+    .dates-events .overview-link {
+        float: right;
+        margin-left: 1rem;
+    }
+}
+
+@media (max-width: 560px) {
+    .dates-events .overview-link {
+        display: block;
+        width: 100%;
+        text-align: center;
+    }
+}
+
 
 /* Screen-reader only helper */
 .sr-only {
