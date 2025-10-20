@@ -249,6 +249,15 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
+// Avoid layout jumps by applying a 'fonts-loaded' class once webfonts are ready
+if (document.fonts && document.fonts.ready) {
+    document.fonts.ready.then(function() {
+        document.documentElement.classList.add('fonts-loaded');
+    }).catch(function() {
+        // ignore
+    });
+}
+
 // Client-side pagination for dates/events page
 (function() {
     function initDatesPagination() {
