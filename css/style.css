@@ -618,7 +618,13 @@ a {
 .lang-switch a { color: #666; margin: 0 6px; text-decoration: none; }
 .lang-switch .sep { color: #ccc; margin: 0 6px; }
 .fh-subheader { background: transparent; padding: 6px 0; }
-.fh-subtext { color: #666; margin: 0; font-size: 0.95rem; text-align:center; }
+.fh-subheader .container { display: flex; justify-content: flex-start; }
+.fh-subtext { color: #666; margin: 0; font-size: 0.95rem; text-align:left; margin-top:6px; padding-left: 6px; max-width: 720px; }
+
+@media (max-width: 900px) {
+    .fh-subheader .container { justify-content: center; }
+    .fh-subtext { text-align: center; padding-left:0; }
+}
 
 /* Improved hero display: use a taller hero with cover but limit cropping by controlling focal point and min-height */
 .fh-hero { min-height: 420px; background-image: url('../images/hero-bg.png'); background-size: cover; background-position: center top; display:block; }
