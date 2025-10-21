@@ -727,18 +727,32 @@ h1, h2, h3, h4, h5, h6 { font-weight: 300; letter-spacing: -0.01em; }
     text-shadow: 0 3px 12px rgba(0,0,0,0.45);
 }
 
-.intro-section { background: #f6f6f6; padding: 90px 0; }
-.intro-inner { max-width: 1100px; margin: 0 auto; padding-left: 20px; }
+.intro-section { background: #f6f6f6; padding: 100px 0; position: relative; }
+.intro-inner { max-width: 1100px; margin: 0 auto; padding: 0 20px; display: grid; grid-template-columns: 1fr 220px; align-items: start; gap: 40px; }
 /* Responsive headline: shrink on narrower viewports so it stays on one line */
-.intro-title { font-size: clamp(1.9rem, 3.2vw, 3rem); font-weight: 300; line-height: 1; margin: 0 0 18px; color: var(--primary-color); white-space: nowrap; max-width: 980px; }
+.intro-title { font-size: clamp(1.9rem, 3.2vw, 3rem); font-weight: 300; line-height: 1.08; margin: 0 0 20px; color: var(--primary-color); max-width: 820px; }
 /* enable transition only after fonts have loaded to avoid jank */
 .fonts-loaded .intro-title { transition: font-size 220ms ease, letter-spacing 220ms ease; }
-.intro-paragraph { font-size: 1.05rem; color: #333; max-width: 760px; line-height: 1.7; margin-bottom: 24px; }
-.scroll-indicator { width: 64px; height: 64px; border-radius: 50%; background: #fff; color: #666; display:inline-flex; align-items:center; justify-content:center; font-size: 1.8rem; box-shadow: 0 6px 18px rgba(0,0,0,0.06); }
+.intro-paragraph { font-size: 1.05rem; color: #333; line-height: 1.7; margin-bottom: 32px; }
+.scroll-indicator { width: 64px; height: 64px; border-radius: 50%; background: #fff; color: #666; display:inline-flex; align-items:center; justify-content:center; font-size: 1.8rem; box-shadow: 0 6px 18px rgba(0,0,0,0.06); position: absolute; left: 50%; transform: translateX(-50%); bottom: 28px; }
+
+.intro-brand-vertical {
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+    font-size: 0.85rem;
+    color: rgba(0,0,0,0.75);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+.intro-brand-vertical .brand-small { transform: rotate(180deg); font-weight:600; }
 
 @media (max-width: 900px) {
-    .intro-title { font-size: 2.3rem; white-space: normal; }
-    .intro-inner { padding-left: 0; }
+    .intro-title { font-size: 2.1rem; }
+    .intro-inner { grid-template-columns: 1fr; padding: 0 20px; }
+    .intro-brand-vertical { display: none; }
+    .scroll-indicator { position: static; transform: none; margin: 20px auto 0; }
 }
 
 /* Quick Access Section */
