@@ -50,29 +50,40 @@
 
     <!-- Quick Links Section (overlapping the hero for aerial-style layout) -->
     <!-- DROPDOWN BAR: placed between hero and intro-section (FH Aachen style) -->
-    <section class="filter-bar hero-dropdown" aria-label="Quick filter" role="navigation">
-        <div class="container filter-inner" style="max-width:1100px;">
-            <div class="hero-dropdown-inner">
-                <div class="hero-dropdown-left">
-                    <span class="hero-label">I am</span>
-                    <ul class="left-list" role="list">
-                        <li class="left-item" data-key="prospective" tabindex="0">a Prospective Student</li>
-                        <li class="left-item" data-key="student" tabindex="0">a Student</li>
-                        <li class="left-item" data-key="graduate" tabindex="0">a Graduate</li>
-                        <li class="left-item" data-key="employee" tabindex="0">an Employee</li>
-                        <li class="left-item" data-key="international" tabindex="0">an International</li>
-                        <li class="left-item" data-key="entrepreneur" tabindex="0">an Entrepreneur</li>
-                        <li class="left-item" data-key="citizen" tabindex="0">a Citizen</li>
-                    </ul>
-                </div>
+    <section class="hero-dropdown" aria-label="Quick filter" role="navigation">
+        <div class="container hero-dropdown-container">
+            <button class="hero-dropdown-trigger" id="heroDropdownTrigger" aria-expanded="false" aria-controls="heroDropdownPanel">
+                <span class="trigger-label">I am</span>
+                <span class="trigger-value" id="heroSelectedPrimary">choose</span>
+                <span class="trigger-label">and interested in</span>
+                <span class="trigger-value" id="heroSelectedSecondary">choose</span>
+                <span class="trigger-arrow" aria-hidden="true">▾</span>
+            </button>
 
-                <div class="hero-dropdown-center">
-                    <span class="hero-label">and interested in</span>
-                </div>
+            <div class="hero-dropdown-panel" id="heroDropdownPanel" hidden>
+                <div class="hero-dropdown-inner">
+                    <div class="hero-dropdown-left">
+                        <span class="hero-label">I am</span>
+                        <ul class="left-list" role="list">
+                            <li class="left-item" data-key="prospective" tabindex="0">a Prospective Student</li>
+                            <li class="left-item" data-key="student" tabindex="0">a Student</li>
+                            <li class="left-item" data-key="graduate" tabindex="0">a Graduate</li>
+                            <li class="left-item" data-key="employee" tabindex="0">an Employee</li>
+                            <li class="left-item" data-key="international" tabindex="0">an International</li>
+                            <li class="left-item" data-key="entrepreneur" tabindex="0">an Entrepreneur</li>
+                            <li class="left-item" data-key="citizen" tabindex="0">a Citizen</li>
+                        </ul>
+                    </div>
 
-                <div class="hero-dropdown-right" id="filterRight" aria-live="polite">
-                    <!-- right-column submenus injected here -->
+                    <div class="hero-dropdown-center">
+                        <span class="hero-label">and interested in</span>
+                    </div>
+
+                    <div class="hero-dropdown-right" id="filterRight" aria-live="polite">
+                        <!-- right-column submenus injected here -->
+                    </div>
                 </div>
+                <p class="hero-dropdown-note">Texts on this page have been partially machine translated from German.</p>
             </div>
         </div>
     </section>
@@ -85,39 +96,6 @@
         </div>
     </section>
 
-    <!-- Filter / Dropdown bar (reference: narrow bar with two selects and expandable extras) -->
-    <section class="filter-bar" aria-label="Quick filter" style="margin-top: 1.25rem;">
-        <div class="container filter-inner" style="max-width:1100px;">
-            <div class="filter-row" role="region" aria-labelledby="filter-heading">
-                <h2 id="filter-heading" class="sr-only">I am and interested in</h2>
-                <div class="filter-controls">
-                    <label class="filter-label">I am
-                        <select name="who" id="filter-who" class="filter-select">
-                            <option value="">choose</option>
-                            <option>Prospective student</option>
-                            <option>Researcher</option>
-                            <option>Company</option>
-                        </select>
-                    </label>
-
-                    <label class="filter-label">and interested in
-                        <select name="interest" id="filter-interest" class="filter-select">
-                            <option value="">choose</option>
-                            <option>Study programmes</option>
-                            <option>Research</option>
-                            <option>Jobs</option>
-                        </select>
-                    </label>
-                </div>
-
-                <button class="filter-toggle" id="filterToggle" aria-expanded="false" aria-controls="filterExtras" aria-label="Show more filters">▾</button>
-            </div>
-
-            <div class="filter-extras" id="filterExtras" hidden>
-                <p style="color: #444;">Texts on this page have been partially machine translated from German.</p>
-            </div>
-        </div>
-    </section>
 
     <!-- Information about starting your studies (inserted) -->
     <section class="start-studies bg-dark" style="margin-top: 3.5em; padding: 3.2em 0; color: #fff;">

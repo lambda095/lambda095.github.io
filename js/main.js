@@ -398,36 +398,44 @@ if (document.fonts && document.fonts.ready) {
     }
 })();
 
-// Filter bar toggle (show/hide extras under the hero)
+// Hero dropdown toggle (show/hide the large panel)
 document.addEventListener('DOMContentLoaded', function() {
-    var toggle = document.getElementById('filterToggle');
-    var extras = document.getElementById('filterExtras');
-    if (!toggle || !extras) return;
+    var dropdown = document.querySelector('.hero-dropdown');
+    var trigger = document.getElementById('heroDropdownTrigger');
+    var panel = document.getElementById('heroDropdownPanel');
+    if (!dropdown || !trigger || !panel) return;
 
-    function setExpanded(expanded) {
-        toggle.setAttribute('aria-expanded', expanded ? 'true' : 'false');
-        if (expanded) {
-            extras.hidden = false;
-        } else {
-            extras.hidden = true;
-        }
+    function setOpen(open) {
+        trigger.setAttribute('aria-expanded', open ? 'true' : 'false');
+        dropdown.classList.toggle('open', open);
+        panel.hidden = !open;
     }
 
-    // initialize based on attribute
-    setExpanded(toggle.getAttribute('aria-expanded') === 'true');
-
-    toggle.addEventListener('click', function() {
-        var isExpanded = toggle.getAttribute('aria-expanded') === 'true';
-        setExpanded(!isExpanded);
-        // keep focus on the button for accessibility
-        toggle.focus();
+    trigger.addEventListener('click', function(e) {
+        e.preventDefault();
+        var open = trigger.getAttribute('aria-expanded') === 'true';
+        setOpen(!open);
     });
 
-    // allow closing with Escape when extras are visible
+    dropdown.addEventListener('focusin', function() {
+        setOpen(true);
+    });
+    dropdown.addEventListener('focusout', function(e) {
+        if (!dropdown.contains(e.relatedTarget)) {
+            setOpen(false);
+        }
+    });
+
+    dropdown.addEventListener('mouseenter', function() {
+        setOpen(true);
+    });
+    dropdown.addEventListener('mouseleave', function() {
+        setOpen(false);
+    });
+
     document.addEventListener('keydown', function(e) {
-        if (e.key === 'Escape' && toggle.getAttribute('aria-expanded') === 'true') {
-            setExpanded(false);
-            toggle.focus();
+        if (e.key === 'Escape') {
+            setOpen(false);
         }
     });
 });
@@ -466,6 +474,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
     const leftItems = document.querySelectorAll('.left-item');
     const rightCol = document.getElementById('filterRight');
+    const primaryValue = document.getElementById('heroSelectedPrimary');
+    const secondaryValue = document.getElementById('heroSelectedSecondary');
 
     function renderRight(key) {
         rightCol.innerHTML = '';
@@ -477,9 +487,14 @@ document.addEventListener('DOMContentLoaded', function() {
             const a = document.createElement('a');
             a.href = it.href;
             a.textContent = it.title;
+            a.addEventListener('mouseenter', function() {
+                if (secondaryValue) secondaryValue.textContent = it.title;
+            });
+            a.addEventListener('focus', function() {
+                if (secondaryValue) secondaryValue.textContent = it.title;
+            });
             a.addEventListener('click', function(e) {
-                // default navigation (link exists) - ensure relative navigation works
-                // no special handling here; let browser navigate
+                if (secondaryValue) secondaryValue.textContent = it.title;
             });
             li.appendChild(a);
             ul.appendChild(li);
@@ -493,17 +508,23 @@ document.addEventListener('DOMContentLoaded', function() {
             leftItems.forEach(i => i.classList.remove('active'));
             item.classList.add('active');
             renderRight(key);
+            if (primaryValue) primaryValue.textContent = item.textContent.trim();
+            if (secondaryValue) secondaryValue.textContent = 'choose';
         });
         item.addEventListener('focus', () => {
             leftItems.forEach(i => i.classList.remove('active'));
             item.classList.add('active');
             renderRight(key);
+            if (primaryValue) primaryValue.textContent = item.textContent.trim();
+            if (secondaryValue) secondaryValue.textContent = 'choose';
         });
         // click also activates (useful for touch)
         item.addEventListener('click', () => {
             leftItems.forEach(i => i.classList.remove('active'));
             item.classList.add('active');
             renderRight(key);
+            if (primaryValue) primaryValue.textContent = item.textContent.trim();
+            if (secondaryValue) secondaryValue.textContent = 'choose';
         });
     });
 
@@ -512,6 +533,8 @@ document.addEventListener('DOMContentLoaded', function() {
         const firstKey = leftItems[0].getAttribute('data-key');
         leftItems[0].classList.add('active');
         renderRight(firstKey);
+        if (primaryValue) primaryValue.textContent = leftItems[0].textContent.trim();
+        if (secondaryValue) secondaryValue.textContent = 'choose';
     }
 });
 
