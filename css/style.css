@@ -1506,3 +1506,25 @@ h1, h2, h3, h4, h5, h6 { font-weight: 300; letter-spacing: -0.01em; }
     .filter-label { width:100%; }
     .filter-controls { gap:8px; }
 }
+
+/* FH-like hero dropdown style (black band with two-column menu) */
+.hero-dropdown { background:#070707; color:#fff; padding:18px 0; }
+.hero-dropdown .container { max-width:1200px; }
+.hero-dropdown-inner { display:flex; gap:28px; align-items:flex-start; justify-content:center; }
+.hero-dropdown-left, .hero-dropdown-right { min-width: 280px; }
+.hero-dropdown-center { display:flex; align-items:center; gap:8px; color:#fff; font-size:1.4rem; font-weight:300; }
+.hero-label { display:inline-block; margin-right:12px; font-size:1.2rem; }
+.left-list { list-style:none; padding:0; margin:0; }
+.left-item { padding:10px 12px; color:#fff; cursor:pointer; transition: color 180ms, background 180ms; }
+.left-item:hover, .left-item:focus { color: var(--accent); outline: none; }
+.left-item.active { color: var(--accent); font-weight:600; }
+.hero-dropdown-right { background:transparent; color:#fff; }
+.right-list { list-style:none; padding:0; margin:0; }
+.right-list a { display:block; padding:10px 12px; color:#fff; text-decoration:none; border-bottom:1px solid rgba(255,255,255,0.03); }
+.right-list a:hover, .right-list a:focus { color: var(--accent); text-decoration:none; }
+
+@media (max-width:900px) {
+    .hero-dropdown-inner { flex-direction:column; align-items:stretch; }
+    .hero-dropdown-left, .hero-dropdown-right { width:100%; }
+    .hero-dropdown-center { display:block; text-align:center; margin: 8px 0; }
+}

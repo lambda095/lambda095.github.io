@@ -432,3 +432,86 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
+// Hero dropdown behavior: left->right mapping and navigation
+document.addEventListener('DOMContentLoaded', function() {
+    const mapping = {
+        prospective: [
+            { title: 'Range of Studies Offered', href: 'studies/range.html' },
+            { title: 'Choice of Study - How to Proceed?', href: 'studies/choose.html' },
+            { title: 'Getting Informed and Trying Out', href: 'studies/try.html' },
+            { title: 'Application Process', href: 'studies/application.html' },
+            { title: 'Study Preparation', href: 'studies/prep.html' },
+            { title: 'Financing', href: 'studies/finance.html' }
+        ],
+        student: [
+            { title: 'Timetables & Exams', href: 'studies/timetables.html' },
+            { title: 'Student Counselling', href: 'studies/counselling.html' }
+        ],
+        graduate: [
+            { title: 'Masters Programmes', href: 'studies/masters.html' }
+        ],
+        employee: [
+            { title: 'Working at VSIS', href: 'work/jobs.html' }
+        ],
+        international: [
+            { title: 'International Admission', href: 'international/admission.html' }
+        ],
+        entrepreneur: [
+            { title: 'Startups and Transfer', href: 'research/transfer.html' }
+        ],
+        citizen: [
+            { title: 'Community Programmes', href: 'community/programmes.html' }
+        ]
+    };
+
+    const leftItems = document.querySelectorAll('.left-item');
+    const rightCol = document.getElementById('filterRight');
+
+    function renderRight(key) {
+        rightCol.innerHTML = '';
+        const items = mapping[key] || [];
+        const ul = document.createElement('ul');
+        ul.className = 'right-list';
+        items.forEach(it => {
+            const li = document.createElement('li');
+            const a = document.createElement('a');
+            a.href = it.href;
+            a.textContent = it.title;
+            a.addEventListener('click', function(e) {
+                // default navigation (link exists) - ensure relative navigation works
+                // no special handling here; let browser navigate
+            });
+            li.appendChild(a);
+            ul.appendChild(li);
+        });
+        rightCol.appendChild(ul);
+    }
+
+    leftItems.forEach(item => {
+        const key = item.getAttribute('data-key');
+        item.addEventListener('mouseenter', () => {
+            leftItems.forEach(i => i.classList.remove('active'));
+            item.classList.add('active');
+            renderRight(key);
+        });
+        item.addEventListener('focus', () => {
+            leftItems.forEach(i => i.classList.remove('active'));
+            item.classList.add('active');
+            renderRight(key);
+        });
+        // click also activates (useful for touch)
+        item.addEventListener('click', () => {
+            leftItems.forEach(i => i.classList.remove('active'));
+            item.classList.add('active');
+            renderRight(key);
+        });
+    });
+
+    // initialize with first item
+    if (leftItems.length) {
+        const firstKey = leftItems[0].getAttribute('data-key');
+        leftItems[0].classList.add('active');
+        renderRight(firstKey);
+    }
+});
+
