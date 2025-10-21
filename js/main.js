@@ -304,13 +304,31 @@ if (document.fonts && document.fonts.ready) {
             ul.innerHTML = '';
             // prev
             const liPrev = document.createElement('li');
-            const aPrev = document.createElement('a');
-            aPrev.href = '#';
-            aPrev.className = 'pagination-prev';
-            aPrev.textContent = 'previous';
-            liPrev.appendChild(aPrev);
-            ul.appendChild(liPrev);
-
+            // toggle panel on trigger click only (no open on hover)
+            trigger.addEventListener('click', function(e) {
+                e.preventDefault();
+                const isExpanded = dropdown.getAttribute('aria-expanded') === 'true';
+                dropdown.setAttribute('aria-expanded', isExpanded ? 'false' : 'true');
+            });
+            // Keyboard support for trigger
+            trigger.addEventListener('keydown', function(e) {
+                // Enter or Space toggles
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    const isExpanded = dropdown.getAttribute('aria-expanded') === 'true';
+                    dropdown.setAttribute('aria-expanded', isExpanded ? 'false' : 'true');
+                    if (!isExpanded) {
+                        // focus first link inside dropdown
+                        const first = dropdown.querySelector('.study-link');
+                        if (first) first.focus();
+                    }
+                }
+                // Escape closes
+                if (e.key === 'Escape') {
+                    dropdown.setAttribute('aria-expanded', 'false');
+                    trigger.focus();
+                }
+            });
             // pages (show up to 7 pages with simple window)
             for (let i = 1; i <= totalPages; i++) {
                 const li = document.createElement('li');
@@ -426,13 +444,6 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
-    dropdown.addEventListener('mouseenter', function() {
-        setOpen(true);
-    });
-    dropdown.addEventListener('mouseleave', function() {
-        setOpen(false);
-    });
-
     document.addEventListener('keydown', function(e) {
         if (e.key === 'Escape') {
             setOpen(false);
@@ -503,37 +514,26 @@ document.addEventListener('DOMContentLoaded', function() {
         rightCol.appendChild(ul);
     }
 
+    // Do not populate the right column on hover. Populate only when a left item is clicked.
     leftItems.forEach(item => {
         const key = item.getAttribute('data-key');
-        item.addEventListener('mouseenter', () => {
+        item.addEventListener('click', (e) => {
+            e.preventDefault();
             leftItems.forEach(i => i.classList.remove('active'));
             item.classList.add('active');
             renderRight(key);
             if (primaryValue) primaryValue.textContent = item.textContent.trim();
             if (secondaryValue) secondaryValue.textContent = 'choose';
+            // close the panel after selection
+            setOpen(false);
         });
-        item.addEventListener('focus', () => {
-            leftItems.forEach(i => i.classList.remove('active'));
-            item.classList.add('active');
-            renderRight(key);
-            if (primaryValue) primaryValue.textContent = item.textContent.trim();
-            if (secondaryValue) secondaryValue.textContent = 'choose';
-        });
-        item.addEventListener('click', () => {
-            leftItems.forEach(i => i.classList.remove('active'));
-            item.classList.add('active');
-            renderRight(key);
-            if (primaryValue) primaryValue.textContent = item.textContent.trim();
-            if (secondaryValue) secondaryValue.textContent = 'choose';
+        // keyboard support
+        item.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                item.click();
+            }
         });
     });
-
-    if (leftItems.length) {
-        const firstKey = leftItems[0].getAttribute('data-key');
-        leftItems[0].classList.add('active');
-        renderRight(firstKey);
-        if (primaryValue) primaryValue.textContent = leftItems[0].textContent.trim();
-        if (secondaryValue) secondaryValue.textContent = 'choose';
-    }
 });
 

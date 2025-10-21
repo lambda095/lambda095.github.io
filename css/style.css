@@ -1,11 +1,12 @@
 /* Hero dropdown (FH-style overlay) */
 .hero-dropdown {
     position: relative;
-    margin-top: -70px;
+    margin-top: -110px;
     padding-bottom: 0;
     color: #fff;
     z-index: 6;
 }
+.hero-dropdown { background: #070707; }
 .hero-dropdown-container {
     max-width: 1100px;
     margin: 0 auto;
@@ -41,13 +42,12 @@
 .hero-dropdown.open .trigger-arrow { transform: rotate(180deg); }
 
 .hero-dropdown-panel {
-    position: absolute;
-    left: 0;
-    right: 0;
-    top: 100%;
-    background: rgba(7,7,7,0.97);
+    /* keep the dropdown panel in the document flow so it pushes content down
+       instead of absolutely overlaying the next section */
+    position: relative;
+    background: #070707; /* solid to match the trigger bar */
     padding: 28px 34px 32px 34px;
-    box-shadow: 0 20px 40px rgba(0,0,0,0.35);
+    box-shadow: none;
 }
 .hero-dropdown-panel[hidden] { display: none !important; }
 .hero-dropdown-inner {
@@ -114,7 +114,7 @@
 }
 
 @media (max-width: 900px) {
-    .hero-dropdown { margin-top: -32px; }
+    .hero-dropdown { margin-top: -60px; }
     .hero-dropdown-inner { flex-direction: column; }
     .hero-dropdown-left,
     .hero-dropdown-right { width: 100%; }
@@ -683,9 +683,27 @@ body {
 }
 
 /* Hero adjustments */
-.hero { padding: 3.5em 0; background: linear-gradient(180deg,#fff,#f7f9fb); }
-.hero h1 { font-size: 2.4em; color: var(--primary-color); margin-bottom: 0.3em; }
-.hero p { color: #444; margin-bottom: 1em; }
+.hero {
+    color: #fff;
+    text-align: center;
+    padding: 5.5em 0 5em;
+}
+.hero h1 {
+    font-size: 2.9rem;
+    margin-bottom: 0.5em;
+    font-weight: 300;
+    letter-spacing: -0.01em;
+}
+.hero p {
+    font-size: 1.18rem;
+    margin-bottom: 1.2em;
+    color: rgba(255,255,255,0.9);
+}
+
+.hero.fh-hero {
+    padding: 0;
+    min-height: 360px;
+}
 
 .fh-brand {
     font-weight: 700;
@@ -755,8 +773,18 @@ h1, h2, h3, h4, h5, h6 { font-weight: 300; letter-spacing: -0.01em; }
     .fh-subtext { text-align: center; padding-left:0; }
 }
 
-/* Improved hero display: use a taller hero with cover but limit cropping by controlling focal point and min-height */
-.fh-hero { min-height: 420px; background-image: url('../images/hero-bg.png'); background-size: cover; background-position: center top; display:block; }
+/* Improved hero display: apply a vertical fade so the bottom blends into the dropdown */
+.fh-hero {
+    min-height: 360px;
+    background:
+        linear-gradient(to bottom, rgba(7,7,7,0.05) 0%, rgba(7,7,7,0.25) 35%, rgba(7,7,7,0.75) 78%, rgba(7,7,7,0.95) 92%, rgba(7,7,7,1) 100%),
+        url('../images/hero-bg.png');
+    background-size: cover;
+    background-position: center top;
+    background-repeat: no-repeat;
+    background-color: #070707;
+    display: block;
+}
 
 /* Make the section following the hero overlap slightly for the integrated aerial look */
 .hero-overlap { margin-top: -5.5rem; position: relative; z-index: 5; }
@@ -764,13 +792,14 @@ h1, h2, h3, h4, h5, h6 { font-weight: 300; letter-spacing: -0.01em; }
 @media (max-width: 900px) {
     .fh-nav ul { gap: 8px; }
     .fh-search input[type="search"] { width: 120px; }
-    .fh-hero { min-height: 180px; }
+    .fh-hero { min-height: 160px; }
+    .hero-overlap { margin-top: -3rem; }
 }
 
 @media (max-width: 900px) {
     .fh-nav ul { gap: 14px; }
     .fh-right .fh-search input[type="search"] { width: 140px; }
-    .fh-hero { height: 160px; }
+    .fh-hero { height: 150px; }
 }
 
 /* Header Styles */
@@ -828,40 +857,42 @@ h1, h2, h3, h4, h5, h6 { font-weight: 300; letter-spacing: -0.01em; }
     background: var(--secondary-color);
 }
 
-/* Hero Section */
 .hero {
-    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('../images/hero-bg.png');
-    background-size: cover;
-    background-position: center;
-    color: var(--white);
+    color: #fff;
     text-align: center;
-    padding: 100px 0;
+    padding: 7.5em 0 8.5em;
 }
-
 .hero h1 {
-    font-size: 3.8rem;
-    margin-bottom: 18px;
-    color: var(--white);
+    font-size: 3.2rem;
+    margin-bottom: 0.6em;
     font-weight: 300;
     letter-spacing: -0.01em;
-    text-shadow: 0 6px 20px rgba(0,0,0,0.55);
 }
-
 .hero p {
-    font-size: 1.5rem;
-    margin-bottom: 30px;
-    color: rgba(255,255,255,0.95);
-    text-shadow: 0 3px 12px rgba(0,0,0,0.45);
+    font-size: 1.25rem;
+    margin-bottom: 1.4em;
+    color: rgba(255,255,255,0.92);
 }
 
-.intro-section { background: #f6f6f6; padding: 90px 0; }
-.intro-inner { max-width: 1100px; margin: 0 auto; padding-left: 20px; }
+.intro-section { background: #ffffff; padding: 110px 0; }
+.intro-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1.2rem;
+    text-align: center;
+    min-height: 320px;
+}
 /* Responsive headline: shrink on narrower viewports so it stays on one line */
-.intro-title { font-size: clamp(1.9rem, 3.2vw, 3rem); font-weight: 300; line-height: 1; margin: 0 0 18px; color: var(--primary-color); white-space: nowrap; max-width: 980px; }
+.intro-title { font-size: clamp(2.1rem, 3.6vw, 3.4rem); font-weight: 300; line-height: 1.05; margin: 0; color: var(--primary-color); white-space: normal; max-width: 900px; text-align: center; }
 /* enable transition only after fonts have loaded to avoid jank */
 .fonts-loaded .intro-title { transition: font-size 220ms ease, letter-spacing 220ms ease; }
-.intro-paragraph { font-size: 1.05rem; color: #333; max-width: 760px; line-height: 1.7; margin-bottom: 24px; }
-.scroll-indicator { width: 64px; height: 64px; border-radius: 50%; background: #fff; color: #666; display:inline-flex; align-items:center; justify-content:center; font-size: 1.8rem; box-shadow: 0 6px 18px rgba(0,0,0,0.06); }
+.intro-paragraph { font-size: 1.08rem; color: #333; max-width: 760px; line-height: 1.7; margin: 0; text-align: center; }
+.scroll-indicator { width: 64px; height: 64px; border-radius: 50%; background: rgba(128,128,128,0.65); color: #fff; display:inline-flex; align-items:center; justify-content:center; font-size: 1.8rem; box-shadow: 0 8px 26px rgba(0,0,0,0.18); margin-top: 1.6rem; }
 
 @media (max-width: 900px) {
     .intro-title { font-size: 2.3rem; white-space: normal; }
