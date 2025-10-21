@@ -398,3 +398,37 @@ if (document.fonts && document.fonts.ready) {
     }
 })();
 
+// Filter bar toggle (show/hide extras under the hero)
+document.addEventListener('DOMContentLoaded', function() {
+    var toggle = document.getElementById('filterToggle');
+    var extras = document.getElementById('filterExtras');
+    if (!toggle || !extras) return;
+
+    function setExpanded(expanded) {
+        toggle.setAttribute('aria-expanded', expanded ? 'true' : 'false');
+        if (expanded) {
+            extras.hidden = false;
+        } else {
+            extras.hidden = true;
+        }
+    }
+
+    // initialize based on attribute
+    setExpanded(toggle.getAttribute('aria-expanded') === 'true');
+
+    toggle.addEventListener('click', function() {
+        var isExpanded = toggle.getAttribute('aria-expanded') === 'true';
+        setExpanded(!isExpanded);
+        // keep focus on the button for accessibility
+        toggle.focus();
+    });
+
+    // allow closing with Escape when extras are visible
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && toggle.getAttribute('aria-expanded') === 'true') {
+            setExpanded(false);
+            toggle.focus();
+        }
+    });
+});
+
