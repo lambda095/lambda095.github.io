@@ -15,11 +15,11 @@
     <header class="fh-header">
         <div class="container fh-header-inner">
             <div class="fh-left">
-                <a href="index.html" class="fh-brand">VSIS</a>
                 <nav class="fh-nav">
                     <ul>
-                        <li><a href="#">STUDIES</a></li>
-                        <li><a href="#">RESEARCH</a></li>
+                        <li><a href="#" class="mega-trigger" data-menu="vsis" aria-haspopup="true" aria-controls="megaOverlay" aria-expanded="false">VSIS</a></li>
+                        <li><a href="#" class="mega-trigger" data-menu="studies" aria-haspopup="true" aria-controls="megaOverlay" aria-expanded="false">STUDIES</a></li>
+                        <li><a href="#" class="mega-trigger" data-menu="research" aria-haspopup="true" aria-controls="megaOverlay" aria-expanded="false">RESEARCH</a></li>
                     </ul>
                 </nav>
                 <form class="fh-search" role="search" action="#" method="get">
@@ -91,13 +91,17 @@
         <div class="container intro-inner">
             <h1 class="intro-title">VSIS - Faculty of Engineering and Applied Sciences</h1>
             <p class="intro-paragraph">Are you interested in studying at VSIS, would you like to learn more about the research being done here, or are you looking for a new job? On these pages, we invite you to get more information about VSIS. We look forward to meeting you!</p>
-            <div class="scroll-indicator" aria-hidden="true">▾</div>
+            <button class="scroll-indicator" aria-label="Scroll down" type="button">
+                <svg width="28" height="28" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                    <path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+            </button>
         </div>
     </section>
 
 
     <!-- Information about starting your studies (inserted) -->
-    <section class="start-studies bg-dark" style="margin-top: 3.5em; padding: 3.2em 0; color: #fff;">
+    <section class="start-studies bg-dark" style="padding: 3.2em 0; color: #fff;">
         <div class="container" style="max-width:1100px; margin:0 auto;">
             <h2 style="font-size:2.2em; margin-bottom:1.4em;">Information about starting your studies</h2>
             <p style="max-width:820px; color: #d8d8d8; margin-bottom:1.8em;">Which preliminary courses are there? When do the introductory events take place? How do I set up my university account and how do I create a timetable? Freshers can find answers to these and many other questions on our overview page on the start of studies and the linked subsequent pages.</p>
@@ -209,28 +213,118 @@
         </div>
     </section>
 
-    <!-- Student Statement Section -->
-    <section class="student-statement bg-light" style="padding: 5em 0 4em 0;">
-        <div class="container" style="display: flex; align-items: center; gap: 4em; flex-wrap: wrap; max-width: 1200px;">
-            <img src="images/student.png" alt="VSIS Student" style="width: 200px; height: 200px; object-fit: cover; border-radius: 50%; box-shadow: 0 4px 16px rgba(0,0,0,0.13); flex-shrink: 0;">
-                <blockquote style="flex: 1; font-size: 1.6em; color: #333; margin: 0; line-height: 1.6;">
-                <p style="font-style: italic; margin-bottom: 0.5em;">“Why I love studying here? VSIS is tackling real challenges that will shape the future, the teaching is fresh and hands-on, and the University has an outstanding reputation. Plus, our city is a great place to live and study!”</p>
-                <footer class="text-primary" style="font-weight: bold;">— Priya Sharma, Student</footer>
-            </blockquote>
+    <!-- All About Studying Section -->
+    <section class="studying-section" aria-labelledby="studying-heading">
+        <div class="container">
+            <div class="studying-intro">
+                <figure class="studying-image">
+                    <img src="https://via.placeholder.com/820x460.png?text=All+About+Studying" alt="Students at VSIS campus" loading="lazy">
+                </figure>
+                <div class="studying-content">
+                    <h2 id="studying-heading">All About Studying</h2>
+                    <p>Are you interested in studying at VSIS, or are you already a student here? If so, you can find out everything you need to know before you start your studies here, learn all about the application process, and get to know everything there is to know about studying if you’re already a student, as well as read up on the opportunities that await you after you graduate.</p>
+                    <p class="studying-cta"><a href="#" class="overview-link">All About Studying</a></p>
+                </div>
+            </div>
+
+            <div class="studying-cards">
+                <article class="study-card">
+                    <a class="study-card-link" href="bachelor.html">
+                        <img src="https://via.placeholder.com/520x260.png/ededed/333?text=Range+of+Studies" alt="Placeholder illustration for Range of Studies Offered" loading="lazy">
+                        <h3>Range of Studies Offered</h3>
+                    </a>
+                </article>
+                <article class="study-card">
+                    <a class="study-card-link" href="dates.html">
+                        <img src="https://via.placeholder.com/520x260.png/ededed/333?text=Get+Informed" alt="Placeholder illustration for Get Informed" loading="lazy">
+                        <h3>Get Informed</h3>
+                    </a>
+                </article>
+                <article class="study-card">
+                    <a class="study-card-link" href="#">
+                        <img src="https://via.placeholder.com/520x260.png/ededed/333?text=Application" alt="Placeholder illustration for Application" loading="lazy">
+                        <h3>Application</h3>
+                    </a>
+                </article>
+            </div>
         </div>
     </section>
 
-    <!-- Work at VSIS Section -->
-    <section class="work-at-vsis" style="background: url('images/lab.jpg') center/cover no-repeat; padding: 5em 0 4em 0; border-top: 1px solid #eee;">
-        <div class="container" style="display: flex; align-items: center; gap: 4em; flex-wrap: wrap; max-width: 1200px; border-radius: 20px; box-shadow: 0 4px 24px rgba(0,0,0,0.07);">
-            <div style="flex: 1; min-width: 300px;">
-                <h2 style="color: #fff; margin-bottom: 0.5em; font-size: 2.5em; text-shadow: 0 2px 8px rgba(0,0,0,0.35);">Work at VSIS</h2>
-                <p style="font-size: 1.35em; color: #fff; line-height: 1.7; text-shadow: 0 2px 8px rgba(0,0,0,0.35);">Start your journey and advance your career at VSIS. We offer a dynamic environment for academic, research, and administrative professionals. Join us and help shape the future of science and engineering!</p>
-                <a href="jobs.html" class="btn" style="margin-top: 1.5em; font-size: 1.2em; padding: 16px 36px;">See Career Opportunities</a>
+    <!-- Research at VSIS Section -->
+    <section class="research-section" aria-labelledby="research-heading">
+        <div class="container">
+            <div class="research-intro">
+                <div class="research-content">
+                    <h2 id="research-heading">Research at VSIS</h2>
+                    <p>Research at VSIS is practice- and application-oriented. We see ourselves as an interdisciplinary think tank. The expertise of our scientists lies primarily in the areas of sustainable energy and construction, mobility, life sciences, digitalization, and industrial production.</p>
+                    <p class="research-cta"><a href="#" class="overview-link">Everything about the Topic of Research</a></p>
+                </div>
+                <figure class="research-image">
+                    <img src="https://via.placeholder.com/820x460.png/0a0a0a/00c4ff?text=Research+Image" alt="Research at VSIS" loading="lazy">
+                </figure>
             </div>
-            <img src="images/work-at-vsis.jpg" alt="Work at VSIS" style="width: 260px; height: 200px; object-fit: cover; border-radius: 16px; box-shadow: 0 4px 16px rgba(0,0,0,0.13); flex-shrink: 0;">
+
+            <div class="research-cards">
+                <article class="research-card">
+                    <a class="research-card-link" href="#">
+                        <img src="https://via.placeholder.com/520x260.png/ededed/333?text=Research+Profile" alt="Placeholder for Research Profile" loading="lazy">
+                        <h3>Research Profile</h3>
+                    </a>
+                </article>
+                <article class="research-card">
+                    <a class="research-card-link" href="#">
+                        <img src="https://via.placeholder.com/520x260.png/ededed/333?text=Start-Up" alt="Placeholder for Start-Up" loading="lazy">
+                        <h3>Start-Up</h3>
+                    </a>
+                </article>
+                <article class="research-card">
+                    <a class="research-card-link" href="#">
+                        <img src="https://via.placeholder.com/520x260.png/ededed/333?text=Institutes" alt="Placeholder for Institutes" loading="lazy">
+                        <h3>Institutes</h3>
+                    </a>
+                </article>
+            </div>
         </div>
     </section>
+
+    <!-- This is US Section -->
+    <section class="thisisus-section" aria-labelledby="thisisus-heading">
+        <div class="container">
+            <div class="thisisus-intro">
+                <figure class="thisisus-image">
+                    <img src="https://via.placeholder.com/820x460.png?text=This+is+US" alt="VSIS campus" loading="lazy">
+                </figure>
+                <div class="thisisus-content">
+                    <h2 id="thisisus-heading">This is US!</h2>
+                    <p>With more than 15,000 students, almost 2,000 graduates per year, multiple faculties and dozens of degree programs, VSIS stands among the leading institutes of applied sciences in the region. Across our campuses, we combine strong academic foundations with practical application in collaboration with industry and society.</p>
+                    <p class="thisisus-cta"><a href="#" class="overview-link">Everything about VSIS</a></p>
+                </div>
+            </div>
+
+            <div class="thisisus-cards">
+                <article class="this-card">
+                    <a class="this-card-link" href="#">
+                        <img src="https://via.placeholder.com/520x260.png/ededed/333?text=University+Profile" alt="Placeholder for University Profile" loading="lazy">
+                        <h3>University Profile</h3>
+                    </a>
+                </article>
+                <article class="this-card">
+                    <a class="this-card-link" href="jobs.html">
+                        <img src="https://via.placeholder.com/520x260.png/ededed/333?text=Working+at+VSIS" alt="Placeholder for Working at VSIS" loading="lazy">
+                        <h3>Working at VSIS</h3>
+                    </a>
+                </article>
+                <article class="this-card">
+                    <a class="this-card-link" href="jobs.html">
+                        <img src="https://via.placeholder.com/520x260.png/ededed/333?text=Job+Vacancies" alt="Placeholder for Job Vacancies" loading="lazy">
+                        <h3>Job Vacancies</h3>
+                    </a>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    
 
     <!-- Footer -->
     <footer class="main-footer">
@@ -275,6 +369,27 @@
             </div>
         </div>
     </footer>
+
+    <!-- Left-slide submenu overlay -->
+    <aside id="megaOverlay" class="mega-overlay" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="mega-title">
+        <div class="mega-inner" role="document">
+            <div class="mega-top">
+                <nav class="mega-breadcrumb" aria-label="Section tabs">
+                    <a href="index.html" class="mega-home" aria-label="Home">
+                        <i class="fa-solid fa-house"></i>
+                    </a>
+                    <button class="mega-tab" data-menu="vsis" type="button">VSIS</button>
+                    <button class="mega-tab" data-menu="studies" type="button">Studies</button>
+                    <button class="mega-tab" data-menu="research" type="button">Research</button>
+                </nav>
+                <button class="mega-close" id="megaClose" aria-label="Close submenu" type="button">✕</button>
+            </div>
+            <div class="mega-content">
+                <h2 id="mega-title" class="mega-title">&nbsp;</h2>
+                <ul class="mega-list" role="list"></ul>
+            </div>
+        </div>
+    </aside>
 
     <script src="js/main.js"></script>
     <div class="update-banner" id="updateBanner">

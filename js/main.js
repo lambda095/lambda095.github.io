@@ -41,6 +41,131 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
+// Mega overlay (left-slide submenus for VSIS, Studies, Research)
+document.addEventListener('DOMContentLoaded', function() {
+    const overlay = document.getElementById('megaOverlay');
+    const inner = overlay ? overlay.querySelector('.mega-inner') : null;
+    const titleEl = overlay ? overlay.querySelector('.mega-title') : null;
+    const listEl = overlay ? overlay.querySelector('.mega-list') : null;
+    const closeBtn = overlay ? overlay.querySelector('#megaClose') : null;
+
+    if (!overlay || !inner || !titleEl || !listEl || !closeBtn) return;
+
+    const MENUS = {
+        vsis: {
+            title: 'VSIS',
+            items: [
+                { text: 'Overview', href: '#' },
+                { text: 'University Profile', href: '#' },
+                { text: 'Getting to Know VSIS', href: '#' },
+                { text: 'Working at VSIS', href: 'jobs.html' },
+                { text: 'University Life', href: '#' },
+                { text: 'University Structure', href: '#' },
+                { text: 'Faculties', href: '#' },
+            ]
+        },
+        studies: {
+            title: 'Studies',
+            items: [
+                { text: 'Overview', href: '#' },
+                { text: 'Range of Studies Offered', href: 'bachelor.html' },
+                { text: 'Getting Informed', href: 'dates.html' },
+                { text: 'Applying', href: '#' },
+                { text: 'Studying', href: '#' },
+                { text: 'After Graduating', href: '#' },
+            ]
+        },
+        research: {
+            title: 'Research',
+            items: [
+                { text: 'Overview', href: '#' },
+                { text: 'Research Profile', href: '#' },
+                { text: 'Research Projects', href: '#' },
+                { text: 'Our Research', href: '#' },
+                { text: 'Transfer', href: '#' },
+                { text: 'Starting a Business', href: '#' },
+                { text: 'PhD at VSIS', href: 'phd.html' },
+                { text: 'Research Ethics | Ombudsperson', href: '#' },
+                { text: 'Institutes of VSIS', href: '#' },
+            ]
+        }
+    };
+
+    function renderMenu(key) {
+        const data = MENUS[key];
+        if (!data) return;
+        titleEl.textContent = data.title;
+        listEl.innerHTML = '';
+        data.items.forEach(item => {
+            const li = document.createElement('li');
+            const a = document.createElement('a');
+            a.href = item.href;
+            a.textContent = item.text;
+            const arrow = document.createElement('span');
+            arrow.className = 'arrow';
+            arrow.textContent = '→';
+            a.appendChild(arrow);
+            li.appendChild(a);
+            listEl.appendChild(li);
+        });
+    }
+
+    function openMenu(key) {
+        renderMenu(key);
+        overlay.setAttribute('aria-hidden', 'false');
+        document.body.style.overflow = 'hidden';
+        // set active tab
+        document.querySelectorAll('.mega-breadcrumb .mega-tab').forEach(btn => {
+            btn.classList.toggle('active', btn.getAttribute('data-menu') === key);
+        });
+        // focus first link after transition
+        setTimeout(() => {
+            const first = listEl.querySelector('a');
+            if (first) first.focus();
+        }, 280);
+        // Update triggers aria-expanded
+        document.querySelectorAll('.mega-trigger').forEach(tr => {
+            tr.setAttribute('aria-expanded', tr.getAttribute('data-menu') === key ? 'true' : 'false');
+        });
+    }
+
+    function closeMenu() {
+        overlay.setAttribute('aria-hidden', 'true');
+        document.body.style.overflow = '';
+        document.querySelectorAll('.mega-trigger').forEach(tr => tr.setAttribute('aria-expanded', 'false'));
+    }
+
+    // Trigger clicks
+    document.querySelectorAll('.mega-trigger').forEach(tr => {
+        tr.addEventListener('click', e => {
+            e.preventDefault();
+            const key = tr.getAttribute('data-menu');
+            const isOpen = overlay.getAttribute('aria-hidden') === 'false' &&
+                document.querySelector('.mega-breadcrumb .mega-tab.active')?.getAttribute('data-menu') === key;
+            if (isOpen) {
+                closeMenu();
+            } else {
+                openMenu(key);
+            }
+        });
+    });
+
+    // Tabs inside overlay
+    overlay.querySelectorAll('.mega-tab').forEach(btn => {
+        btn.addEventListener('click', () => openMenu(btn.getAttribute('data-menu')));
+    });
+
+    // Close controls
+    closeBtn.addEventListener('click', closeMenu);
+    overlay.addEventListener('click', (e) => {
+        // click outside inner closes
+        if (e.target === overlay) closeMenu();
+    });
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && overlay.getAttribute('aria-hidden') === 'false') closeMenu();
+    });
+});
+
 // Register service worker for caching (if supported)
 if ('serviceWorker' in navigator) {
     window.addEventListener('load', function() {
