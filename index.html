@@ -48,6 +48,45 @@
         </div>
     </section>
 
+    <!-- FH-style hero dropdown overlay -->
+    <section class="hero-dropdown" aria-label="Quick filter" role="navigation">
+        <div class="container hero-dropdown-container">
+            <button class="hero-dropdown-trigger" id="heroDropdownTrigger" aria-expanded="false" aria-controls="heroDropdownPanel">
+                <span class="trigger-label">I am</span>
+                <span class="trigger-value" id="heroSelectedPrimary">choose</span>
+                <span class="trigger-label">and interested in</span>
+                <span class="trigger-value" id="heroSelectedSecondary">choose</span>
+                <span class="trigger-arrow" aria-hidden="true">▾</span>
+            </button>
+
+            <div class="hero-dropdown-panel" id="heroDropdownPanel" hidden>
+                <div class="hero-dropdown-inner">
+                    <div class="hero-dropdown-left">
+                        <span class="hero-label">I am</span>
+                        <ul class="left-list" role="list">
+                            <li class="left-item" data-key="prospective" tabindex="0">a Prospective Student</li>
+                            <li class="left-item" data-key="student" tabindex="0">a Student</li>
+                            <li class="left-item" data-key="graduate" tabindex="0">a Graduate</li>
+                            <li class="left-item" data-key="employee" tabindex="0">an Employee</li>
+                            <li class="left-item" data-key="international" tabindex="0">an International</li>
+                            <li class="left-item" data-key="entrepreneur" tabindex="0">an Entrepreneur</li>
+                            <li class="left-item" data-key="citizen" tabindex="0">a Citizen</li>
+                        </ul>
+                    </div>
+
+                    <div class="hero-dropdown-center">
+                        <span class="hero-label">and interested in</span>
+                    </div>
+
+                    <div class="hero-dropdown-right" id="filterRight" aria-live="polite">
+                        <!-- right-column submenus injected here -->
+                    </div>
+                </div>
+                <p class="hero-dropdown-note">Texts on this page have been partially machine translated from German.</p>
+            </div>
+        </div>
+    </section>
+
     <section class="intro-section hero-overlap">
         <div class="container intro-inner">
             <h1 class="intro-title">VSIS - Faculty of Applied Sciences and Engineering</h1>
