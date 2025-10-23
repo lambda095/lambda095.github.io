@@ -67,7 +67,7 @@ document.addEventListener('DOMContentLoaded', function() {
         studies: {
             title: 'Studies',
             items: [
-                { text: 'Overview', href: '#' },
+                { text: 'Overview', href: 'studies.html' },
                 { text: 'Range of Studies Offered', href: 'bachelor.html' },
                 { text: 'Getting Informed', href: 'dates.html' },
                 { text: 'Applying', href: '#' },
