@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="820" height="460" viewBox="0 0 820 460" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Minimalist briefcase icon</title>
+  <desc id="desc">Flat vector illustration of a professional briefcase with thin black outlines, soft gray fills on a pure white background, and a single teal clasp accent. Includes subtle ground lines for balance.</desc>
+
+  <!-- Pure white background -->
+  <rect x="0" y="0" width="820" height="460" fill="#FFFFFF"/>
+
+  <!-- Subtle horizontal ground lines -->
+  <line x1="250" y1="340" x2="570" y2="340" stroke="#111111" stroke-width="2" stroke-linecap="round"/>
+  <line x1="310" y1="356" x2="510" y2="356" stroke="#111111" stroke-width="2" stroke-linecap="round" opacity="0.6"/>
+
+  <!-- Briefcase body: soft gray with thin black outline -->
+  <g stroke="#111111" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="250" y="150" width="320" height="170" rx="8" fill="#F4F6FA"/>
+    <!-- Lid seam -->
+    <line x1="250" y1="210" x2="570" y2="210"/>
+
+    <!-- Handle: outline only -->
+    <path d="M330 150c0-20 18-36 40-36h80c22 0 40 16 40 36" fill="none"/>
+
+    <!-- Single teal accent on clasp -->
+    <rect x="382" y="198" width="56" height="44" rx="4" fill="#00A5A0"/>
+
+    <!-- Optional side buckles (outline only) -->
+    <rect x="285" y="224" width="30" height="28" rx="4" fill="none"/>
+    <rect x="505" y="224" width="30" height="28" rx="4" fill="none"/>
+  </g>
+</svg>

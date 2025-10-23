@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="820" height="460" viewBox="0 0 820 460" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Minimalist magnifying glass inspecting a resume</title>
+  <desc id="desc">Flat SVG-style icon: magnifying glass over a document, thin black outlines with soft grays on a pure white background. Single teal highlight shows a person silhouette inside the lens.</desc>
+
+  <!-- Pure white background -->
+  <rect x="0" y="0" width="820" height="460" fill="#FFFFFF"/>
+
+  <!-- Ground lines (black + shorter gray, centered) -->
+  <line x1="250" y1="340" x2="570" y2="340" stroke="#111111" stroke-width="2" stroke-linecap="round"/>
+  <line x1="310" y1="356" x2="510" y2="356" stroke="#111111" stroke-width="2" stroke-linecap="round" opacity="0.45"/>
+
+  <!-- Document / resume -->
+  <g stroke="#111111" stroke-width="2" stroke-linejoin="round" stroke-linecap="round">
+  <rect x="325" y="96" width="170" height="230" rx="6" fill="#F4F6FA"/>
+    <!-- top fold / header linework -->
+  <!-- right-side content lines positioned between the resume edge and the person in the lens -->
+  <line x1="440" y1="148" x2="488" y2="148"/>
+  <line x1="440" y1="170" x2="488" y2="170"/>
+  <line x1="440" y1="192" x2="482" y2="192"/>
+  <line x1="440" y1="214" x2="476" y2="214"/>
+  </g>
+
+  <!-- Magnifying glass centered above the ground line and over the document -->
+  <g stroke="#111111" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" fill="none">
+    <!-- lens ring -->
+    <circle cx="410" cy="210" r="86"/>
+    <!-- handle -->
+    <path d="M470 268 L530 328"/>
+  </g>
+
+  <!-- Teal focal element INSIDE the lens (single path for head+shoulders) -->
+  <path d="M410 186
+           m -22,0
+           a 22,22 0 1 0 44,0
+           a 22,22 0 1 0 -44,0
+           M 372 256
+           c 7 -24 26 -36 38 -36
+           h 0
+           c 12 0 31 12 38 36
+           z" fill="#00A5A0"/>
+
+  <!-- Lens subtle inner guide ring (thin) -->
+  <circle cx="410" cy="210" r="66" stroke="#111111" stroke-width="2" fill="none" opacity="0.45"/>
+</svg>
