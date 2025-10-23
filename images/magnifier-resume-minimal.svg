@@ -3,6 +3,13 @@
   <title id="title">Minimalist magnifying glass inspecting a resume</title>
   <desc id="desc">Flat SVG-style icon: magnifying glass over a document, thin black outlines with soft grays on a pure white background. Single teal highlight shows a person silhouette inside the lens.</desc>
 
+  <defs>
+    <!-- Clip to the resume so overlays only affect the document area -->
+    <clipPath id="resumeClip">
+      <rect x="325" y="96" width="170" height="230" rx="6" />
+    </clipPath>
+  </defs>
+
   <!-- Pure white background -->
   <rect x="0" y="0" width="820" height="460" fill="#FFFFFF"/>
 
@@ -28,6 +35,10 @@
     <!-- handle -->
     <path d="M470 268 L530 328"/>
   </g>
+
+  <!-- Overlay the resume's background color inside the lens area so the
+       resume lines appear behind the person but in front of the resume fill -->
+  <circle cx="410" cy="210" r="86" fill="#F4F6FA" clip-path="url(#resumeClip)"/>
 
   <!-- Teal focal element INSIDE the lens (single path for head+shoulders) -->
   <path d="M410 186

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="820" height="460" viewBox="0 0 820 460" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Open envelope with launching paper plane</title>
+  <desc id="desc">Flat SVG icon: open envelope with thin black outlines and a single teal paper plane launching from it. Pure white background, no shadows or gradients.</desc>
+
+  <!-- Pure white background -->
+  <rect x="0" y="0" width="820" height="460" fill="#FFFFFF"/>
+
+  <!-- Subtle ground lines for balance -->
+  <line x1="250" y1="380" x2="570" y2="380" stroke="#111111" stroke-width="2" stroke-linecap="round"/>
+  <line x1="310" y1="396" x2="510" y2="396" stroke="#111111" stroke-width="2" stroke-linecap="round" opacity="0.45"/>
+
+  <!-- Envelope (open, more realistic) -->
+  <g stroke="#111111" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" fill="#FFFFFF">
+    <!-- Back flap opened upward (behind the document) -->
+    <polygon points="260,210 410,120 560,210"/>
+  </g>
+
+  <!-- Document coming out of the envelope -->
+  <g stroke="#111111" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" fill="#FFFFFF">
+    <rect x="300" y="150" width="220" height="110" rx="6"/>
+    <!-- simple text lines on document -->
+    <line x1="320" y1="176" x2="500" y2="176"/>
+    <line x1="320" y1="196" x2="500" y2="196"/>
+    <line x1="320" y1="216" x2="460" y2="216"/>
+  </g>
+
+  <!-- Front envelope body and seams -->
+  <g stroke="#111111" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" fill="#FFFFFF">
+    <!-- front panel -->
+    <rect x="260" y="210" width="300" height="120" rx="6"/>
+    <!-- front seam forming a V -->
+    <path d="M260 210 L410 300 L560 210" fill="none"/>
+    <!-- inner creases to corners -->
+    <path d="M260 330 L410 260 L560 330" fill="none"/>
+  </g>
+
+  <!-- Paper plane (single teal accent), placed further from the envelope for a clearer trajectory -->
+  <g stroke="#111111" stroke-width="2" stroke-linejoin="round" stroke-linecap="round">
+    <!-- main body of the plane (two visible faces) -->
+    <path d="M540 160 L700 110 L620 170 L632 196 Z" fill="#00A5A0"/>
+    <!-- inner fold line toward the nose -->
+    <line x1="600" y1="168" x2="700" y2="110" />
+    <!-- trailing edge line for thickness -->
+    <line x1="540" y1="160" x2="620" y2="170" />
+  </g>
+
+  <!-- Launch motion hint: dashed arc behind/near the plane -->
+  <path d="M430 230 C500 190 570 168 640 150" stroke="#111111" stroke-width="2" fill="none" stroke-dasharray="6 6" opacity="0.6"/>
+</svg>

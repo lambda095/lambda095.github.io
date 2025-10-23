@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="820" height="460" viewBox="0 0 820 460" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Flat atom icon</title>
+  <desc id="desc">Flat SVG-style atom with black outline orbits and a single teal nucleus on a pure white background. No shading or gradients.</desc>
+
+  <!-- Pure white background -->
+  <rect x="0" y="0" width="820" height="460" fill="#FFFFFF"/>
+
+  <!-- Ground lines (black + shorter gray, centered) -->
+  <!-- Align underline vertical position with doc-alert-folder.svg for consistent look -->
+  <line x1="250" y1="410" x2="570" y2="410" stroke="#111111" stroke-width="2" stroke-linecap="round"/>
+  <line x1="310" y1="426" x2="510" y2="426" stroke="#111111" stroke-width="2" stroke-linecap="round" opacity="0.45"/>
+
+  <!-- Atom orbits: black outlines only -->
+  <g stroke="#111111" stroke-width="3" fill="none" stroke-linecap="round">
+    <!-- Horizontal ellipse -->
+    <ellipse cx="410" cy="230" rx="150" ry="86" />
+    <!-- Rotated +60deg ellipse -->
+    <g transform="rotate(60 410 230)">
+      <ellipse cx="410" cy="230" rx="150" ry="86" />
+    </g>
+    <!-- Rotated -60deg ellipse -->
+    <g transform="rotate(-60 410 230)">
+      <ellipse cx="410" cy="230" rx="150" ry="86" />
+    </g>
+  </g>
+
+  <!-- Nucleus: single teal fill, black outline -->
+  <circle cx="410" cy="230" r="28" fill="#00A5A0" stroke="#111111" stroke-width="2"/>
+
+  <!-- Electrons: small black circles placed on each orbit -->
+  <circle cx="560" cy="230" r="7" fill="#111111"/>
+  <g transform="rotate(60 410 230)">
+    <circle cx="320" cy="230" r="7" fill="#111111"/>
+  </g>
+  <g transform="rotate(-60 410 230)">
+    <circle cx="320" cy="230" r="7" fill="#111111"/>
+  </g>
+</svg>
