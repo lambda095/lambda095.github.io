@@ -164,6 +164,17 @@ document.addEventListener('DOMContentLoaded', function() {
     document.addEventListener('keydown', (e) => {
         if (e.key === 'Escape' && overlay.getAttribute('aria-hidden') === 'false') closeMenu();
     });
+
+    // Allow contextual links to trigger the Studies mega menu directly
+    document.querySelectorAll('.more-about').forEach(link => {
+        link.addEventListener('click', (event) => {
+            const href = link.getAttribute('href') || '';
+            if (href.startsWith('#')) {
+                event.preventDefault();
+            }
+            openMenu('studies');
+        });
+    });
 });
 
 // Register service worker for caching (if supported)

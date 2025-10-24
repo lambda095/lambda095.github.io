@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="480" viewBox="0 0 640 480" role="img" aria-labelledby="title desc">
+  <title id="title">Placeholder</title>
+  <desc id="desc">Neutral grey rectangle placeholder for range of studies image</desc>
+  <rect width="640" height="480" fill="#e0e3e8"/>
+  <rect x="20" y="20" width="600" height="440" fill="none" stroke="#b5bcc6" stroke-width="4" stroke-dasharray="16 12"/>
+  <text x="50%" y="50%" fill="#69707a" font-family="Arial, sans-serif" font-size="28" font-weight="600" text-anchor="middle" dominant-baseline="middle">Image Placeholder</text>
+</svg>
