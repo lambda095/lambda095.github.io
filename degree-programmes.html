@@ -4,11 +4,20 @@
 	<meta charset="UTF-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<title>Range of Studies Offered | VSIS</title>
+	
+	<!-- DNS Prefetch and Preconnect for external resources -->
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link rel="preconnect" href="https://cdnjs.cloudflare.com">
+	
+	<!-- Preload critical resources -->
+	<link rel="preload" href="css/style.css?v=20251024c" as="style">
+	<link rel="preload" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;600;700&display=swap" as="style">
+	
+	<!-- Stylesheets -->
 	<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;600;700&display=swap" rel="stylesheet">
-	<link rel="stylesheet" href="css/style.css?v=20251024b" />
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+	<link rel="stylesheet" href="css/style.css?v=20251024c" />
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" media="print" onload="this.media='all'" />
 </head>
 <body>
 	<header class="fh-header">
@@ -68,7 +77,7 @@
 					</div>
 				</div>
 				<div class="range-media">
-					<img src="images/studies_offered.png" alt="Range of studies offered" loading="lazy" />
+					<img src="images/studies_offered.png" alt="Range of studies offered" loading="lazy" width="600" height="450" />
 				</div>
 			</div>
 		</section>
@@ -79,19 +88,19 @@
 			<div class="interest-cards">
 				<article class="interest-card">
 					<a class="interest-link" href="bachelor.html">
-						<img class="crop-hide-star" src="images/science.png" alt="Undergraduate students collaborating" loading="lazy" />
+						<img class="crop-hide-star" src="images/science.png" alt="Undergraduate students collaborating" loading="lazy" width="400" height="250" />
 						<h3>+2 Science (CHSE/CBSE)</h3>
 					</a>
 				</article>
 				<article class="interest-card">
 					<a class="interest-link" href="master.html">
-						<img class="crop-hide-star" src="images/diploma_eng.png" alt="Graduate student reviewing project plans" loading="lazy" />
+						<img class="crop-hide-star" src="images/diploma_eng.png" alt="Graduate student reviewing project plans" loading="lazy" width="400" height="250" />
 						<h3>Diploma Programmes</h3>
 					</a>
 				</article>
 				<article class="interest-card">
 					<a class="interest-link" href="phd.html">
-						<img class="crop-hide-star" src="images/bachelor_eng.png" alt="Doctoral researcher conducting experiments" loading="lazy" />
+						<img class="crop-hide-star" src="images/bachelor_eng.png" alt="Doctoral researcher conducting experiments" loading="lazy" width="400" height="250" />
 						<h3>Bachelor's Programmes</h3>
 					</a>
 				</article>
@@ -162,7 +171,8 @@
 		</div>
 	</aside>
 
-	<script src="js/main.js"></script>
+	<script src="js/image-optimizer.js" defer></script>
+	<script src="js/main.js" defer></script>
 	<div class="update-banner" id="updateBanner">
 		<span>New version available</span>
 		<button id="btnUpdate">Reload</button>

@@ -1,46 +1,24 @@
-const CACHE_NAME = 'vsis-site-v1';
-const IMAGES_CACHE = 'images-cache-v2';
+const CACHE_NAME = 'vsis-site-v3';
+const IMAGES_CACHE = 'images-cache-v3';
+const STATIC_CACHE = 'static-cache-v3';
+const MAX_IMAGES = 50; // Limit number of cached images
+const CACHE_EXPIRY = 7 * 24 * 60 * 60 * 1000; // 7 days in milliseconds
+
 const PRECACHE_URLS = [
   '/',
   '/index.html',
   '/diploma.html',
   '/css/style.css',
   '/js/main.js',
-  '/images/logo.png',
-  '/images/responsive/start-preliminary-1200.jpg',
-  '/images/responsive/start-preliminary-768.jpg',
-  '/images/responsive/start-preliminary-480.jpg',
-  '/images/responsive/start-preliminary-1800.jpg',
-  '/images/responsive/start-welcome-1200.jpg',
-  '/images/responsive/start-welcome-768.jpg',
-  '/images/responsive/start-welcome-480.jpg',
-  '/images/responsive/start-welcome-1800.jpg',
-  '/images/responsive/start-first-events-1200.jpg',
-  '/images/responsive/start-first-events-768.jpg',
-  '/images/responsive/start-first-events-480.jpg',
-  '/images/responsive/start-first-events-1800.jpg'
+  '/js/image-optimizer.js',
+  '/images/logo.png'
 ];
 
 self.addEventListener('install', (event) => {
   event.waitUntil(
-    caches.open(CACHE_NAME).then((cache) => cache.addAll(PRECACHE_URLS))
-  );
-  // Pre-fill image cache as well
-  event.waitUntil(
-    caches.open(IMAGES_CACHE).then((cache) => cache.addAll([
-      '/images/responsive/start-preliminary-1200.jpg',
-      '/images/responsive/start-preliminary-768.jpg',
-      '/images/responsive/start-preliminary-480.jpg',
-      '/images/responsive/start-preliminary-1800.jpg',
-      '/images/responsive/start-welcome-1200.jpg',
-      '/images/responsive/start-welcome-768.jpg',
-      '/images/responsive/start-welcome-480.jpg',
-      '/images/responsive/start-welcome-1800.jpg',
-      '/images/responsive/start-first-events-1200.jpg',
-      '/images/responsive/start-first-events-768.jpg',
-      '/images/responsive/start-first-events-480.jpg',
-      '/images/responsive/start-first-events-1800.jpg'
-    ]))
+    caches.open(CACHE_NAME)
+      .then((cache) => cache.addAll(PRECACHE_URLS))
+      .catch((err) => console.error('Cache install failed:', err))
   );
   self.skipWaiting();
 });
@@ -48,26 +26,112 @@ self.addEventListener('install', (event) => {
 self.addEventListener('activate', (event) => {
   event.waitUntil(
     caches.keys().then((keys) => Promise.all(
-      keys.filter(k => k !== CACHE_NAME).map(k => caches.delete(k))
+      keys.filter(k => k !== CACHE_NAME && k !== IMAGES_CACHE && k !== STATIC_CACHE)
+        .map(k => caches.delete(k))
     ))
   );
   self.clients.claim();
 });
 
-// Simple runtime caching for images (Stale-while-revalidate)
+// Enhanced caching strategies
 self.addEventListener('fetch', (event) => {
   const req = event.request;
-  if (req.destination === 'image' || req.url.includes('/images/responsive/')) {
+  const url = new URL(req.url);
+
+  // Skip non-GET requests and chrome-extension requests
+  if (req.method !== 'GET' || url.protocol === 'chrome-extension:') {
+    return;
+  }
+
+  // Image caching strategy: Stale-while-revalidate with size limit
+  if (req.destination === 'image' || url.pathname.includes('/images/')) {
     event.respondWith(
       caches.open(IMAGES_CACHE).then(async (cache) => {
         const cached = await cache.match(req);
-        const networkFetch = fetch(req).then((res) => {
-          if (res && res.status === 200) cache.put(req, res.clone());
+        
+        const networkFetch = fetch(req).then(async (res) => {
+          if (res && res.status === 200) {
+            // Limit cache size
+            const keys = await cache.keys();
+            if (keys.length >= MAX_IMAGES) {
+              // Remove oldest entries
+              await cache.delete(keys[0]);
+            }
+            
+            // Add timestamp metadata
+            const clonedRes = res.clone();
+            const headers = new Headers(clonedRes.headers);
+            headers.set('sw-cached-date', new Date().getTime().toString());
+            
+            cache.put(req, new Response(await clonedRes.blob(), {
+              status: clonedRes.status,
+              statusText: clonedRes.statusText,
+              headers: headers
+            }));
+          }
           return res;
-        }).catch(() => null);
+        }).catch(() => cached); // Fallback to cache on network error
+        
+        // Return cached immediately, update in background
         return cached || networkFetch;
       })
     );
+    return;
+  }
+
+  // Static assets (CSS, JS): Cache first, fallback to network
+  if (req.destination === 'style' || req.destination === 'script' || 
+      url.pathname.endsWith('.css') || url.pathname.endsWith('.js')) {
+    event.respondWith(
+      caches.open(STATIC_CACHE).then(async (cache) => {
+        const cached = await cache.match(req);
+        if (cached) {
+          // Check if cache is expired
+          const cachedDate = cached.headers.get('sw-cached-date');
+          if (cachedDate && (Date.now() - parseInt(cachedDate)) < CACHE_EXPIRY) {
+            // Update in background
+            fetch(req).then((res) => {
+              if (res && res.status === 200) {
+                cache.put(req, res);
+              }
+            }).catch(() => {});
+            return cached;
+          }
+        }
+        
+        // Fetch from network
+        return fetch(req).then((res) => {
+          if (res && res.status === 200) {
+            const headers = new Headers(res.headers);
+            headers.set('sw-cached-date', new Date().getTime().toString());
+            cache.put(req, new Response(res.clone().body, {
+              status: res.status,
+              statusText: res.statusText,
+              headers: headers
+            }));
+          }
+          return res;
+        }).catch(() => cached || new Response('Offline', { status: 503 }));
+      })
+    );
+    return;
+  }
+
+  // HTML pages: Network first, fallback to cache
+  if (req.destination === 'document' || url.pathname.endsWith('.html') || url.pathname === '/') {
+    event.respondWith(
+      fetch(req).then((res) => {
+        if (res && res.status === 200) {
+          caches.open(CACHE_NAME).then((cache) => cache.put(req, res.clone()));
+        }
+        return res;
+      }).catch(() => {
+        return caches.match(req).then((cached) => {
+          return cached || new Response('Offline - Page not available', { status: 503 });
+        });
+      })
+    );
+    return;
   }
 });
 

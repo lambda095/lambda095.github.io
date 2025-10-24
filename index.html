@@ -4,11 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vikram Sarabhai Institute Sciences</title>
+    
+    <!-- DNS Prefetch and Preconnect for external resources -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    <link rel="dns-prefetch" href="https://via.placeholder.com">
+    
+    <!-- Preload critical resources -->
+    <link rel="preload" href="css/style.css?v=20251024c" as="style">
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;600;700&display=swap" as="style">
+    
+    <!-- Stylesheets -->
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/style.css?v=20251019">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css?v=20251024c">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" media="print" onload="this.media='all'">
 </head>
 <body>
     <!-- Simplified VSIS-like header -->
@@ -182,7 +192,7 @@
             <h2>News & Events</h2>
             <div class="news-grid">
                 <article class="news-item">
-                    <img src="images/research_project.jpg" alt="News Image">
+                    <img src="images/research_project.jpg" alt="News Image" loading="lazy" width="360" height="240">
                     <div class="news-content">
                         <h3>New Research Project Launched</h3>
                         <p class="date">March 15, 2023</p>
@@ -191,7 +201,7 @@
                     </div>
                 </article>
                 <article class="news-item">
-                    <img src="images/opening_day.jpg" alt="News Image">
+                    <img src="images/opening_day.jpg" alt="News Image" loading="lazy" width="360" height="240">
                     <div class="news-content">
                         <h3>Open Day 2023</h3>
                         <p class="date">April 5, 2023</p>
@@ -200,7 +210,7 @@
                     </div>
                 </article>
                 <article class="news-item">
-                    <img src="images/student_winner.jpg" alt="News Image">
+                    <img src="images/student_winner.jpg" alt="News Image" loading="lazy" width="360" height="240">
                     <div class="news-content">
                         <h3>Student Award Winners</h3>
                         <p class="date">February 28, 2023</p>
@@ -391,7 +401,8 @@
         </div>
     </aside>
 
-    <script src="js/main.js"></script>
+    <script src="js/image-optimizer.js" defer></script>
+    <script src="js/main.js" defer></script>
     <div class="update-banner" id="updateBanner">
         <span>New version available</span>
         <button id="btnUpdate">Reload</button>

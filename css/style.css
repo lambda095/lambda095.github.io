@@ -1940,5 +1940,94 @@ h1, h2, h3, h4, h5, h6 { font-weight: 300; letter-spacing: -0.01em; }
     background-color: rgba(255,255,255,0.1);
 }
 
+/* ========================
+   Image Performance Optimizations
+   ======================== */
+
+/* Smooth fade-in for images as they load */
+img {
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+}
+
+img.loaded,
+img[loading="lazy"].loaded {
+    opacity: 1;
+}
+
+/* For images that are already cached/loaded */
+img:not([loading="lazy"]) {
+    opacity: 1;
+}
+
+/* Prevent layout shift by ensuring images have dimensions */
+img:not([width]):not([height]) {
+    aspect-ratio: attr(width) / attr(height);
+}
+
+/* Optimize image rendering */
+img {
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
+}
+
+/* Handle broken images gracefully */
+img.image-error {
+    opacity: 0.3;
+    background: #f0f0f0;
+    border: 1px dashed #ccc;
+}
+
+/* Performance hint: Use GPU acceleration for images */
+img {
+    transform: translateZ(0);
+    will-change: opacity;
+}
+
+img.loaded {
+    will-change: auto;
+}
+
+/* Responsive images container */
+picture {
+    display: block;
+}
+
+picture img {
+    width: 100%;
+    height: auto;
+}
+
+/* Lazy loading placeholder styles */
+img[loading="lazy"]:not(.loaded) {
+    background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+    background-size: 200% 100%;
+    animation: loading 1.5s ease-in-out infinite;
+}
+
+@keyframes loading {
+    0% {
+        background-position: 200% 0;
+    }
+    100% {
+        background-position: -200% 0;
+    }
+}
+
+/* Optimize specific image types */
+.news-item img,
+.interest-card img {
+    object-fit: cover;
+    object-position: center;
+}
+
+/* Reduce motion for users who prefer it */
+@media (prefers-reduced-motion: reduce) {
+    img {
+        transition: none;
+        animation: none;
+    }
+}
+
 /* end of stylesheet */
 }
