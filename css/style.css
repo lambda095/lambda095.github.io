@@ -928,7 +928,7 @@ h1, h2, h3, h4, h5, h6 { font-weight: 300; letter-spacing: -0.01em; }
 /* Bright hero image with subtle bottom fade to black for a clean seam */
 .fh-hero {
     position: relative;
-    min-height: clamp(260px, 42vh, 380px);
+    min-height: clamp(520px, 84vh, 760px);
     background: url('../images/hero-bg.png') center top / cover no-repeat;
     background-color: #070707; /* fallback */
     display: block;
@@ -949,7 +949,7 @@ h1, h2, h3, h4, h5, h6 { font-weight: 300; letter-spacing: -0.01em; }
 @media (max-width: 900px) {
     .fh-nav ul { gap: 8px; }
     .fh-search input[type="search"] { width: 120px; }
-    .fh-hero { min-height: clamp(200px, 50vh, 300px); }
+    .fh-hero { min-height: clamp(400px, 100vh, 600px); }
     .hero-overlap { margin-top: -2.4rem; }
 }
 
@@ -959,7 +959,7 @@ h1, h2, h3, h4, h5, h6 { font-weight: 300; letter-spacing: -0.01em; }
 }
 
 @media (max-width: 600px) {
-    .fh-hero { min-height: clamp(160px, 42vh, 220px); background-position: center center; }
+    .fh-hero { min-height: clamp(320px, 84vh, 440px); background-position: center center; }
     .hero-overlap { margin-top: -1.8rem; }
 }
 
