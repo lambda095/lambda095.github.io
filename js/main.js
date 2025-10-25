@@ -591,19 +591,32 @@ document.addEventListener('DOMContentLoaded', function() {
 document.addEventListener('DOMContentLoaded', function() {
     const mapping = {
         prospective: [
-            { title: 'Range of Studies Offered', href: 'studies/range.html' },
-            { title: 'Choice of Study - How to Proceed?', href: 'studies/choose.html' },
-            { title: 'Getting Informed and Trying Out', href: 'studies/try.html' },
-            { title: 'Application Process', href: 'studies/application.html' },
-            { title: 'Study Preparation', href: 'studies/prep.html' },
-            { title: 'Financing', href: 'studies/finance.html' }
+            { title: 'Offered Study Programs', href: 'prospective_students/study_programs.html' },
+            { title: 'Application Process', href: 'prospective_students/applications.html' },
+            { title: 'Admission Office', href: 'prospective_students/admission_office.html' },
+            { title: 'Student Life', href: 'prospective_students/student_life.html' },
+            { title: 'Campus Tour', href: 'prospective_students/campus_tour.html' },
+            { title: 'Open House Events', href: 'prospective_students/open_house_events.html' },
+            { title: 'Tuition & Costs', href: 'prospective_students/tuition_and_costs.html' },
+            {title: 'Scholarships & Finnancial Aid', href: 'prospective_students/scholarships.html'},
+            { title: 'FAQs', href: 'prospective_students/faqs.html' }
         ],
         student: [
-            { title: 'Timetables & Exams', href: 'studies/timetables.html' },
-            { title: 'Student Counselling', href: 'studies/counselling.html' }
+            { title: 'Academic Calender', href: 'students/academic_calender.html' },
+            { title: 'Class Schedules', href: 'students/class_schedules.html' },
+            { title: 'Study Materials', href: 'students/study_materials.html' },
+            { title: 'Library', href: 'students/campus_events.html' },
+            { title: 'Campus Events', href: 'students/campus_events.html' },
+            { title: 'Sports', href: 'students/sports.html' },
+            { title: 'Academic Support', href: 'students/academic_support.html' },
+            { title: 'Important Contacts', href: 'students/important_contacts.html' }
         ],
         graduate: [
-            { title: 'Masters Programmes', href: 'studies/masters.html' }
+            { title: 'Career Counselling', href: 'graduates/career_counselling.html' },
+            { title: 'Recruitment Drives', href: 'graduates/recruitment_drives.html' },
+            { title: 'Certificate Programs', href: 'graduates/certificate_programs.html' },
+            { title: 'Alumni Network', href: 'graduates/alumni_network' },
+            { title: 'Gradute Stories', href: 'graduates/graduate_stories' }
         ],
         employee: [
             { title: 'Working at VSIS', href: 'work/jobs.html' }

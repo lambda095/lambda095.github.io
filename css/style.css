@@ -1,7 +1,7 @@
-/* Hero dropdown (FH-style overlay) */
+/* Hero dropdown */
 .hero-dropdown {
     position: relative;
-    margin-top: -200px;
+    margin-top: -55px;
     padding-bottom: 0;
     color: #fff;
     z-index: 6;
@@ -124,7 +124,7 @@
 }
 
 @media (max-width: 900px) {
-    .hero-dropdown { margin-top: -60px; }
+    .hero-dropdown { margin-top: 0px; }
     .hero-dropdown-inner { flex-direction: column; }
     .hero-dropdown-left,
     .hero-dropdown-right { width: 100%; }
